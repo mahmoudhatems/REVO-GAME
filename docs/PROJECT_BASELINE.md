@@ -1,0 +1,122 @@
+# Repository Baseline — 11 November 2026
+
+This file records the pre-migration snapshot supplied by the team in `PROJECT_STATUS.md`. It is a historical baseline, not a substitute for inspecting the current repository. The coding agent must verify all facts before changing files and update this document after migration.
+
+## 1. Existing applications
+
+### Root application — actual game
+
+- JavaScript ES Modules.
+- Phaser 3.80.1 loaded from jsDelivr in `index.html`.
+- No root `package.json` or Vite configuration at the time of the supplied review.
+- Actual game, current scenes, menus, video, audio, map and player are in the repository root.
+
+### Nested `revo/` application — separate template
+
+- Vite 6.3.1.
+- Phaser 4.0.0.
+- Terser `^5.39.0`.
+- Has `npm run dev`, `npm run build`, `npm run dev-nolog`, and `npm run build-nolog`.
+- Still contains default Phaser template scenes; it is not the actual game.
+- `npm run build-nolog` passed in the supplied review with a Vite bundle-size warning above the default 500 kB threshold.
+
+## 2. Root game files
+
+- `index.html`: viewport, Phaser CDN loading, and `src/main.js`.
+- `src/main.js`: registers scenes and configures Phaser.
+- `src/config/constants.js`: world dimensions, tile dimensions, asset paths, fonts.
+- `src/data/worldData.js`: room, corridor, door, and color definitions.
+- `src/data/pagesData.js`: instruction and mission briefing page text.
+- `src/utils/grid.js`: tile map generation, walls, room lookup.
+- `src/utils/audio.js`: Web Audio sound effects and background music.
+- `src/utils/ui.js`: Mars background, buttons, audio UI, scene transitions.
+- Scenes: `BootScene`, `PreloadScene`, `MenuScene`, `PagedScene`, `IntroScene`, `GameScene`, `UIScene`, `PauseScene`.
+
+## 3. Existing functionality
+
+- 48 × 32 tile map.
+- 32 × 32 pixel tiles.
+- World dimensions: 1536 × 1024.
+- Rooms include Power Station, Life Support, Greenhouse, Radiation Shelter, Central Habitat, and Airlock, plus corridors and doors.
+- Directional player movement with WASD and arrow keys.
+- Character animations in multiple directions.
+- Mobile movement and interaction controls.
+- Basic wall collision.
+- Responsive camera scaling.
+- Arabic instruction and briefing pages.
+- Intro video, skip control, fallback message if playback fails.
+- Music and effects generated with Web Audio API.
+- Pause and resume; returning to menu ends the current session.
+
+## 4. Current implementation gaps
+
+The supplied review found that the UI copy mentions a 30-day scenario, battery, oxygen, radiation, missions, decisions, and events, but the actual game logic did not yet implement:
+
+- day counter / 30-day progression;
+- resource state and resource consumption;
+- meaningful choices and consequences;
+- mission event scheduling;
+- dust storm or other event systems;
+- win/loss/endings;
+- persistent progress.
+
+The current E interaction only displays the room name.
+
+Do not describe these systems as implemented until code and runtime verification confirm they work.
+
+## 5. Existing assets
+
+- `assets/revo.png`: player sprite sheet, loaded with frame size 42 × 64 according to the supplied review.
+- `assets/logo.png`: game logo.
+- `assets/intro.mp4`: intro video, approximately 11.01 MB.
+- `assets/alpha.png`: approximately 2.89 MB; no use was found in the reviewed root code.
+- Nested template assets under `revo/public/assets/` are separate from the root game.
+
+The supplied review did not verify ownership or licenses for all visible assets.
+
+## 6. Run and verification status at baseline
+
+- Root application: serve the root folder over HTTP and open `index.html`; it needs internet access for Phaser CDN loading.
+- Nested template: run `npm install` then `npm run dev-nolog` from `revo/`.
+- Root JavaScript files passed `node --check` in the supplied review.
+- No interactive browser verification of the root game was performed in that review.
+
+## 7. Security issue identified
+
+The supplied review reported that `.vscode/mcp.json` contains a PixelLab credential, is tracked by Git, and exists in `origin/main`. Treat it as compromised:
+
+1. The owner must revoke/rotate the credential with PixelLab.
+2. Never print or copy the old value.
+3. Stop tracking the local credential file and ignore it.
+4. Rewriting Git history is a separate operation and must not be done without explicit owner approval and team coordination.
+
+## 8. Migration outcome to record
+
+After migration, replace this section with verified facts:
+
+- new root Phaser version;
+- new root Vite version;
+- final project structure;
+- migrated scenes and features;
+- map source of truth;
+- tests actually run;
+- runtime checks actually performed;
+- unresolved migration issues.
+
+## 9. Stage 0 and Stage 1 progress — 11 November 2026
+
+This section records the verified intermediate state after the first root consolidation step. The migration is not complete.
+
+- A local checkpoint branch, `checkpoint/revo-pre-consolidation`, points to the pre-migration `development` commit. It preserves the tracked application baseline; pre-existing untracked documentation remains in the working tree.
+- The root now has a Vite application with exact dependencies Phaser 4.2.1 and Vite 6.3.1, a lockfile, and `dev`, `build`, and `preview` scripts.
+- The root Phaser CDN script was removed. Phaser is imported as an ES module by the root entrypoint, scenes, and UI helper.
+- The existing `src/` application and its gameplay implementation remain in place. The legacy `revo/` template has not been deleted or changed.
+- `assets/logo.png`, `assets/revo.png`, and `assets/intro.mp4` were copied into `public/assets/` for Vite. The original files remain in `assets/`. `assets/alpha.png` was inspected and preserved as an unused concept image; it includes solar arrays and is not copied into runtime assets.
+- The local `.vscode/mcp.json` remains on disk and is ignored, but is no longer tracked in the current index. Existing Git history was not rewritten.
+- The categorized asset source bundle is present under `assets/source/REVO_Categorized_Assets/REVO_Categorized_Assets/` (an extra repeated directory level compared with the supplied tree). It contains `01_Original_Size/`, `02_32x32_Where_Possible/`, 4,444 PNGs across both folders, and an `Asset_Manifest.csv` with 2,207 entries. All manifest entries resolve to files. Fifteen source sprite sheets in the two folders were hash-checked and are identical copies. Sampled images use a 32-bit ARGB format; the `02_32x32_Where_Possible` set retains native dimensions for sampled non-tile sprites, so do not assume every asset is 32×32. Actual transparency contents have not been audited.
+- The categorized archive contains source tile and sprite imagery, but no Tiled map export (`.tmj`/`.tmx`), Tiled tileset metadata (`.tsx`/`.tsj`), mission JSON, or validated NASA data extracts. No NASA data integration is claimed.
+- Stage 2A generated review sheets for all 11 source categories and a 2,207-record catalog at `src/data/assets/asset-catalog.json`. The archive remains unchanged. Contact-sheet generation verified each original-size manifest path and dimensions. The asset license state remains `UNVERIFIED`; transparent pixel contents have not been audited.
+- The latest owner-approved map/energy architecture supersedes the older baseline text above: external solar arrays and battery storage are included, indoor Power Control distributes electricity, and no external nuclear reactor is part of the current MVP. See `docs/DECISION_LOG.md`.
+- Proposed exterior map for review: 80 × 45 tiles at 32 px (2,560 × 1,440 px). This is a planning recommendation only; no map has been authored.
+- Verification performed: root `npm run build` succeeded with a bundle-size warning (about 1.72 MB minified JavaScript); the Vite development server rendered a browser canvas. This was a smoke check, not full gameplay verification. No test suite is configured yet.
+- Remaining migration work: Phaser 4 runtime/input checks, interaction and asset-load verification, test/lint/format setup, map and mission source recovery, and full browser verification. The existing game still uses its procedural JavaScript map and does not yet implement the documented mission systems.

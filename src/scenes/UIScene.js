@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { makeButton } from '../utils/ui.js';
 
 export class UIScene extends Phaser.Scene {

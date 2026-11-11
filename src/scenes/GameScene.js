@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { TILE, ROWS, COLS, WORLD_W, WORLD_H, FLOOR, DOOR, WALL } from '../config/constants.js';
 import { ROOMS, roomById } from '../data/worldData.js';
 import { buildGrid } from '../utils/grid.js';

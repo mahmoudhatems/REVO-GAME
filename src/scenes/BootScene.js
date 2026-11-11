@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { LOGO_CANDIDATES } from '../config/constants.js';
 
 export class BootScene extends Phaser.Scene {

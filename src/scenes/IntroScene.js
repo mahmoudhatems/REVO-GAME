@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { INTRO_SOURCES } from '../config/constants.js';
 import { AudioFX } from '../utils/audio.js';
 

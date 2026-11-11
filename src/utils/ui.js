@@ -1,6 +1,8 @@
 import { UI_FONT } from '../config/constants.js';
 import { AudioFX } from './audio.js';
 
+import * as Phaser from 'phaser';
+
 export const clamp = Phaser.Math.Clamp;
 
 // رسم خلفية سماء وكثبان المريخ ومبنى القاعدة

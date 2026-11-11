@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { UI_FONT } from '../config/constants.js';
 import { drawMarsBg, addLogo, makeButton, addSoundControls, goTo, clamp } from '../utils/ui.js';
 import { AudioFX } from '../utils/audio.js';
