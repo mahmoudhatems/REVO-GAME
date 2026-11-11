@@ -21,7 +21,7 @@ This is the decision log for product and technical choices already agreed by the
 ## Accepted map facilities
 
 1. Central Communication Room.
-2. External Fission Power Unit in a secured perimeter.
+2. External solar arrays and battery storage.
 3. Indoor Power Control Room.
 4. Oxygen Generation / Life Support Room.
 5. Research Lab.
@@ -31,12 +31,10 @@ This is the decision log for product and technical choices already agreed by the
 
 ## Power architecture decision
 
-- The accepted map has **no solar-panel arrays**.
-- Do not implement solar generation, solar arrays, or gameplay in which dust storms reduce solar power.
-- The fictional Alpha Base uses an external fission power unit as its primary power source.
-- Power Control is indoors and manages energy distribution/storage.
-- The fission system is a game-world concept inspired by NASA/DOE surface fission power research. It must not be presented as an operational reactor deployed on Mars.
-- Dust storms may affect outdoor visibility, rover use, external maintenance, dust filters, and crew exposure/activity, but not fission generation merely because sunlight is obscured.
+- External solar arrays and battery storage are part of the approved MVP energy system.
+- Indoor Power Control manages electricity distribution. No external nuclear reactor is part of the current MVP.
+- Generation, storage, and dust-storm gameplay rules remain unspecified; do not invent operational values or implement unapproved effects.
+- Dust storms may affect visibility, outdoor activity, rover use, maintenance, and dust management. Any effect on fictional solar generation requires a separately approved rule.
 
 ## Technical decisions
 
@@ -66,3 +64,4 @@ Do not invent these as finalized facts. Propose options and ask the owner when t
 ## Change log
 
 - 2026-11-11: consolidated project context; confirmed fission power concept, indoor power control, central communication hub, separate oxygen and research facilities, no solar arrays, 30-day mission and child-first educational objective.
+- 2026-11-11: owner-approved Stage 2A update supersedes the prior power-layout decision: external solar arrays and battery storage are included; indoor Power Control distributes electricity; no external nuclear reactor is in the current MVP. Solar generation and storm effects remain to be specified. Updated product, gameplay, asset, and roadmap documentation.

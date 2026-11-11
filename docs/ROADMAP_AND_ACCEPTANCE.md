@@ -29,6 +29,14 @@ Prioritize a small, complete, polished playable loop over a large set of disconn
 - Add Vitest, ESLint, and Prettier.
 - Add documentation and reproducible scripts.
 
+### Stage 2A — Visual asset forensics and world-building preparation
+
+- Recover and verify the categorized source archive without modifying originals.
+- Generate reviewable category contact sheets and a per-file catalog.
+- Classify visual semantics conservatively; record license status as `UNVERIFIED` unless sourced.
+- Assess coverage for the approved solar-and-battery Alpha Base facilities.
+- Produce an exterior map and atlas plan for owner review; do not implement the final map in this stage.
+
 ### Stage 3 — Assets and map
 
 - Catalog assets and their licenses.
@@ -84,8 +92,8 @@ The first complete MVP is acceptable when:
 - The player can interact with at least the core facilities.
 - The Communication Room acts as the mission hub.
 - Power Control and Oxygen Generation are separate.
-- The external fission facility exists as a clearly fictionalized educational representation.
-- There are no solar arrays or solar-generation mechanics in the accepted design.
+- External solar arrays and battery storage are represented in the fictional base; detailed generation rules are approved separately.
+- No external nuclear reactor is part of the current MVP.
 - POWER, OXYGEN/LIFE SUPPORT, and FOOD have real state and rules.
 - At least one decision has a meaningful trade-off.
 - The consequence is visible and explained.

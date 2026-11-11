@@ -67,9 +67,9 @@ Artemis resources are valuable because the challenge explicitly mentions lunar e
 
 See `MARS_AND_ARTEMIS_DATA.md`.
 
-### F. NASA fission surface power research
+### F. NASA fission surface power research (not selected for current REVO MVP)
 
-NASA/DOE have studied fission surface power systems for lunar exploration and future Mars mission architectures. These sources support the plausibility of a fission-power concept for a fictional outpost, but do not establish that an operational human Mars outpost or fission plant exists today.
+NASA/DOE have studied fission surface power systems for lunar exploration and future Mars mission architectures. This is comparative research only; the current approved REVO MVP uses fictional external solar arrays and battery storage, not a fission unit. The source does not establish that an operational human Mars outpost or fission plant exists today.
 
 Source: https://www.nasa.gov/humans-in-space/fission-system-to-power-exploration-on-the-moons-surface-and-beyond/
 
@@ -146,7 +146,7 @@ Before adding any data-driven mechanic, answer:
 - Do not treat a solar flare as a measured astronaut dose.
 - Do not reuse ISS oxygen/CO2 telemetry as if it came from Jezero.
 - Do not use lunar Artemis measurements as Mars conditions.
-- Do not say NASA has deployed the fictional REVO fission unit on Mars.
+- Do not say NASA has deployed a human Mars power installation.
 - Do not imply that a fictional dust storm is happening on Mars now.
 - Do not invent NASA values, dates, accession IDs, instrument readings, or thresholds.
 

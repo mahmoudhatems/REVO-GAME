@@ -1,4 +1,4 @@
-# REVO — Mars, Artemis, Fission Power, and Communications Sources
+# REVO — Mars, Artemis, Energy Research, and Communications Sources
 
 ## 1. Perseverance and MEDA at Jezero Crater
 
@@ -28,7 +28,7 @@ Source: https://science.nasa.gov/mission/msl-curiosity/science-instruments/
 
 ## 3. Opportunity — historical context only
 
-Opportunity's solar-powered mission and historical dust/energy context can be useful when teaching why sunlight and dust matter to solar-powered exploration. However, the currently accepted REVO map uses a fission power unit and contains no solar arrays.
+Opportunity's solar-powered mission and historical dust/energy context can be useful when teaching why sunlight and dust matter to solar-powered exploration. REVO's fictional base includes external solar arrays and battery storage; do not transfer another mission's performance values to REVO.
 
 Do not use Opportunity's energy figures as REVO's power-generation values. If used at all, present them as a separate historical science card about a different rover and its actual location at Meridiani Planum—not Jezero.
 
@@ -52,17 +52,17 @@ Useful portal:
 
 Use mission-specific reports and archived data products, not only press summaries, if a numerical value will affect gameplay.
 
-## 5. Fission surface power concept
+## 5. Fission surface power (comparative research only)
 
 NASA has studied fission surface power in coordination with the U.S. Department of Energy for sustained lunar exploration and possible future Mars architectures. NASA describes fission power as an option that can operate without relying on sunlight, including during long periods of darkness.
 
 This supports the plausibility of REVO's fictional outpost power architecture:
 
-- an external secured Fission Power Unit;
+- a fission power system is not part of the currently approved REVO MVP;
 - an indoor Power Control Room;
 - managed distribution to life support, communication, research, and other systems.
 
-Important: this does not mean a fission reactor is already operating at a human Mars base. The REVO installation is fictional and inspired by research/proposals.
+This source is retained as background research only. It does not mean a fission reactor is operating at a human Mars base, and the concept is not part of the current approved REVO architecture.
 
 NASA source: https://www.nasa.gov/humans-in-space/fission-system-to-power-exploration-on-the-moons-surface-and-beyond/
 

@@ -33,7 +33,7 @@ REVO aims to bridge the gap between **scientific accuracy and engaging play**. C
 
 The core visible resources should remain simple:
 
-- **POWER** — available energy managed by the indoor Power Control Room and supplied by the fictional outpost's external fission power unit.
+- **POWER** — available energy managed by the indoor Power Control Room, with external solar arrays and battery storage in the approved fictional base architecture.
 - **OXYGEN / LIFE SUPPORT** — the status of essential breathable-air and environmental support systems.
 - **FOOD** — available food and greenhouse production.
 
@@ -42,7 +42,7 @@ Crew safety, radiation events, communications, and research progress are importa
 ## 4. Accepted Alpha Base layout
 
 - **Central Communication Room** — the main hub, N.E.I.L. terminal, mission control, communication status, and crew/base overview.
-- **External Fission Power Unit** — a secured outdoor facility representing a proposed fission surface power concept.
+- **External solar arrays and battery storage** — the outdoor collection and storage components of the fictional base energy system.
 - **Indoor Power Control Room** — monitors and manages power distribution and storage for the base.
 - **Oxygen Generation / Life Support Room** — oxygen production, air circulation, and life-support monitoring.
 - **Research Lab** — scientific experiments, sample analysis, and research objectives.
@@ -50,7 +50,7 @@ Crew safety, radiation events, communications, and research progress are importa
 - **Radiation Shelter** — a protected area used during relevant hazard events.
 - **Entrance / Airlock** — the controlled access point for entering and leaving the habitat.
 
-**There are no solar-panel arrays in the current accepted design.** Do not add solar-panel generation mechanics. Dust storms may reduce visibility, restrict outdoor work, affect rover operations, or create dust-management tasks; they must not reduce solar generation because the current game power concept is fission-based.
+Solar arrays and battery storage are part of the current approved design. No external nuclear reactor is part of the current MVP. Dust-storm effects on solar generation are not yet specified; do not implement them until the owner approves the gameplay rule.
 
 ## 5. Competition context
 
@@ -93,7 +93,7 @@ The game should use a small, curated selection of authentic NASA data and resear
 - **OSDR / GeneLab / ALSDA / RadLab / Environmental Data Application** — space-biology research, astronaut/organism studies, radiation telemetry resources, and selected environmental datasets.
 - **Mars surface mission instruments** — especially Perseverance MEDA at Jezero Crater and Curiosity REMS for Martian weather/environmental measurements.
 - **Artemis and lunar mission resources** — useful as comparative context for lunar exploration, but do not label lunar data as Mars measurements.
-- **NASA fission surface power research** — context for the fictional outpost's fission-based power concept; do not imply that an operational NASA fission reactor is already running on Mars.
+- NASA solar and energy research may inform carefully attributed educational context; it does not validate REVO's fictional system values.
 
 DONKI solar events are not direct measurements of radiation dose at the fictional Alpha Base. Never convert a flare, CME, or SEP record into a claimed Mars-surface dose without a scientifically supported model or measurement. OSDR/RadLab data may be from ISS, spacecraft, other agencies, or analog studies; preserve the exact mission and instrument context.
 
@@ -112,9 +112,10 @@ Read `docs/NASA_DATA_STRATEGY.md`, `docs/DONKI_REFERENCE.md`, and `docs/OSDR_DAT
 | `docs/NASA_DATA_STRATEGY.md` | Data selection, scientific integrity, provenance, and integration policy. |
 | `docs/DONKI_REFERENCE.md` | DONKI event types, catalogs, API notes, and appropriate use. |
 | `docs/OSDR_DATA_REFERENCE.md` | OSDR, Biological Data API, RadLab, and Environmental Data Application. |
-| `docs/MARS_AND_ARTEMIS_DATA.md` | Mars surface, Artemis, fission power, and communication references. |
+| `docs/MARS_AND_ARTEMIS_DATA.md` | Mars surface, Artemis, comparative energy research, and communication references. |
 | `docs/TECHNICAL_ARCHITECTURE.md` | Target stack, migration rules, Clean Architecture, and project structure. |
 | `docs/ASSET_AND_MAP_PIPELINE.md` | Pixel-art asset preparation, Tiled workflow, and Phaser map loading. |
+| `docs/ASSET_CATALOG.md` | Recovered asset catalog, contact sheets, classification, and facility coverage. |
 | `docs/DECISION_LOG.md` | Accepted product and technical decisions. |
 | `docs/ROADMAP_AND_ACCEPTANCE.md` | Implementation order and definition of done. |
 | `docs/ASSET_LICENSES.md` | Asset provenance and license tracking. |

@@ -66,10 +66,9 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Main character: REVO.
 - Assistant: N.E.I.L., a digital assistant accessed through terminals and dialogue; not a walking robot.
 - Main hub: Central Communication Room.
-- Facilities: external Fission Power Unit, indoor Power Control Room, Oxygen Generation/Life Support Room, Research Lab, Greenhouse, Radiation Shelter, Entrance/Airlock.
-- The accepted map has **no solar arrays and no solar-generation gameplay**.
-- Dust storms can affect visibility, outdoor activity, rover use, and dust-management tasks; they must not reduce solar generation in this design.
-- The external fission unit is an educational, fictional representation inspired by NASA/DOE fission surface power research. Do not present it as an operational reactor already deployed on Mars.
+- Facilities: external solar arrays, battery storage, indoor Power Control Room, Oxygen Generation/Life Support Room, Research Lab, Greenhouse, Radiation Shelter, Entrance/Airlock, and the Central Communication Room hub.
+- External solar arrays and battery storage are part of the approved energy architecture. Indoor Power Control distributes electricity. No external nuclear reactor is part of the current approved MVP.
+- Dust storms may affect visibility, outdoor activity, rover use, and dust management. Solar generation effects, if proposed, must be specified and approved as fictional gameplay before implementation.
 - Core HUD resources: POWER, OXYGEN/LIFE SUPPORT, FOOD. Keep other hazards and statuses contextual to avoid cognitive overload.
 - Mission duration: 30 simulated mission days (optionally explain a Mars day/sol in child-friendly language).
 - The final objective is to maintain a safe, functioning base, complete mission/science objectives, and transmit a final status report to Earth.
@@ -95,7 +94,7 @@ Treat these documents as persistent product context, not optional suggestions. I
 - OSDR contains heterogeneous space-life-science and related data. Preserve the study, organism, mission, instrument, and context; do not overgeneralize ISS/analog findings to Mars.
 - MEDA is a Perseverance instrument at Jezero Crater that measures Martian weather including wind, temperature, humidity, and dust characteristics.
 - Artemis data is lunar data; do not relabel it as Mars data.
-- The fission power concept is based on research/proposals for surface power; do not imply an operational Mars fission plant exists.
+- Do not imply an operational human settlement or energy installation exists on Mars.
 - Keep source URL, retrieval date, dataset/accession, instrument, units, location, and transformation with every adopted data point.
 
 ## 8. Asset and map rules

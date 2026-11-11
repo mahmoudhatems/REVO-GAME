@@ -27,7 +27,7 @@ Suggested chapter pacing:
 
 | Mission days | Chapter | Learning / gameplay focus |
 |---|---|---|
-| 1–7 | Establish Alpha Base | Learn the facilities, inspect the fission power system, oxygen and greenhouse, discover how resources connect. |
+| 1–7 | Establish Alpha Base | Learn the facilities, inspect the solar-array and battery system, oxygen and greenhouse, discover how resources connect. |
 | 8–15 | Environmental Challenge | A clearly labeled simulated dust event affects visibility and outside activity; decide when to shelter, inspect, or postpone external work. |
 | 16–23 | System Challenge | A maintenance problem or equipment malfunction forces prioritization and trade-offs. |
 | 24–29 | Mission Readiness | Review supplies, complete research tasks, check crew safety, and prepare the final report. |
@@ -41,7 +41,7 @@ Keep the primary HUD to three simple, understandable resources:
 
 ### POWER
 
-- Produced by the fictional external Fission Power Unit.
+- Collected by the fictional external solar arrays and buffered by battery storage.
 - Managed through the indoor Power Control Room.
 - Used by life support, communications, research, and other facilities.
 - Choices about power distribution create trade-offs.
@@ -82,20 +82,19 @@ Do not add too many always-visible bars. Keep these as mission state, event indi
 - Earth communication status and delayed replies.
 - Player returns here for major mission briefings and final report.
 
-### External Fission Power Unit
+### External Solar Arrays and Battery Storage
 
 - Secured outdoor facility.
-- Provides the fictional base power supply for gameplay.
-- Can be inspected through a safe, abstract interface.
-- May require a maintenance task or inspection event.
-- Do not simulate real nuclear procedures or provide operational reactor engineering detail.
+- Solar arrays and battery storage are part of the fictional base energy system.
+- Their detailed generation, storage, and maintenance rules remain to be specified as child-friendly game abstractions.
+- Do not imply REVO values are NASA engineering performance data.
 
 ### Indoor Power Control Room
 
 - Controls the distribution of available power.
 - Displays demand from life support, communications, research, and other base systems.
 - Enables player prioritization choices.
-- It is separate from the external fission unit.
+- It is an indoor facility separate from the external arrays and battery storage.
 
 ### Oxygen Generation / Life Support Room
 
@@ -128,7 +127,7 @@ Do not add too many always-visible bars. Keep these as mission state, event indi
 
 ## 6. Dust storm rules
 
-The accepted design uses fission power and has no solar arrays.
+The approved design includes external solar arrays and battery storage, with indoor Power Control distributing electricity. No external nuclear reactor is part of the current MVP.
 
 A dust storm can:
 
@@ -138,7 +137,7 @@ A dust storm can:
 - create dust-management tasks for filters and equipment;
 - make sheltering or postponing an outdoor task the safer option.
 
-A dust storm must **not** reduce solar power generation because solar generation is not part of the current design. It must not automatically reduce fission output without a separate, explicitly defined fictional equipment fault.
+A dust storm's effect on solar generation is an open gameplay rule and must not be implemented until explicitly approved. Do not add nuclear generation to the current MVP.
 
 Every storm event must be labeled as a REVO training simulation unless it uses a specific, traceable NASA observation. Do not present a fictional event as current Mars weather.
 

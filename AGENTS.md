@@ -11,14 +11,14 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 ## Accepted world layout
 
 - Central Communication Room is the main hub and contains N.E.I.L.'s terminal.
-- External Fission Power Unit is outside and secured.
+- External solar arrays are outside; battery storage is part of the energy system.
 - Indoor Power Control Room manages power distribution.
 - Oxygen Generation / Life Support is a separate room.
 - Research Lab is separate.
 - Greenhouse produces food.
 - Radiation Shelter protects the crew during relevant events.
 - Entrance / Airlock controls access.
-- Current accepted design has no solar arrays or solar generation mechanics.
+- Indoor Power Control manages electricity distribution; no external nuclear reactor is part of the current approved MVP.
 
 ## Technical direction
 
