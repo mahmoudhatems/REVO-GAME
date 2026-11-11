@@ -22,6 +22,7 @@ This register is intentionally conservative. Unknown rights must remain unknown 
 | `assets/intro.mp4` | Intro video | UNVERIFIED | Verify all visuals, music, sound, and footage rights. |
 | `assets/alpha.png` | Unused/unknown at baseline | UNVERIFIED | Identify source and decide whether to use. |
 | PixelLab-generated assets | Character/environment/tileset assets | VERIFY PLAN TERMS | Save generation/source information and confirm the applicable tool-plan license. |
+| `assets/source/REVO_Categorized_Assets/REVO_Categorized_Assets/` | Categorized original and extracted PNG assets with `Asset_Manifest.csv` | UNVERIFIED | Preserve both size folders and source sheets; confirm creator, generation records, and applicable PixelLab plan rights before redistribution. |
 | Other downloaded assets | Depends on files | UNVERIFIED | Record source and license individually. |
 | Fonts | UI/branding | UNVERIFIED | Record font license and include license file if required. |
 | Audio | Music/SFX | UNVERIFIED | Verify license and attribution requirements. |

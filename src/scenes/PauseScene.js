@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { UI_FONT, AR_FONT } from '../config/constants.js';
 import { makeButton, clamp } from '../utils/ui.js';
 import { AudioFX } from '../utils/audio.js';

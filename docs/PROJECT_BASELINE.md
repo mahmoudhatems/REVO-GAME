@@ -102,3 +102,18 @@ After migration, replace this section with verified facts:
 - tests actually run;
 - runtime checks actually performed;
 - unresolved migration issues.
+
+## 9. Stage 0 and Stage 1 progress — 11 November 2026
+
+This section records the verified intermediate state after the first root consolidation step. The migration is not complete.
+
+- A local checkpoint branch, `checkpoint/revo-pre-consolidation`, points to the pre-migration `development` commit. It preserves the tracked application baseline; pre-existing untracked documentation remains in the working tree.
+- The root now has a Vite application with exact dependencies Phaser 4.2.1 and Vite 6.3.1, a lockfile, and `dev`, `build`, and `preview` scripts.
+- The root Phaser CDN script was removed. Phaser is imported as an ES module by the root entrypoint, scenes, and UI helper.
+- The existing `src/` application and its gameplay implementation remain in place. The legacy `revo/` template has not been deleted or changed.
+- `assets/logo.png`, `assets/revo.png`, and `assets/intro.mp4` were copied into `public/assets/` for Vite. The original files remain in `assets/`. `assets/alpha.png` was inspected and preserved as an unused concept image; it includes solar arrays and is not copied into runtime assets.
+- The local `.vscode/mcp.json` remains on disk and is ignored, but is no longer tracked in the current index. Existing Git history was not rewritten.
+- The categorized asset source bundle is present under `assets/source/REVO_Categorized_Assets/REVO_Categorized_Assets/` (an extra repeated directory level compared with the supplied tree). It contains `01_Original_Size/`, `02_32x32_Where_Possible/`, 4,444 PNGs across both folders, and an `Asset_Manifest.csv` with 2,207 entries. All manifest entries resolve to files. Fifteen source sprite sheets in the two folders were hash-checked and are identical copies. Sampled images use a 32-bit ARGB format; the `02_32x32_Where_Possible` set retains native dimensions for sampled non-tile sprites, so do not assume every asset is 32×32. Actual transparency contents have not been audited.
+- The categorized archive contains source tile and sprite imagery, but no Tiled map export (`.tmj`/`.tmx`), Tiled tileset metadata (`.tsx`/`.tsj`), mission JSON, or validated NASA data extracts. No NASA data integration is claimed.
+- Verification performed: root `npm run build` succeeded with a bundle-size warning (about 1.72 MB minified JavaScript); the Vite development server rendered a browser canvas. This was a smoke check, not full gameplay verification. No test suite is configured yet.
+- Remaining migration work: Phaser 4 runtime/input checks, interaction and asset-load verification, test/lint/format setup, map and mission source recovery, and full browser verification. The existing game still uses its procedural JavaScript map and does not yet implement the documented mission systems.

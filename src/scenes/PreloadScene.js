@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import { CHARACTER_SHEET, UI_FONT } from '../config/constants.js';
 import { addLogo, goTo } from '../utils/ui.js';
 
