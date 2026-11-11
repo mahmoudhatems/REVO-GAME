@@ -1,6 +1,6 @@
-# REVO — Alpha Base Exterior Map Blueprint (Owner Review Draft)
+# REVO — Alpha Base Exterior Map Blueprint (Stage 2B starting point)
 
-> This is a planning proposal, not approved runtime map data. No asset placement, scale, room construction, or collision behavior is final. Coordinate origin is the map's top-left; positions are tiles unless noted.
+> Stage 2B planning blueprint. The owner approved beginning Stage 2C implementation from this layout. Runtime implementation now lives in `src/data/maps/alpha-base-exterior.json`; actual dimensions, placements, asset statuses, and collisions are recorded there. This file preserves the original planning rationale and is not itself loaded by the game. Runtime collision/reachability still needs direct play verification.
 
 ## World frame
 
@@ -68,4 +68,4 @@ Solar arrays are the approved primary energy source and remain outdoors. Battery
 3. Resolve provenance and license records; keep unknown licenses `UNVERIFIED`.
 4. Validate geometry, reachability, camera framing, and collisions in a visual map prototype before connecting this data to a Phaser Scene.
 
-The machine-readable proposal is [alpha-base-exterior-blueprint.json](./alpha-base-exterior-blueprint.json). It remains unapproved, JSON-only planning material, and is not loaded by the runtime.
+The original machine-readable proposal is [alpha-base-exterior-blueprint.json](./alpha-base-exterior-blueprint.json). It remains a planning reference; the owner-approved implementation source is `src/data/maps/alpha-base-exterior.json`.

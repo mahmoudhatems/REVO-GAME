@@ -121,6 +121,14 @@ This section records the verified intermediate state after the first root consol
 - Verification performed: root `npm run build` succeeded with a bundle-size warning (about 1.72 MB minified JavaScript); the Vite development server rendered a browser canvas. This was a smoke check, not full gameplay verification. No test suite is configured yet.
 - Remaining migration work: Phaser 4 runtime/input checks, interaction and asset-load verification, test/lint/format setup, map and mission source recovery, and full browser verification. The existing game still uses its procedural JavaScript map and does not yet implement the documented mission systems.
 
+## Stage 2C implementation status (2026-11-11)
+
+The historical Stage 0/1 and Stage 2B entries above describe earlier snapshots. The root Phaser 4.2.1/Vite 6.3.1 application now renders `src/data/maps/alpha-base-exterior.json` as an 80 × 45, 32 px nominal JSON-driven exterior world. The map is rendered by reusable world-layer code and uses a curated runtime set of 27 images copied from the canonical archive; source originals remain unchanged. No Tiled runtime dependency was added.
+
+All nine approved sites have map footprints and interaction registrations. The Central Communication Room is the hub; solar arrays remain outside; power control and battery storage are indoors; oxygen generation is separate. This is an outdoor navigation and facility-inspection foundation only. Dedicated N.E.I.L. terminal, battery-storage, and oxygen-generation art are absent; these areas are explicitly labeled placeholders. Other facility modules and props retain candidate status where the catalog says `CANDIDATE`. No external nuclear reactor, 30-day progression, resource simulation, NASA data integration, or authored mission system is implemented.
+
+The current character, keyboard/touch movement, camera follow, collision bodies, and facility prompt are connected to the map. Build and automated verification results are recorded in the Stage 2C acceptance log in `docs/ROADMAP_AND_ACCEPTANCE.md`; browser checks are reported there only after actually performed. A generated bundle-size warning remains to assess. Asset licenses remain `UNVERIFIED`.
+
 ## Stage 2B owner review package (2026-11-11)
 
 - Prepared a non-runtime shortlist of 47 unique canonical original-size assets, grouped across the nine approved facilities plus shared player-art candidates. Exact catalog IDs, semantic keys, filenames, source paths, dimensions, contact-sheet pages, visual classifications, confidence, missing components, and supplementary art needs are in `docs/asset-review/ASSET_SELECTION_REVIEW.md`.

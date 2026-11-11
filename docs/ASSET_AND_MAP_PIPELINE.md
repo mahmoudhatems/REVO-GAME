@@ -87,3 +87,13 @@ When map implementation is approved, author one validated JSON map source with g
 Map acceptance: all facilities reachable; clear paths and door gaps; no walking through walls or solid props; visible connection between array, storage, and power-control areas; reachable shelter; readable interaction points; camera frames landscape composition without exposing unintended empty space; no missing textures.
 
 See [ASSET_CATALOG.md](./ASSET_CATALOG.md), [ASSET_LICENSES.md](./ASSET_LICENSES.md), and [ROADMAP_AND_ACCEPTANCE.md](./ROADMAP_AND_ACCEPTANCE.md).
+
+## Stage 2C runtime selection and map status (2026-11-11)
+
+The owner approved the Stage 2B shortlist/layout for implementation. The runtime map at `src/data/maps/alpha-base-exterior.json` uses a 27-image allowlist selected by catalog ID and stable semantic key. `scripts/maps/generate-alpha-base-map.mjs` copies those files into `public/assets/map/` without editing the source archive. Runtime does not load the full catalog or archive. Selected PNGs are loaded once by Phaser as independent textures; no atlas is justified yet for this small set of differently sized objects, wall segments, and artwork requiring independent scale/origin handling.
+
+The map records the 80 × 45 grid, 32 px nominal pitch, ground, ground details, paths, buildings, walls, props, solar arrays, foreground, collisions, interactables, and room triggers separately. The Phaser renderer is separate from this JSON data. Paths, footprints, spawn, interaction points, and collision rectangles are draft implementation values derived from the approved blueprint and require direct play verification before calling the map fully verified.
+
+The nine facility spaces are represented, but representation does not mean dedicated art is complete. Battery storage, Oxygen Generation, and the N.E.I.L. terminal are labeled placeholders because no dedicated catalog art was confirmed. Modules/props marked candidate in the catalog remain candidates in map data; generic equipment is not described as a battery or oxygen generator. Solar arrays use the visually confirmed building module and visually candidate panel props; they remain exterior. Power distribution and battery storage remain indoors. Licenses for all selected assets remain `UNVERIFIED`.
+
+The initial renderer uses individual textures with nearest-neighbor pixel-art settings and explicit depth layering. Reconsider static ground, buildings, and prop atlases only after the rendering load profile and final frame/scale requirements show a measurable benefit. Keep character/animation frames separate until registration, frame dimensions, and walk-cycle order are confirmed. Do not combine unrelated frame sizes or animated art into static atlases.

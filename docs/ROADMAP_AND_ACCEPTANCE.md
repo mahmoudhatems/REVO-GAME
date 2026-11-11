@@ -135,3 +135,20 @@ Every completion report must distinguish:
 - not tested.
 
 A successful build alone does not mean the game is playable or production-ready.
+
+## Stage 2C — First playable Alpha Base world (2026-11-11)
+
+### Implementation record
+
+- Implemented a Phaser-rendered JSON world at `src/data/maps/alpha-base-exterior.json`, 80 × 45 tiles with 32 px nominal pitch and separate Ground, GroundDetails, Paths, Buildings, Walls, Props, SolarArrays, Foreground, Collision, Interactables, and RoomTriggers data.
+- Registered all nine approved facility/site interactions and preserved the existing menu/intro/UI flow, character texture and animation behavior, WASD/arrows, responsive touch controls, camera follow, and world bounds.
+- Added map schema/asset-reference and interaction-registry automated tests. Runtime asset selection is 27 curated textures rather than the full archive. Source archive remains unchanged.
+- Dedicated battery storage, Oxygen Generation equipment, and N.E.I.L. terminal art remain missing and visibly marked as placeholders. Candidate facility art remains candidate. Licenses remain `UNVERIFIED`.
+
+### Verification log
+
+- Automated: `npm test` passed (2 files, 7 tests); `npm run lint` passed; `npm run build` passed. The production bundle reports a chunk-size warning (JavaScript output about 3.48 MB before gzip, 459.79 kB gzip); review further splitting before release. These checks validate code/build, not playability.
+- Browser: a live Phaser canvas rendered the map and existing astronaut. Arrow-key input changed the astronaut's facing/position in consecutive captures; the menu and intro were also opened during this browser session. A genuine gameplay capture is saved at `docs/asset-review/stage2c-alpha-base-gameplay.png`. The shared browser used a constrained 356 × 200 CSS viewport (captured scaled to 1280 × 720), so this is not a desktop-composition check. Direct wall/prop collision, facility/solar reachability, E interaction toast, touch-button movement, pause/resume, and menu return remain unverified. Do not treat JSON collision rectangles as proof of collision behavior.
+- Not implemented in this stage: 30-day progression, resource simulation, dust-storm mechanics, full NASA API integration, reward/ending systems, or complete facility-specific art.
+
+Stage 2C remains in progress until direct browser checks confirm collision, camera follow, outdoor solar access, interactions, touch controls, and retained menu/intro/scene transitions. Player spawning and keyboard movement were observed; menu and intro loading were observed. The captured screenshot documents the actual Phaser world and player, not the blueprint.
