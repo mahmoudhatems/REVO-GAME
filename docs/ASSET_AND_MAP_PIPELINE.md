@@ -13,7 +13,7 @@ Do not use an overview image as a playable map. The world is to be assembled fro
 - The 15 source sheets have been hash-verified identical across variants.
 - Categories: Ground_Tileset 1,516; Buildings 7; Doors_Walls 72; Walls_Modular 49; Panels_Glass 52; Floor_Tiles 12; Tools_Equipment 179; Astronaut 24; Drone_Animations 123; UI_Elements 123; UI_Icons 50.
 - Contact sheets use checkerboard transparency previews, preserve aspect ratio, and label asset ID, filename, and dimensions.
-- PNG alpha-channel metadata is recorded; transparent-pixel coverage has not been audited. License status is `UNVERIFIED` for every archive asset pending provenance documentation.
+- Stage 2B pixel-level transparency, opaque-black-pixel, crop-bounds, and crop-to-file dimension checks cover the 47 shortlisted assets only; the remaining catalog has not received this pixel-level audit. License status is `UNVERIFIED` for every archive asset pending provenance documentation.
 - Ground_Tileset is mixed: terrain, edge/rock/plant/mineral-like crops, text fragments, and other isolated imagery. Select per tile; do not treat all 1,516 crops as ready ground tiles.
 
 ## 3. Asset preparation rules
@@ -46,6 +46,8 @@ There is **no external nuclear reactor in the current approved MVP**. Do not add
 
 Proposed starting canvas: **80 × 45 tiles at 32 × 32 px (2,560 × 1,440 px)**. The canonical terrain crops are predominantly 32×32, but dimensions must be checked for each chosen tile. The canvas supports a landscape composition while allowing camera framing for smaller screens. Revisit after selected art is assembled at native scale.
 
+Stage 2B has prepared a detailed owner-review proposal in `docs/asset-review/MAP_BLUEPRINT.md` and `docs/asset-review/alpha-base-exterior-blueprint.json`. It is not approved or connected to runtime. The coordinate proposal includes the 9 facilities, paths, collision rectangles, interaction points, player spawn, camera framing, and decoration zones. See that package before final authoring.
+
 Composition guidance, not a final placement map:
 
 - Place the habitat cluster near the center, with the Central Communication Room as the visual and navigational hub.
@@ -62,7 +64,7 @@ Composition guidance, not a final placement map:
 - Define one reachable interaction point per facility and key outdoor object; keep interaction bounds outside walls and away from narrow corridors.
 - Ensure all approved facilities connect through a continuous walkable network and the shelter is reachable from the occupied hub.
 - Keep important object silhouettes unobscured by foreground layers. Test depth ordering, camera bounds, collision, and touch-scale interactions in the eventual runtime.
-- Use authored map geometry and object layers; do not replace it with a generated screenshot. Do not begin final map authoring during Stage 2A.
+- Use validated, authored JSON map data consumed by a Phaser 4 map adapter; Tiled is not a required dependency. Do not replace it with a generated screenshot. Do not begin final map authoring during Stage 2A/2B.
 
 ## 6. Texture atlas recommendations
 
@@ -80,7 +82,7 @@ Avoid unnecessary pages: curate, pack, then measure. Do not combine variable-siz
 
 ## 7. Future map layers and acceptance
 
-When map implementation is approved, author one map source with ground, paths, ground details, buildings, walls, props, foreground, collision, interactables, and room-trigger layers as needed. Test actual Phaser 4.2.1 loading/export compatibility before choosing map serialization details.
+When map implementation is approved, author one validated JSON map source with ground, paths, ground details, buildings, walls, props, foreground, collision, interactables, and room triggers as needed. Tiled may be considered only with later owner approval; it is not a required authoring or runtime dependency.
 
 Map acceptance: all facilities reachable; clear paths and door gaps; no walking through walls or solid props; visible connection between array, storage, and power-control areas; reachable shelter; readable interaction points; camera frames landscape composition without exposing unintended empty space; no missing textures.
 

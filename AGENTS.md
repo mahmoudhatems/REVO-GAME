@@ -23,7 +23,7 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 ## Technical direction
 
 - One root application; no duplicate active application under `revo/`.
-- Phaser 4.2.1, JavaScript ES Modules, Vite, Tiled.
+- Phaser 4.2.1, JavaScript ES Modules, Vite, JSON-driven map data. Tiled is not a required dependency.
 - Vitest, ESLint, Prettier, Git/GitHub, and Vercel.
 - Confirm current repository state before migrating; existing baseline was Phaser 3.80.1 in root plus a separate Phaser 4.0.0/Vite template under `revo/`.
 - Use Feature-Based Clean Architecture. Domain must remain independent from Phaser.
@@ -39,7 +39,7 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 - Do not treat lunar Artemis measurements as Mars measurements.
 - Do not show archived NASA data as live.
 - No runtime AI chatbot for N.E.I.L.; use authored dialogue data.
-- Use supplied assets and Tiled layers; do not replace the playable map with one generated screenshot.
+- Use supplied assets and authored JSON map data; do not replace the playable map with one generated screenshot.
 - Record asset licenses and mark unknown status `UNVERIFIED`.
 - Every important decision needs a visible consequence and a child-friendly explanation.
 - Keep HUD complexity low: POWER, OXYGEN/LIFE SUPPORT, FOOD are the core resources.

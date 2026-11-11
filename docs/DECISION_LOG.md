@@ -33,8 +33,8 @@ This is the decision log for product and technical choices already agreed by the
 
 - External solar arrays and battery storage are part of the approved MVP energy system.
 - Indoor Power Control manages electricity distribution. No external nuclear reactor is part of the current MVP.
-- Generation, storage, and dust-storm gameplay rules remain unspecified; do not invent operational values or implement unapproved effects.
-- Dust storms may affect visibility, outdoor activity, rover use, maintenance, and dust management. Any effect on fictional solar generation requires a separately approved rule.
+- A future dust-storm event reduces available sunlight and fictional solar generation, making stored battery energy more important. Numeric gameplay values remain to be designed; do not present them as NASA engineering measurements.
+- Dust storms may also affect visibility, outdoor activity, rover use, maintenance, and dust management.
 
 ## Technical decisions
 
@@ -43,7 +43,7 @@ This is the decision log for product and technical choices already agreed by the
 | Engine | Phaser 4.2.1, pinned exactly unless explicitly changed. |
 | Language | JavaScript ES Modules. |
 | Build | Vite. |
-| Map authoring | Tiled, with one source of truth for map geometry. |
+| Map authoring | Validated JSON-driven Phaser 4 map data; Tiled is not a required dependency. |
 | Architecture | Pragmatic Feature-Based Clean Architecture. |
 | Testing | Vitest plus integration/runtime checks. |
 | Quality | ESLint and Prettier. |
@@ -65,3 +65,4 @@ Do not invent these as finalized facts. Propose options and ask the owner when t
 
 - 2026-11-11: consolidated project context; confirmed fission power concept, indoor power control, central communication hub, separate oxygen and research facilities, no solar arrays, 30-day mission and child-first educational objective.
 - 2026-11-11: owner-approved Stage 2A update supersedes the prior power-layout decision: external solar arrays and battery storage are included; indoor Power Control distributes electricity; no external nuclear reactor is in the current MVP. Solar generation and storm effects remain to be specified. Updated product, gameplay, asset, and roadmap documentation.
+- 2026-11-11: owner-approved Stage 2B clarification: the future dust-storm event reduces available sunlight and solar generation, increasing the importance of stored battery energy. Map architecture is JSON-driven in Phaser 4; Tiled is not a required dependency. Numeric gameplay values remain open. Updated persistent instructions and map/architecture documentation.

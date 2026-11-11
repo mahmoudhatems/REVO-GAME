@@ -7,7 +7,7 @@ As checked on 11 November 2026, the Phaser official archive lists Phaser 4.2.1 a
 - Phaser 4.2.1: https://phaser.io/download/release/v4.2.1
 - JavaScript ES Modules.
 - Vite.
-- Tiled.
+- JSON-driven map data validated and loaded by the Phaser 4 world/map adapter. Tiled is optional, not a required dependency.
 - Vitest.
 - ESLint.
 - Prettier.
@@ -77,7 +77,7 @@ Examples:
 Implements external boundaries:
 
 - Phaser map and physics adapters;
-- Tiled JSON loading;
+- validated JSON map loading;
 - JSON content repositories;
 - asset loading;
 - local persistence;
@@ -208,7 +208,7 @@ Use Vitest for pure domain logic:
 - ending evaluation;
 - save serialization and validation.
 
-Add integration checks for Tiled map parsing, asset keys, collision setup, and use-case wiring.
+Add integration checks for JSON map validation, asset keys, collision setup, and use-case wiring.
 
 Browser verification is required for visual/interaction changes. A successful Vite build is not proof that the game plays correctly.
 

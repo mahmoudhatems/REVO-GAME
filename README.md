@@ -50,7 +50,7 @@ Crew safety, radiation events, communications, and research progress are importa
 - **Radiation Shelter** — a protected area used during relevant hazard events.
 - **Entrance / Airlock** — the controlled access point for entering and leaving the habitat.
 
-Solar arrays and battery storage are part of the current approved design. No external nuclear reactor is part of the current MVP. Dust-storm effects on solar generation are not yet specified; do not implement them until the owner approves the gameplay rule.
+Solar arrays and battery storage are part of the current approved design. No external nuclear reactor is part of the current MVP. A future dust-storm event reduces available sunlight and fictional solar generation, making stored battery energy more important; numeric game values remain to be designed.
 
 ## 5. Competition context
 
@@ -71,7 +71,7 @@ The intended consolidated stack is:
 - Phaser **4.2.1** (pin the exact version unless the team explicitly approves a change).
 - JavaScript ES Modules.
 - Vite.
-- Tiled Map Editor for map geometry and layers.
+- JSON-driven Phaser 4 map data; Tiled is not a required dependency.
 - Git and GitHub.
 - Vitest for unit tests.
 - ESLint and Prettier.
@@ -82,7 +82,6 @@ The supplied project baseline found a Phaser 3.80.1 application in the repositor
 
 Phaser 4.2.1 archive: https://phaser.io/download/release/v4.2.1  
 Phaser documentation: https://docs.phaser.io/  
-Tiled documentation: https://doc.mapeditor.org/en/latest/  
 Vite documentation: https://vite.dev/guide/
 
 ## 7. NASA data and scientific integrity
@@ -114,7 +113,7 @@ Read `docs/NASA_DATA_STRATEGY.md`, `docs/DONKI_REFERENCE.md`, and `docs/OSDR_DAT
 | `docs/OSDR_DATA_REFERENCE.md` | OSDR, Biological Data API, RadLab, and Environmental Data Application. |
 | `docs/MARS_AND_ARTEMIS_DATA.md` | Mars surface, Artemis, comparative energy research, and communication references. |
 | `docs/TECHNICAL_ARCHITECTURE.md` | Target stack, migration rules, Clean Architecture, and project structure. |
-| `docs/ASSET_AND_MAP_PIPELINE.md` | Pixel-art asset preparation, Tiled workflow, and Phaser map loading. |
+| `docs/ASSET_AND_MAP_PIPELINE.md` | Pixel-art asset preparation, JSON map workflow, and Phaser map loading. |
 | `docs/ASSET_CATALOG.md` | Recovered asset catalog, contact sheets, classification, and facility coverage. |
 | `docs/DECISION_LOG.md` | Accepted product and technical decisions. |
 | `docs/ROADMAP_AND_ACCEPTANCE.md` | Implementation order and definition of done. |

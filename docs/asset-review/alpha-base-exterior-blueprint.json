@@ -1,0 +1,2791 @@
+{
+  "schemaVersion": 1,
+  "title": "Alpha Base Exterior Map Blueprint — Owner Review Draft",
+  "status": "proposed-not-runtime-data",
+  "approvalStatus": "pending-owner-review",
+  "map": {
+    "widthTiles": 80,
+    "heightTiles": 45,
+    "tileSizePx": 32,
+    "worldWidthPx": 2560,
+    "worldHeightPx": 1440,
+    "aspectRatio": "16:9",
+    "coordinateConventions": {
+      "roomBounds": "tile units; origin is top-left; bounds are [x,y,width,height]",
+      "interactionPoints": "tile coordinate of reachable player interaction center",
+      "spritePlacement": "tile origin for top-left; asset pixels are preserved at native dimensions unless a later approved scale is recorded",
+      "collisions": "tile units; proposed one-tile-thick wall rectangles with two-tile doorway gaps"
+    }
+  },
+  "energyArchitecture": {
+    "primarySource": "external solar arrays",
+    "storage": "battery storage indoors",
+    "distribution": "indoor Power Control Room",
+    "externalNuclearReactor": false,
+    "futureDustStormRule": "A future storm reduces available sunlight and fictional solar generation, increasing the importance of stored battery energy.",
+    "numericValues": "not set; fictional gameplay values require separate balancing and must not be described as NASA engineering measurements"
+  },
+  "facilities": [
+    {
+      "id": "solar-arrays",
+      "name": "External Solar Arrays",
+      "boundsTiles": {
+        "x": 62,
+        "y": 4,
+        "w": 15,
+        "h": 9
+      },
+      "doorways": [],
+      "interactionPointTiles": {
+        "x": 66,
+        "y": 11
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_007_83x69.bld-0007",
+          "assetId": "BLD-0007",
+          "sourceDimensionsPx": {
+            "width": 83,
+            "height": 69
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_013_22x35.eqp-0013",
+          "assetId": "EQP-0013",
+          "sourceDimensionsPx": {
+            "width": 22,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_019_34x32.eqp-0019",
+          "assetId": "EQP-0019",
+          "sourceDimensionsPx": {
+            "width": 34,
+            "height": 32
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_020_26x34.eqp-0020",
+          "assetId": "EQP-0020",
+          "sourceDimensionsPx": {
+            "width": 26,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": []
+    },
+    {
+      "id": "shelter",
+      "name": "Radiation Shelter",
+      "boundsTiles": {
+        "x": 16,
+        "y": 16,
+        "w": 8,
+        "h": 7
+      },
+      "doorways": [
+        {
+          "edge": "east",
+          "offsetTiles": 2,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 20,
+        "y": 19
+      },
+      "assetReferences": [
+        {
+          "assetKey": "doors_walls.door_005_60x46.dor-0005",
+          "assetId": "DOR-0005",
+          "sourceDimensionsPx": {
+            "width": 60,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_006_66x46.dor-0006",
+          "assetId": "DOR-0006",
+          "sourceDimensionsPx": {
+            "width": 66,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_001_29x28.wal-0001",
+          "assetId": "WAL-0001",
+          "sourceDimensionsPx": {
+            "width": 29,
+            "height": 28
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_003_28x28.wal-0003",
+          "assetId": "WAL-0003",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 28
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "ui_icons.icon_015_32x32.uic-0015",
+          "assetId": "UIC-0015",
+          "sourceDimensionsPx": {
+            "width": 32,
+            "height": 32
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "floor_tiles.floor_001_60x64.flt-0001",
+          "assetId": "FLT-0001",
+          "sourceDimensionsPx": {
+            "width": 60,
+            "height": 64
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 16,
+          "y": 16,
+          "width": 8,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 16,
+          "y": 22,
+          "width": 8,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "width": 1,
+          "height": 7,
+          "type": "room-wall"
+        },
+        {
+          "x": 23,
+          "y": 16,
+          "width": 1,
+          "height": 2,
+          "type": "room-wall"
+        },
+        {
+          "x": 23,
+          "y": 20,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "oxygen",
+      "name": "Oxygen Generation / Life Support",
+      "boundsTiles": {
+        "x": 26,
+        "y": 16,
+        "w": 8,
+        "h": 7
+      },
+      "doorways": [
+        {
+          "edge": "west",
+          "offsetTiles": 2,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "east",
+          "offsetTiles": 2,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 30,
+        "y": 19
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_006_69x73.bld-0006",
+          "assetId": "BLD-0006",
+          "sourceDimensionsPx": {
+            "width": 69,
+            "height": 73
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_001_28x39.eqp-0001",
+          "assetId": "EQP-0001",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 39
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_005_26x37.eqp-0005",
+          "assetId": "EQP-0005",
+          "sourceDimensionsPx": {
+            "width": 26,
+            "height": 37
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_049_27x33.eqp-0049",
+          "assetId": "EQP-0049",
+          "sourceDimensionsPx": {
+            "width": 27,
+            "height": 33
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "ui_icons.icon_011_33x32.uic-0011",
+          "assetId": "UIC-0011",
+          "sourceDimensionsPx": {
+            "width": 33,
+            "height": 32
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "ui_icons.icon_012_30x32.uic-0012",
+          "assetId": "UIC-0012",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 32
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 26,
+          "y": 16,
+          "width": 8,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 26,
+          "y": 22,
+          "width": 8,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 26,
+          "y": 16,
+          "width": 1,
+          "height": 2,
+          "type": "room-wall"
+        },
+        {
+          "x": 26,
+          "y": 20,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        },
+        {
+          "x": 33,
+          "y": 16,
+          "width": 1,
+          "height": 2,
+          "type": "room-wall"
+        },
+        {
+          "x": 33,
+          "y": 20,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Central Communication Room",
+      "boundsTiles": {
+        "x": 36,
+        "y": 13,
+        "w": 13,
+        "h": 9
+      },
+      "doorways": [
+        {
+          "edge": "west",
+          "offsetTiles": 5,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "east",
+          "offsetTiles": 3,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "south",
+          "offsetTiles": 5,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 42,
+        "y": 18
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_001_100x77.bld-0001",
+          "assetId": "BLD-0001",
+          "sourceDimensionsPx": {
+            "width": 100,
+            "height": 77
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "buildings.building_002_65x72.bld-0002",
+          "assetId": "BLD-0002",
+          "sourceDimensionsPx": {
+            "width": 65,
+            "height": 72
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_055_31x35.eqp-0055",
+          "assetId": "EQP-0055",
+          "sourceDimensionsPx": {
+            "width": 31,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_058_31x34.eqp-0058",
+          "assetId": "EQP-0058",
+          "sourceDimensionsPx": {
+            "width": 31,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_063_34x48.eqp-0063",
+          "assetId": "EQP-0063",
+          "sourceDimensionsPx": {
+            "width": 34,
+            "height": 48
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "ui_icons.icon_042_19x27.uic-0042",
+          "assetId": "UIC-0042",
+          "sourceDimensionsPx": {
+            "width": 19,
+            "height": 27
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_003_28x28.wal-0003",
+          "assetId": "WAL-0003",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 28
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "floor_tiles.floor_001_60x64.flt-0001",
+          "assetId": "FLT-0001",
+          "sourceDimensionsPx": {
+            "width": 60,
+            "height": 64
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 36,
+          "y": 13,
+          "width": 13,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 36,
+          "y": 21,
+          "width": 5,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 43,
+          "y": 21,
+          "width": 6,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 36,
+          "y": 13,
+          "width": 1,
+          "height": 5,
+          "type": "room-wall"
+        },
+        {
+          "x": 36,
+          "y": 20,
+          "width": 1,
+          "height": 2,
+          "type": "room-wall"
+        },
+        {
+          "x": 48,
+          "y": 13,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        },
+        {
+          "x": 48,
+          "y": 18,
+          "width": 1,
+          "height": 4,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "power-control",
+      "name": "Indoor Power Control",
+      "boundsTiles": {
+        "x": 49,
+        "y": 13,
+        "w": 9,
+        "h": 8
+      },
+      "doorways": [
+        {
+          "edge": "west",
+          "offsetTiles": 3,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "south",
+          "offsetTiles": 3,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 52,
+        "y": 17
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_004_76x67.bld-0004",
+          "assetId": "BLD-0004",
+          "sourceDimensionsPx": {
+            "width": 76,
+            "height": 67
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_004_28x37.eqp-0004",
+          "assetId": "EQP-0004",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 37
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_006_41x38.eqp-0006",
+          "assetId": "EQP-0006",
+          "sourceDimensionsPx": {
+            "width": 41,
+            "height": 38
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_017_50x34.eqp-0017",
+          "assetId": "EQP-0017",
+          "sourceDimensionsPx": {
+            "width": 50,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_018_37x34.eqp-0018",
+          "assetId": "EQP-0018",
+          "sourceDimensionsPx": {
+            "width": 37,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 49,
+          "y": 13,
+          "width": 9,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 49,
+          "y": 20,
+          "width": 3,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 54,
+          "y": 20,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 49,
+          "y": 13,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        },
+        {
+          "x": 49,
+          "y": 18,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        },
+        {
+          "x": 57,
+          "y": 13,
+          "width": 1,
+          "height": 8,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "battery",
+      "name": "Battery Storage",
+      "boundsTiles": {
+        "x": 49,
+        "y": 22,
+        "w": 9,
+        "h": 7
+      },
+      "doorways": [
+        {
+          "edge": "north",
+          "offsetTiles": 3,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "east",
+          "offsetTiles": 2,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 52,
+        "y": 25
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_006_69x73.bld-0006",
+          "assetId": "BLD-0006",
+          "sourceDimensionsPx": {
+            "width": 69,
+            "height": 73
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Visual analogue only; do not label or ship as battery art without owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_001_28x39.eqp-0001",
+          "assetId": "EQP-0001",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 39
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Visual analogue only; do not label or ship as battery art without owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_068_17x23.eqp-0068",
+          "assetId": "EQP-0068",
+          "sourceDimensionsPx": {
+            "width": 17,
+            "height": 23
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Visual analogue only; do not label or ship as battery art without owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_069_15x22.eqp-0069",
+          "assetId": "EQP-0069",
+          "sourceDimensionsPx": {
+            "width": 15,
+            "height": 22
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Visual analogue only; do not label or ship as battery art without owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Visual analogue only; do not label or ship as battery art without owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 49,
+          "y": 22,
+          "width": 3,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 54,
+          "y": 22,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 49,
+          "y": 28,
+          "width": 9,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 49,
+          "y": 22,
+          "width": 1,
+          "height": 7,
+          "type": "room-wall"
+        },
+        {
+          "x": 57,
+          "y": 22,
+          "width": 1,
+          "height": 2,
+          "type": "room-wall"
+        },
+        {
+          "x": 57,
+          "y": 26,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "name": "Research Lab",
+      "boundsTiles": {
+        "x": 26,
+        "y": 26,
+        "w": 10,
+        "h": 7
+      },
+      "doorways": [
+        {
+          "edge": "north",
+          "offsetTiles": 4,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 31,
+        "y": 29
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_005_83x77.bld-0005",
+          "assetId": "BLD-0005",
+          "sourceDimensionsPx": {
+            "width": 83,
+            "height": 77
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_055_31x35.eqp-0055",
+          "assetId": "EQP-0055",
+          "sourceDimensionsPx": {
+            "width": 31,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_056_29x35.eqp-0056",
+          "assetId": "EQP-0056",
+          "sourceDimensionsPx": {
+            "width": 29,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_058_31x34.eqp-0058",
+          "assetId": "EQP-0058",
+          "sourceDimensionsPx": {
+            "width": 31,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_003_28x28.wal-0003",
+          "assetId": "WAL-0003",
+          "sourceDimensionsPx": {
+            "width": 28,
+            "height": 28
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "floor_tiles.floor_001_60x64.flt-0001",
+          "assetId": "FLT-0001",
+          "sourceDimensionsPx": {
+            "width": 60,
+            "height": 64
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 26,
+          "y": 26,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 32,
+          "y": 26,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 26,
+          "y": 32,
+          "width": 10,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 26,
+          "y": 26,
+          "width": 1,
+          "height": 7,
+          "type": "room-wall"
+        },
+        {
+          "x": 35,
+          "y": 26,
+          "width": 1,
+          "height": 7,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "greenhouse",
+      "name": "Greenhouse",
+      "boundsTiles": {
+        "x": 60,
+        "y": 19,
+        "w": 12,
+        "h": 9
+      },
+      "doorways": [
+        {
+          "edge": "north",
+          "offsetTiles": 5,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        },
+        {
+          "edge": "west",
+          "offsetTiles": 3,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 65,
+        "y": 23
+      },
+      "assetReferences": [
+        {
+          "assetKey": "buildings.building_003_73x72.bld-0003",
+          "assetId": "BLD-0003",
+          "sourceDimensionsPx": {
+            "width": 73,
+            "height": 72
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_045_33x34.eqp-0045",
+          "assetId": "EQP-0045",
+          "sourceDimensionsPx": {
+            "width": 33,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_046_32x34.eqp-0046",
+          "assetId": "EQP-0046",
+          "sourceDimensionsPx": {
+            "width": 32,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_047_30x34.eqp-0047",
+          "assetId": "EQP-0047",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 34
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "tools_equipment.equipment_048_33x33.eqp-0048",
+          "assetId": "EQP-0048",
+          "sourceDimensionsPx": {
+            "width": 33,
+            "height": 33
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "panels_glass.panel_011_70x49.gls-0011",
+          "assetId": "GLS-0011",
+          "sourceDimensionsPx": {
+            "width": 70,
+            "height": 49
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 60,
+          "y": 19,
+          "width": 5,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 67,
+          "y": 19,
+          "width": 5,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 60,
+          "y": 27,
+          "width": 12,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 60,
+          "y": 19,
+          "width": 1,
+          "height": 3,
+          "type": "room-wall"
+        },
+        {
+          "x": 60,
+          "y": 24,
+          "width": 1,
+          "height": 4,
+          "type": "room-wall"
+        },
+        {
+          "x": 71,
+          "y": 19,
+          "width": 1,
+          "height": 9,
+          "type": "room-wall"
+        }
+      ]
+    },
+    {
+      "id": "airlock",
+      "name": "Southern Entrance / Airlock",
+      "boundsTiles": {
+        "x": 38,
+        "y": 34,
+        "w": 10,
+        "h": 4
+      },
+      "doorways": [
+        {
+          "edge": "north",
+          "offsetTiles": 4,
+          "widthTiles": 2,
+          "status": "proposed-opening"
+        }
+      ],
+      "interactionPointTiles": {
+        "x": 43,
+        "y": 36
+      },
+      "assetReferences": [
+        {
+          "assetKey": "doors_walls.door_005_60x46.dor-0005",
+          "assetId": "DOR-0005",
+          "sourceDimensionsPx": {
+            "width": 60,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_006_66x46.dor-0006",
+          "assetId": "DOR-0006",
+          "sourceDimensionsPx": {
+            "width": 66,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_009_73x35.dor-0009",
+          "assetId": "DOR-0009",
+          "sourceDimensionsPx": {
+            "width": 73,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_010_81x35.dor-0010",
+          "assetId": "DOR-0010",
+          "sourceDimensionsPx": {
+            "width": 81,
+            "height": 35
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_017_42x46.dor-0017",
+          "assetId": "DOR-0017",
+          "sourceDimensionsPx": {
+            "width": 42,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "doors_walls.door_018_42x46.dor-0018",
+          "assetId": "DOR-0018",
+          "sourceDimensionsPx": {
+            "width": 42,
+            "height": 46
+          },
+          "classification": "CANDIDATE",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        },
+        {
+          "assetKey": "walls_modular.wall_002_30x24.wal-0002",
+          "assetId": "WAL-0002",
+          "sourceDimensionsPx": {
+            "width": 30,
+            "height": 24
+          },
+          "classification": "CONFIRMED",
+          "assetStatus": "proposed-not-approved",
+          "licenseStatus": "UNVERIFIED",
+          "useNote": "Proposed grouping; do not treat as final artwork before owner approval."
+        }
+      ],
+      "collisionRects": [
+        {
+          "x": 38,
+          "y": 34,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 44,
+          "y": 34,
+          "width": 4,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 38,
+          "y": 37,
+          "width": 10,
+          "height": 1,
+          "type": "room-wall"
+        },
+        {
+          "x": 38,
+          "y": 34,
+          "width": 1,
+          "height": 4,
+          "type": "room-wall"
+        },
+        {
+          "x": 47,
+          "y": 34,
+          "width": 1,
+          "height": 4,
+          "type": "room-wall"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "solar-array-main",
+      "assetKey": "buildings.building_007_83x69.bld-0007",
+      "assetId": "BLD-0007",
+      "positionTiles": {
+        "x": 64,
+        "y": 5
+      },
+      "dimensionsPx": {
+        "width": 83,
+        "height": 69
+      },
+      "status": "proposed-not-approved",
+      "note": "External solar array structure; proposed placement."
+    },
+    {
+      "id": "solar-panel-a",
+      "assetKey": "tools_equipment.equipment_019_34x32.eqp-0019",
+      "assetId": "EQP-0019",
+      "positionTiles": {
+        "x": 68,
+        "y": 7
+      },
+      "dimensionsPx": {
+        "width": 34,
+        "height": 32
+      },
+      "status": "proposed-not-approved",
+      "note": "Small panel prop; proposed repeat element."
+    },
+    {
+      "id": "solar-panel-b",
+      "assetKey": "tools_equipment.equipment_020_26x34.eqp-0020",
+      "assetId": "EQP-0020",
+      "positionTiles": {
+        "x": 71,
+        "y": 7
+      },
+      "dimensionsPx": {
+        "width": 26,
+        "height": 34
+      },
+      "status": "proposed-not-approved",
+      "note": "Small panel prop; proposed repeat element."
+    },
+    {
+      "id": "communication-workstation",
+      "assetKey": "tools_equipment.equipment_058_31x34.eqp-0058",
+      "assetId": "EQP-0058",
+      "positionTiles": {
+        "x": 41,
+        "y": 17
+      },
+      "dimensionsPx": {
+        "width": 31,
+        "height": 34
+      },
+      "status": "proposed-not-approved",
+      "note": "Desk/computer candidate."
+    },
+    {
+      "id": "communication-console",
+      "assetKey": "tools_equipment.equipment_055_31x35.eqp-0055",
+      "assetId": "EQP-0055",
+      "positionTiles": {
+        "x": 45,
+        "y": 17
+      },
+      "dimensionsPx": {
+        "width": 31,
+        "height": 35
+      },
+      "status": "proposed-not-approved",
+      "note": "Display console candidate."
+    },
+    {
+      "id": "communication-dish",
+      "assetKey": "tools_equipment.equipment_063_34x48.eqp-0063",
+      "assetId": "EQP-0063",
+      "positionTiles": {
+        "x": 46,
+        "y": 14
+      },
+      "dimensionsPx": {
+        "width": 34,
+        "height": 48
+      },
+      "status": "proposed-not-approved",
+      "note": "Dish antenna proposed outside/near communication room."
+    },
+    {
+      "id": "power-control-console",
+      "assetKey": "tools_equipment.equipment_004_28x37.eqp-0004",
+      "assetId": "EQP-0004",
+      "positionTiles": {
+        "x": 52,
+        "y": 16
+      },
+      "dimensionsPx": {
+        "width": 28,
+        "height": 37
+      },
+      "status": "proposed-not-approved",
+      "note": "Control panel candidate."
+    },
+    {
+      "id": "power-control-rack",
+      "assetKey": "buildings.building_004_76x67.bld-0004",
+      "assetId": "BLD-0004",
+      "positionTiles": {
+        "x": 54,
+        "y": 15
+      },
+      "dimensionsPx": {
+        "width": 76,
+        "height": 67
+      },
+      "status": "proposed-not-approved",
+      "note": "Generic equipment rack candidate."
+    },
+    {
+      "id": "battery-analogue",
+      "assetKey": "buildings.building_006_69x73.bld-0006",
+      "assetId": "BLD-0006",
+      "positionTiles": {
+        "x": 54,
+        "y": 23
+      },
+      "dimensionsPx": {
+        "width": 69,
+        "height": 73
+      },
+      "status": "proposed-not-approved",
+      "note": "Unidentified twin-cylinder module; must not be labeled as battery."
+    },
+    {
+      "id": "oxygen-equipment-analogue",
+      "assetKey": "tools_equipment.equipment_005_26x37.eqp-0005",
+      "assetId": "EQP-0005",
+      "positionTiles": {
+        "x": 32,
+        "y": 19
+      },
+      "dimensionsPx": {
+        "width": 26,
+        "height": 37
+      },
+      "status": "proposed-not-approved",
+      "note": "Generic machine/canister candidate; not identified as oxygen generator."
+    },
+    {
+      "id": "greenhouse-dome",
+      "assetKey": "buildings.building_003_73x72.bld-0003",
+      "assetId": "BLD-0003",
+      "positionTiles": {
+        "x": 61,
+        "y": 20
+      },
+      "dimensionsPx": {
+        "width": 73,
+        "height": 72
+      },
+      "status": "proposed-not-approved",
+      "note": "Glazed dome greenhouse candidate."
+    },
+    {
+      "id": "greenhouse-tray-a",
+      "assetKey": "tools_equipment.equipment_045_33x34.eqp-0045",
+      "assetId": "EQP-0045",
+      "positionTiles": {
+        "x": 62,
+        "y": 23
+      },
+      "dimensionsPx": {
+        "width": 33,
+        "height": 34
+      },
+      "status": "proposed-not-approved",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-b",
+      "assetKey": "tools_equipment.equipment_046_32x34.eqp-0046",
+      "assetId": "EQP-0046",
+      "positionTiles": {
+        "x": 64,
+        "y": 23
+      },
+      "dimensionsPx": {
+        "width": 32,
+        "height": 34
+      },
+      "status": "proposed-not-approved",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-c",
+      "assetKey": "tools_equipment.equipment_047_30x34.eqp-0047",
+      "assetId": "EQP-0047",
+      "positionTiles": {
+        "x": 66,
+        "y": 23
+      },
+      "dimensionsPx": {
+        "width": 30,
+        "height": 34
+      },
+      "status": "proposed-not-approved",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-d",
+      "assetKey": "tools_equipment.equipment_048_33x33.eqp-0048",
+      "assetId": "EQP-0048",
+      "positionTiles": {
+        "x": 68,
+        "y": 23
+      },
+      "dimensionsPx": {
+        "width": 33,
+        "height": 33
+      },
+      "status": "proposed-not-approved",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "shelter-door",
+      "assetKey": "doors_walls.door_005_60x46.dor-0005",
+      "assetId": "DOR-0005",
+      "positionTiles": {
+        "x": 22,
+        "y": 19
+      },
+      "dimensionsPx": {
+        "width": 60,
+        "height": 46
+      },
+      "status": "proposed-not-approved",
+      "note": "Heavy door candidate."
+    },
+    {
+      "id": "airlock-door-outer",
+      "assetKey": "doors_walls.door_005_60x46.dor-0005",
+      "assetId": "DOR-0005",
+      "positionTiles": {
+        "x": 40,
+        "y": 34
+      },
+      "dimensionsPx": {
+        "width": 60,
+        "height": 46
+      },
+      "status": "proposed-not-approved",
+      "note": "Proposed outer door; state pairing needs owner review."
+    },
+    {
+      "id": "airlock-door-inner",
+      "assetKey": "doors_walls.door_006_66x46.dor-0006",
+      "assetId": "DOR-0006",
+      "positionTiles": {
+        "x": 40,
+        "y": 34
+      },
+      "dimensionsPx": {
+        "width": 66,
+        "height": 46
+      },
+      "status": "proposed-not-approved",
+      "note": "Proposed alternate door state; not a validated animation."
+    }
+  ],
+  "collisionRectangles": [
+    {
+      "facilityId": "shelter",
+      "x": 16,
+      "y": 16,
+      "width": 8,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "shelter",
+      "x": 16,
+      "y": 22,
+      "width": 8,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "shelter",
+      "x": 16,
+      "y": 16,
+      "width": 1,
+      "height": 7,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "shelter",
+      "x": 23,
+      "y": 16,
+      "width": 1,
+      "height": 2,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "shelter",
+      "x": 23,
+      "y": 20,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 26,
+      "y": 16,
+      "width": 8,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 26,
+      "y": 22,
+      "width": 8,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 26,
+      "y": 16,
+      "width": 1,
+      "height": 2,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 26,
+      "y": 20,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 33,
+      "y": 16,
+      "width": 1,
+      "height": 2,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "x": 33,
+      "y": 20,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 36,
+      "y": 13,
+      "width": 13,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 36,
+      "y": 21,
+      "width": 5,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 43,
+      "y": 21,
+      "width": 6,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 36,
+      "y": 13,
+      "width": 1,
+      "height": 5,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 36,
+      "y": 20,
+      "width": 1,
+      "height": 2,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 48,
+      "y": 13,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "x": 48,
+      "y": 18,
+      "width": 1,
+      "height": 4,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 49,
+      "y": 13,
+      "width": 9,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 49,
+      "y": 20,
+      "width": 3,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 54,
+      "y": 20,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 49,
+      "y": 13,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 49,
+      "y": 18,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "x": 57,
+      "y": 13,
+      "width": 1,
+      "height": 8,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 49,
+      "y": 22,
+      "width": 3,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 54,
+      "y": 22,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 49,
+      "y": 28,
+      "width": 9,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 49,
+      "y": 22,
+      "width": 1,
+      "height": 7,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 57,
+      "y": 22,
+      "width": 1,
+      "height": 2,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "x": 57,
+      "y": 26,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "x": 26,
+      "y": 26,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "x": 32,
+      "y": 26,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "x": 26,
+      "y": 32,
+      "width": 10,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "x": 26,
+      "y": 26,
+      "width": 1,
+      "height": 7,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "x": 35,
+      "y": 26,
+      "width": 1,
+      "height": 7,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 60,
+      "y": 19,
+      "width": 5,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 67,
+      "y": 19,
+      "width": 5,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 60,
+      "y": 27,
+      "width": 12,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 60,
+      "y": 19,
+      "width": 1,
+      "height": 3,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 60,
+      "y": 24,
+      "width": 1,
+      "height": 4,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "x": 71,
+      "y": 19,
+      "width": 1,
+      "height": 9,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "x": 38,
+      "y": 34,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "x": 44,
+      "y": 34,
+      "width": 4,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "x": 38,
+      "y": 37,
+      "width": 10,
+      "height": 1,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "x": 38,
+      "y": 34,
+      "width": 1,
+      "height": 4,
+      "type": "room-wall",
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "x": 47,
+      "y": 34,
+      "width": 1,
+      "height": 4,
+      "type": "room-wall",
+      "status": "proposed"
+    }
+  ],
+  "interactionPoints": [
+    {
+      "facilityId": "solar-arrays",
+      "positionTiles": {
+        "x": 66,
+        "y": 11
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "shelter",
+      "positionTiles": {
+        "x": 20,
+        "y": 19
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "oxygen",
+      "positionTiles": {
+        "x": 30,
+        "y": 19
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "communication",
+      "positionTiles": {
+        "x": 42,
+        "y": 18
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "power-control",
+      "positionTiles": {
+        "x": 52,
+        "y": 17
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "battery",
+      "positionTiles": {
+        "x": 52,
+        "y": 25
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "research",
+      "positionTiles": {
+        "x": 31,
+        "y": 29
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "greenhouse",
+      "positionTiles": {
+        "x": 65,
+        "y": 23
+      },
+      "status": "proposed"
+    },
+    {
+      "facilityId": "airlock",
+      "positionTiles": {
+        "x": 43,
+        "y": 36
+      },
+      "status": "proposed"
+    }
+  ],
+  "paths": [
+    {
+      "id": "south-main-walkway",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          43,
+          38
+        ],
+        [
+          43,
+          34
+        ],
+        [
+          43,
+          30
+        ],
+        [
+          43,
+          22
+        ]
+      ],
+      "connects": [
+        "airlock",
+        "communication"
+      ],
+      "surface": "proposed-walkable-path"
+    },
+    {
+      "id": "west-occupied-wing",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          42,
+          20
+        ],
+        [
+          36,
+          20
+        ],
+        [
+          34,
+          19
+        ]
+      ],
+      "connects": [
+        "communication",
+        "oxygen"
+      ],
+      "surface": "proposed-walkable-path"
+    },
+    {
+      "id": "shelter-connector",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          26,
+          19
+        ],
+        [
+          24,
+          19
+        ]
+      ],
+      "connects": [
+        "oxygen",
+        "shelter"
+      ],
+      "surface": "proposed-walkable-path"
+    },
+    {
+      "id": "research-branch",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          42,
+          24
+        ],
+        [
+          34,
+          24
+        ],
+        [
+          31,
+          24
+        ],
+        [
+          31,
+          26
+        ]
+      ],
+      "connects": [
+        "south-main-walkway",
+        "research"
+      ],
+      "surface": "proposed-walkable-path"
+    },
+    {
+      "id": "east-power-service",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          48,
+          17
+        ],
+        [
+          49,
+          17
+        ],
+        [
+          53,
+          21
+        ],
+        [
+          53,
+          22
+        ],
+        [
+          58,
+          24
+        ],
+        [
+          60,
+          23
+        ]
+      ],
+      "connects": [
+        "communication",
+        "power-control",
+        "battery",
+        "greenhouse"
+      ],
+      "surface": "proposed-walkable-path"
+    },
+    {
+      "id": "solar-inspection-path",
+      "widthTiles": 2,
+      "waypointsTiles": [
+        [
+          66,
+          12
+        ],
+        [
+          66,
+          17
+        ],
+        [
+          66,
+          19
+        ]
+      ],
+      "connects": [
+        "greenhouse",
+        "solar-array-zone"
+      ],
+      "surface": "proposed-walkable-path"
+    }
+  ],
+  "energyConnection": {
+    "routeTiles": [
+      [
+        65,
+        11
+      ],
+      [
+        65,
+        15
+      ],
+      [
+        58,
+        17
+      ]
+    ],
+    "status": "visual-conduit-concept-only",
+    "collision": false,
+    "note": "Illustrative map connection between exterior arrays and indoor storage/control; not an engineering schematic."
+  },
+  "siteZones": [
+    {
+      "id": "solar-array-zone",
+      "boundsTiles": {
+        "x": 62,
+        "y": 4,
+        "w": 15,
+        "h": 9
+      },
+      "placement": "outside; keep buildings, tall decoration, and camera-blocking props clear of the array field"
+    },
+    {
+      "id": "habitat-campus",
+      "boundsTiles": {
+        "x": 16,
+        "y": 13,
+        "w": 56,
+        "h": 25
+      },
+      "placement": "room footprints and connecting paths; individual room footprints remain provisional"
+    }
+  ],
+  "proposedPlacements": [
+    {
+      "id": "solar-array-main",
+      "assetKey": "buildings.building_007_83x69.bld-0007",
+      "assetId": "BLD-0007",
+      "positionTiles": {
+        "x": 64,
+        "y": 5
+      },
+      "sourceDimensionsPx": {
+        "width": 83,
+        "height": 69
+      },
+      "classification": "CONFIRMED",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "External solar array structure; proposed placement."
+    },
+    {
+      "id": "solar-panel-a",
+      "assetKey": "tools_equipment.equipment_019_34x32.eqp-0019",
+      "assetId": "EQP-0019",
+      "positionTiles": {
+        "x": 68,
+        "y": 7
+      },
+      "sourceDimensionsPx": {
+        "width": 34,
+        "height": 32
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "Small panel prop; proposed repeat element."
+    },
+    {
+      "id": "solar-panel-b",
+      "assetKey": "tools_equipment.equipment_020_26x34.eqp-0020",
+      "assetId": "EQP-0020",
+      "positionTiles": {
+        "x": 71,
+        "y": 7
+      },
+      "sourceDimensionsPx": {
+        "width": 26,
+        "height": 34
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "Small panel prop; proposed repeat element."
+    },
+    {
+      "id": "communication-workstation",
+      "assetKey": "tools_equipment.equipment_058_31x34.eqp-0058",
+      "assetId": "EQP-0058",
+      "positionTiles": {
+        "x": 41,
+        "y": 17
+      },
+      "sourceDimensionsPx": {
+        "width": 31,
+        "height": 34
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Desk/computer candidate."
+    },
+    {
+      "id": "communication-console",
+      "assetKey": "tools_equipment.equipment_055_31x35.eqp-0055",
+      "assetId": "EQP-0055",
+      "positionTiles": {
+        "x": 45,
+        "y": 17
+      },
+      "sourceDimensionsPx": {
+        "width": 31,
+        "height": 35
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Display console candidate."
+    },
+    {
+      "id": "communication-dish",
+      "assetKey": "tools_equipment.equipment_063_34x48.eqp-0063",
+      "assetId": "EQP-0063",
+      "positionTiles": {
+        "x": 46,
+        "y": 14
+      },
+      "sourceDimensionsPx": {
+        "width": 34,
+        "height": 48
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Dish antenna proposed outside/near communication room."
+    },
+    {
+      "id": "power-control-console",
+      "assetKey": "tools_equipment.equipment_004_28x37.eqp-0004",
+      "assetId": "EQP-0004",
+      "positionTiles": {
+        "x": 52,
+        "y": 16
+      },
+      "sourceDimensionsPx": {
+        "width": 28,
+        "height": 37
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Control panel candidate."
+    },
+    {
+      "id": "power-control-rack",
+      "assetKey": "buildings.building_004_76x67.bld-0004",
+      "assetId": "BLD-0004",
+      "positionTiles": {
+        "x": 54,
+        "y": 15
+      },
+      "sourceDimensionsPx": {
+        "width": 76,
+        "height": 67
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Generic equipment rack candidate."
+    },
+    {
+      "id": "battery-analogue",
+      "assetKey": "buildings.building_006_69x73.bld-0006",
+      "assetId": "BLD-0006",
+      "positionTiles": {
+        "x": 54,
+        "y": 23
+      },
+      "sourceDimensionsPx": {
+        "width": 69,
+        "height": 73
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Unidentified twin-cylinder module; must not be labeled as battery."
+    },
+    {
+      "id": "oxygen-equipment-analogue",
+      "assetKey": "tools_equipment.equipment_005_26x37.eqp-0005",
+      "assetId": "EQP-0005",
+      "positionTiles": {
+        "x": 32,
+        "y": 19
+      },
+      "sourceDimensionsPx": {
+        "width": 26,
+        "height": 37
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Generic machine/canister candidate; not identified as oxygen generator."
+    },
+    {
+      "id": "greenhouse-dome",
+      "assetKey": "buildings.building_003_73x72.bld-0003",
+      "assetId": "BLD-0003",
+      "positionTiles": {
+        "x": 61,
+        "y": 20
+      },
+      "sourceDimensionsPx": {
+        "width": 73,
+        "height": 72
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Glazed dome greenhouse candidate."
+    },
+    {
+      "id": "greenhouse-tray-a",
+      "assetKey": "tools_equipment.equipment_045_33x34.eqp-0045",
+      "assetId": "EQP-0045",
+      "positionTiles": {
+        "x": 62,
+        "y": 23
+      },
+      "sourceDimensionsPx": {
+        "width": 33,
+        "height": 34
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-b",
+      "assetKey": "tools_equipment.equipment_046_32x34.eqp-0046",
+      "assetId": "EQP-0046",
+      "positionTiles": {
+        "x": 64,
+        "y": 23
+      },
+      "sourceDimensionsPx": {
+        "width": 32,
+        "height": 34
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-c",
+      "assetKey": "tools_equipment.equipment_047_30x34.eqp-0047",
+      "assetId": "EQP-0047",
+      "positionTiles": {
+        "x": 66,
+        "y": 23
+      },
+      "sourceDimensionsPx": {
+        "width": 30,
+        "height": 34
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "greenhouse-tray-d",
+      "assetKey": "tools_equipment.equipment_048_33x33.eqp-0048",
+      "assetId": "EQP-0048",
+      "positionTiles": {
+        "x": 68,
+        "y": 23
+      },
+      "sourceDimensionsPx": {
+        "width": 33,
+        "height": 33
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "not-set-until-placement-test",
+      "note": "Plant tray candidate."
+    },
+    {
+      "id": "shelter-door",
+      "assetKey": "doors_walls.door_005_60x46.dor-0005",
+      "assetId": "DOR-0005",
+      "positionTiles": {
+        "x": 22,
+        "y": 19
+      },
+      "sourceDimensionsPx": {
+        "width": 60,
+        "height": 46
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "Heavy door candidate."
+    },
+    {
+      "id": "airlock-door-outer",
+      "assetKey": "doors_walls.door_005_60x46.dor-0005",
+      "assetId": "DOR-0005",
+      "positionTiles": {
+        "x": 40,
+        "y": 34
+      },
+      "sourceDimensionsPx": {
+        "width": 60,
+        "height": 46
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "Proposed outer door; state pairing needs owner review."
+    },
+    {
+      "id": "airlock-door-inner",
+      "assetKey": "doors_walls.door_006_66x46.dor-0006",
+      "assetId": "DOR-0006",
+      "positionTiles": {
+        "x": 40,
+        "y": 34
+      },
+      "sourceDimensionsPx": {
+        "width": 66,
+        "height": 46
+      },
+      "classification": "CANDIDATE",
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "licenseStatus": "UNVERIFIED",
+      "collision": "proposed-solid-footprint; keep door gap passable",
+      "note": "Proposed alternate door state; not a validated animation."
+    }
+  ],
+  "playerSpawn": {
+    "tile": {
+      "x": 43,
+      "y": 37
+    },
+    "facing": "north",
+    "status": "proposed"
+  },
+  "camera": {
+    "logicalViewportPx": {
+      "width": 1280,
+      "height": 720
+    },
+    "aspectRatio": "16:9",
+    "initialFocusTiles": {
+      "x": 43,
+      "y": 33
+    },
+    "boundsWorldPx": {
+      "x": 0,
+      "y": 0,
+      "width": 2560,
+      "height": 1440
+    },
+    "behavior": "follow REVO with world clamping; keep room, interaction prompt, and nearby path visible; recheck mobile safe margins"
+  },
+  "decorationZones": [
+    {
+      "id": "north-west-rock-field",
+      "boundsTiles": {
+        "x": 2,
+        "y": 2,
+        "w": 15,
+        "h": 39
+      },
+      "contents": "select individual rock/crater candidates from Ground_Tileset after owner review",
+      "keepClearOf": [
+        "west-occupied-wing"
+      ]
+    },
+    {
+      "id": "north-ridge",
+      "boundsTiles": {
+        "x": 18,
+        "y": 2,
+        "w": 42,
+        "h": 8
+      },
+      "contents": "sparse terrain variation; maintain open solar exposure"
+    },
+    {
+      "id": "east-perimeter",
+      "boundsTiles": {
+        "x": 74,
+        "y": 14,
+        "w": 5,
+        "h": 25
+      },
+      "contents": "sparse rocks and terrain edge details"
+    },
+    {
+      "id": "south-border",
+      "boundsTiles": {
+        "x": 2,
+        "y": 40,
+        "w": 76,
+        "h": 4
+      },
+      "contents": "low-contrast terrain boundary; preserve entrance apron"
+    }
+  ],
+  "constructionNotes": [
+    "Room rectangles are planning footprints, not dimensions of the supplied building sprites.",
+    "Most selected room/wall sprites are approximately 24–50 px; several floor panels are about 60 × 64 px. Verify repeat seams before using as 32 px grid cells.",
+    "The actual map data architecture is JSON-driven for Phaser 4; Tiled is not a required dependency.",
+    "All asset references are proposed and explicitly non-final. No unapproved candidate is marked final.",
+    "Collision rectangles are conceptual room boundaries. Validate door gaps, shared walls, sprite bounds, and reachability in a later runtime stage.",
+    "Solar arrays remain outside; battery storage and Power Control remain indoors."
+  ],
+  "sharedActors": [
+    {
+      "assetKey": "astronaut.astronaut_001_36x61.ast-0001",
+      "assetId": "AST-0001",
+      "sourceDimensionsPx": {
+        "width": 36,
+        "height": 61
+      },
+      "sourceSheet": "pixellab-Update-the-Revo-astronaut-char-1793949107725.png",
+      "crop": {
+        "x": 4,
+        "y": 4,
+        "width": 36,
+        "height": 61
+      },
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "animationVerified": false,
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetKey": "astronaut.astronaut_009_32x60.ast-0009",
+      "assetId": "AST-0009",
+      "sourceDimensionsPx": {
+        "width": 32,
+        "height": 60
+      },
+      "sourceSheet": "pixellab-Update-the-Revo-astronaut-char-1793949107725.png",
+      "crop": {
+        "x": 91,
+        "y": 68,
+        "width": 32,
+        "height": 60
+      },
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "animationVerified": false,
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetKey": "astronaut.astronaut_010_31x59.ast-0010",
+      "assetId": "AST-0010",
+      "sourceDimensionsPx": {
+        "width": 31,
+        "height": 59
+      },
+      "sourceSheet": "pixellab-Update-the-Revo-astronaut-char-1793949107725.png",
+      "crop": {
+        "x": 135,
+        "y": 68,
+        "width": 31,
+        "height": 59
+      },
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "animationVerified": false,
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetKey": "astronaut.astronaut_011_31x59.ast-0011",
+      "assetId": "AST-0011",
+      "sourceDimensionsPx": {
+        "width": 31,
+        "height": 59
+      },
+      "sourceSheet": "pixellab-Update-the-Revo-astronaut-char-1793949107725.png",
+      "crop": {
+        "x": 177,
+        "y": 68,
+        "width": 31,
+        "height": 59
+      },
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "animationVerified": false,
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetKey": "astronaut.astronaut_012_31x60.ast-0012",
+      "assetId": "AST-0012",
+      "sourceDimensionsPx": {
+        "width": 31,
+        "height": 60
+      },
+      "sourceSheet": "pixellab-Update-the-Revo-astronaut-char-1793949107725.png",
+      "crop": {
+        "x": 219,
+        "y": 68,
+        "width": 31,
+        "height": 60
+      },
+      "status": "proposed-not-approved",
+      "finalAsset": false,
+      "animationVerified": false,
+      "licenseStatus": "UNVERIFIED"
+    }
+  ]
+}

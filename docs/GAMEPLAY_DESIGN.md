@@ -137,7 +137,7 @@ A dust storm can:
 - create dust-management tasks for filters and equipment;
 - make sheltering or postponing an outdoor task the safer option.
 
-A dust storm's effect on solar generation is an open gameplay rule and must not be implemented until explicitly approved. Do not add nuclear generation to the current MVP.
+A future dust storm event reduces available sunlight and solar generation, making stored battery energy more important. Exact gameplay values remain to be designed as fictional abstractions; do not present them as NASA engineering measurements. Do not add nuclear generation to the current MVP.
 
 Every storm event must be labeled as a REVO training simulation unless it uses a specific, traceable NASA observation. Do not present a fictional event as current Mars weather.
 
