@@ -7,6 +7,7 @@ import { IntroScene } from "./scenes/IntroScene.js";
 import { GameScene } from "./scenes/GameScene.js";
 import { UIScene } from "./scenes/UIScene.js";
 import { PauseScene } from "./scenes/PauseScene.js";
+import { InteriorScene } from "./scenes/InteriorScene.js";
 
 // إعدادات المحرك وتمرير مصفوفة المشاهد
 const config = {
@@ -29,6 +30,7 @@ const config = {
     BriefingScene,
     IntroScene,
     GameScene,
+    InteriorScene,
     UIScene,
     PauseScene,
   ],

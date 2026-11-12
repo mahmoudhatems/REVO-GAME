@@ -152,3 +152,26 @@ A successful build alone does not mean the game is playable or production-ready.
 - Not implemented in this stage: 30-day progression, resource simulation, dust-storm mechanics, full NASA API integration, reward/ending systems, or complete facility-specific art.
 
 Stage 2C remains in progress until direct browser checks confirm collision, camera follow, outdoor solar access, interactions, touch controls, and retained menu/intro/scene transitions. Player spawning and keyboard movement were observed; menu and intro loading were observed. The captured screenshot documents the actual Phaser world and player, not the blueprint.
+
+## Stage 2D.1 — Communication Room vertical slice (2026-11-12)
+
+### Implemented
+
+- Added a Phaser-independent facility registry and transition factory, plus a small session snapshot.
+- Added nearest-entry prompting for the Communication Room. E, Space, and the existing mobile action use the same `PlayerControls.consumeAction()` route; interaction is range-gated and transition-locked.
+- Added the southern Communication Room boundary and doorway gap to the exterior JSON collision layer. The door is a separate Phaser image, not baked into a background.
+- Added a reusable `InteriorScene` driven by `src/data/interiors/communication-room.json`, with a floor, wall boundaries, door/exit, REVO movement/collision, and three authored interactions.
+- Entry pauses and retains the current exterior scene; exit restores the recorded player coordinates/direction and resumes it. The UI pause button can target either world scene.
+- N.E.I.L. and communications console are explicitly drawn development placeholders. `EQP-0055` is still classified as a candidate. Door images are candidates, not verified animation frames. Asset licenses remain `UNVERIFIED`.
+
+### Automated verification
+
+- Added tests for proximity range, transition snapshot, layout/catalog references, required interaction IDs, the exterior collision opening, and the interior entry/exit configuration.
+- `npm run check` passed on 2026-11-12: ESLint passed; Vitest passed (3 files, 13 tests); Vite production build passed. Vite reported the existing large JavaScript chunk warning (3,494.28 kB minified; 463.30 kB gzip).
+
+### Browser verification and completion gate
+
+- Verified in the live Phaser/Vite browser on 2026-11-12: the existing menu and intro loaded; keyboard start/skip reached the exterior; arrow-key movement reached the Communication Room entrance and its range-gated prompt; E opened the entrance and loaded the interior Scene; REVO moved inside and the N.E.I.L. Terminal proximity prompt appeared. The interior rendered the authored room layout, development placeholders, and candidate status monitor.
+- Actual Phaser canvas captures: `docs/screenshots/stage2d1-exterior.png` and `docs/screenshots/stage2d1-communication-room.png`.
+- Still unverified: the N.E.I.L./console/status interaction result panel, interior wall/equipment collision behavior, exit back to the exact saved exterior coordinates and facing, mobile action control, pause/resume in both scenes, and audio retention. The browser's constrained viewport also clipped portions of the interior's fixed UI in the captured view; responsive interior framing needs a follow-up check.
+- Stage 2D.1 is **partially implemented and not complete** until the remaining interaction, collision, return-state, mobile, pause, and UI-framing checks pass. Automated test/build success does not substitute for those runtime checks.

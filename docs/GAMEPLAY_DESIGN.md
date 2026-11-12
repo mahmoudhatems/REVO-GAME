@@ -216,3 +216,9 @@ For the first complete playable version:
 - no backend, accounts, multiplayer, or runtime AI assistant.
 
 Polish the main loop before adding more rooms, meters, or story branches.
+
+### Stage 2D.1 — Communication Room facility slice
+
+REVO may enter the Central Communication Room from its southern exterior entrance using a nearest-facility prompt and E, Space, or the shared mobile action control. The first interior has three authored information interactions: N.E.I.L. terminal, main communications console, and mission status display. These explain the training space and do not simulate 30 mission days, change resources, connect to NASA services, or imply live mission data. N.E.I.L. remains a digital assistant represented by a terminal; no walking robot is part of the design.
+
+The exterior `Game` scene is paused while the interior runs. Leaving returns REVO to the recorded exterior coordinates and facing direction, preserving the existing in-memory session by keeping that scene alive. Other facilities remain inspection-only until separately implemented.

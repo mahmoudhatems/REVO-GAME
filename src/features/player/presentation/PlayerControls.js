@@ -18,6 +18,7 @@ export class PlayerControls {
       right: false,
       action: false,
     };
+    this.actionPressed = false;
     this.keys = scene.input.keyboard.addKeys({
       up: "UP",
       down: "DOWN",
@@ -29,6 +30,13 @@ export class PlayerControls {
       d: "D",
     });
     this.actionKey = scene.input.keyboard.addKey("E");
+    this.spaceKey = scene.input.keyboard.addKey("SPACE");
+    this.onActionKey = () => {
+      this.actionPressed = true;
+    };
+    scene.input.keyboard.on("keydown-E", this.onActionKey);
+    scene.input.keyboard.on("keydown-SPACE", this.onActionKey);
+    this.direction = "down";
     this.buttons = new Map();
     this.createTouchControls();
     this.mobile = false;
@@ -74,7 +82,10 @@ export class PlayerControls {
   bindHold(button, direction) {
     const set = (active) => {
       this.held[direction] = active;
-      if (direction === "action" && active) this.held.action = true;
+      if (direction === "action" && active) {
+        this.held.action = true;
+        this.actionPressed = true;
+      }
       if (direction !== "action")
         button.setFillStyle(0xffa64d, active ? 0.92 : 0.72);
     };
@@ -125,10 +136,11 @@ export class PlayerControls {
       .setScale(scale);
   }
 
-  update(isIndoor) {
+  update(isIndoor, enabled = true) {
     const speed = 190;
     const body = this.player.body;
     body.setVelocity(0);
+    if (!enabled) return;
     const left = this.keys.left.isDown || this.keys.a.isDown || this.held.left;
     const right =
       this.keys.right.isDown || this.keys.d.isDown || this.held.right;
@@ -137,19 +149,23 @@ export class PlayerControls {
     const prefix = isIndoor ? "in_" : "out_";
     let moving = false;
     if (left) {
+      this.direction = "left";
       body.setVelocityX(-speed);
       this.player.anims.play(`${prefix}left`, true);
       moving = true;
     } else if (right) {
+      this.direction = "right";
       body.setVelocityX(speed);
       this.player.anims.play(`${prefix}right`, true);
       moving = true;
     }
     if (up) {
+      if (!left && !right) this.direction = "up";
       body.setVelocityY(-speed);
       if (!moving) this.player.anims.play(`${prefix}up`, true);
       moving = true;
     } else if (down) {
+      if (!left && !right) this.direction = "down";
       body.setVelocityY(speed);
       if (!moving) this.player.anims.play(`${prefix}down`, true);
       moving = true;
@@ -161,13 +177,18 @@ export class PlayerControls {
 
   consumeAction() {
     const pressed =
-      Phaser.Input.Keyboard.JustDown(this.actionKey) || this.held.action;
+      this.actionPressed ||
+      Phaser.Input.Keyboard.JustDown(this.actionKey) ||
+      Phaser.Input.Keyboard.JustDown(this.spaceKey);
     this.held.action = false;
+    this.actionPressed = false;
     return pressed;
   }
 
   destroy() {
     this.scene.scale.off("resize", this.onResize);
+    this.scene.input.keyboard.off("keydown-E", this.onActionKey);
+    this.scene.input.keyboard.off("keydown-SPACE", this.onActionKey);
     for (const pair of this.buttons.values()) {
       pair.background.destroy();
       pair.text.destroy();

@@ -9,9 +9,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint src/features/world src/features/player src/scenes/GameScene.js src/main.js scripts/maps test vite.config.js eslint.config.js",
-    "format": "prettier --write src/data/maps/alpha-base-exterior.json src/features/world/**/*.js src/features/player/**/*.js src/scenes/GameScene.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
-    "format:check": "prettier --check src/data/maps/alpha-base-exterior.json src/features/world/**/*.js src/features/player/**/*.js src/scenes/GameScene.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
+    "lint": "eslint src/features/world src/features/player src/features/facilities src/scenes/GameScene.js src/scenes/InteriorScene.js src/scenes/UIScene.js src/scenes/PauseScene.js src/main.js scripts/maps test vite.config.js eslint.config.js",
+    "format": "prettier --write src/data/maps/alpha-base-exterior.json src/data/interiors/*.json src/features/world/**/*.js src/features/player/**/*.js src/features/facilities/**/*.js src/scenes/*.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
+    "format:check": "prettier --check src/data/maps/alpha-base-exterior.json src/data/interiors/*.json src/features/world/**/*.js src/features/player/**/*.js src/features/facilities/**/*.js src/scenes/*.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
     "check": "npm run lint && npm test && npm run build"
   },
   "dependencies": {

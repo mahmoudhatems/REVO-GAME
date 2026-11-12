@@ -5460,16 +5460,30 @@
         "source": "facility-boundary"
       },
       {
-        "id": "wall-44",
+        "id": "wall-44-west",
         "tileRect": {
           "x": 38,
           "y": 37,
-          "width": 10,
+          "width": 4,
           "height": 1
         },
         "x": 1216,
         "y": 1184,
-        "width": 320,
+        "width": 128,
+        "height": 32,
+        "source": "facility-boundary"
+      },
+      {
+        "id": "wall-44-east",
+        "tileRect": {
+          "x": 44,
+          "y": 37,
+          "width": 4,
+          "height": 1
+        },
+        "x": 1408,
+        "y": 1184,
+        "width": 128,
         "height": 32,
         "source": "facility-boundary"
       },
@@ -5509,6 +5523,51 @@
         "width": 100,
         "height": 77,
         "source": "candidate-building-footprint"
+      },
+      {
+        "id": "communication-north-wall",
+        "facilityId": "communication",
+        "x": 1152,
+        "y": 416,
+        "width": 416,
+        "height": 18,
+        "source": "facility-boundary"
+      },
+      {
+        "id": "communication-west-wall",
+        "facilityId": "communication",
+        "x": 1152,
+        "y": 416,
+        "width": 18,
+        "height": 288,
+        "source": "facility-boundary"
+      },
+      {
+        "id": "communication-east-wall",
+        "facilityId": "communication",
+        "x": 1550,
+        "y": 416,
+        "width": 18,
+        "height": 288,
+        "source": "facility-boundary"
+      },
+      {
+        "id": "communication-south-wall-west",
+        "facilityId": "communication",
+        "x": 1152,
+        "y": 686,
+        "width": 160,
+        "height": 18,
+        "source": "facility-boundary"
+      },
+      {
+        "id": "communication-south-wall-east",
+        "facilityId": "communication",
+        "x": 1408,
+        "y": 686,
+        "width": 160,
+        "height": 18,
+        "source": "facility-boundary"
       },
       {
         "id": "building-power-control",

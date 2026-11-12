@@ -13,6 +13,7 @@ export class MapLayerRenderer {
     this.textureByKey = new Map(
       map.assets.map((asset) => [asset.assetKey, asset.assetId]),
     );
+    this.doors = new Map();
   }
 
   render() {
@@ -114,6 +115,10 @@ export class MapLayerRenderer {
       image.setOrigin(0.5, segment.isDoor ? 0.78 : 0.5);
       image.setDepth(100 + position.y);
       if (segment.rotation) image.setAngle(segment.rotation);
+      if (segment.isDoor) {
+        const key = `${segment.facilityId}:${segment.edge}`;
+        this.doors.set(key, image);
+      }
     }
   }
 

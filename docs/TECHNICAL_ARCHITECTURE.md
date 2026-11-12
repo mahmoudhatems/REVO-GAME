@@ -232,3 +232,12 @@ Browser verification is required for visual/interaction changes. A successful Vi
 - Prefer curated NASA JSON for the MVP.
 - Vercel deployment must use the correct root directory and Vite build output.
 - Do not add serverless functions unless explicitly required.
+
+## Stage 2D.1 facility vertical slice (2026-11-12)
+
+- `src/features/facilities/domain/facilityRegistry.js` adapts approved exterior map interaction records to facility entrance definitions. The domain/application modules do not import Phaser.
+- `src/features/facilities/presentation/DoorAnimator.js` owns the independent exterior/interior door presentation. The exterior uses the separate `DOR-0005` map sprite and related `DOR-0006` candidate visual in a short cross-fade state sequence. The catalog does not verify these images as animation frames; this remains a development visual pending owner review.
+- `src/data/interiors/communication-room.json` is the first facility layout and interaction data. `InteriorScene` renders it with Phaser 4.
+- Entry pauses the existing `Game` scene and launches the reusable `Interior` scene. Exit restores the saved exterior position/facing and resumes the same scene, preserving its in-memory state. The resource system does not exist yet.
+- Only Communication Room is registered for entry. Other facility interactions remain inspection toasts.
+- Additional facilities should continue to use JSON layouts and this reusable Scene, without duplicated per-facility Scenes. Asset provenance/license remains `UNVERIFIED`; monitor/door artwork retains its catalog candidate status.

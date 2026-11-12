@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "communication-room",
+  "facilityId": "communication",
+  "title": "CENTRAL COMMUNICATION ROOM",
+  "dimensions": { "widthPx": 640, "heightPx": 448 },
+  "entry": { "x": 320, "y": 330, "direction": "up" },
+  "exit": { "x": 320, "y": 416, "interactionRadiusPx": 58 },
+  "assets": [
+    {
+      "assetId": "FLT-0001",
+      "runtimePath": "assets/facilities/FLT-0001.png",
+      "classification": "CONFIRMED",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "DOR-0005",
+      "runtimePath": "assets/map/DOR-0005.png",
+      "classification": "CANDIDATE",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "DOR-0006",
+      "runtimePath": "assets/facilities/DOR-0006.png",
+      "classification": "CANDIDATE",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "EQP-0055",
+      "runtimePath": "assets/map/EQP-0055.png",
+      "classification": "CANDIDATE",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "EQP-0058",
+      "runtimePath": "assets/map/EQP-0058.png",
+      "classification": "CANDIDATE",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "WAL-0002",
+      "runtimePath": "assets/map/WAL-0002.png",
+      "classification": "CONFIRMED",
+      "licenseStatus": "UNVERIFIED"
+    },
+    {
+      "assetId": "WAL-0003",
+      "runtimePath": "assets/map/WAL-0003.png",
+      "classification": "CONFIRMED",
+      "licenseStatus": "UNVERIFIED"
+    }
+  ],
+  "interactables": [
+    {
+      "id": "neil-terminal",
+      "title": "N.E.I.L. TERMINAL",
+      "kind": "authored-terminal-placeholder",
+      "position": { "x": 170, "y": 150 },
+      "radiusPx": 62,
+      "message": "N.E.I.L. is ready to share the mission briefing. This training terminal is a development placeholder."
+    },
+    {
+      "id": "communications-console",
+      "title": "MAIN COMMUNICATIONS CONSOLE",
+      "kind": "authored-console-placeholder",
+      "position": { "x": 320, "y": 132 },
+      "radiusPx": 62,
+      "message": "The communications console connects Alpha Base with mission control. Detailed communications gameplay is planned for a later stage."
+    },
+    {
+      "id": "mission-status-display",
+      "title": "MISSION STATUS DISPLAY",
+      "kind": "candidate-monitor-prop",
+      "assetId": "EQP-0055",
+      "position": { "x": 478, "y": 150 },
+      "radiusPx": 62,
+      "message": "This display is a visual status-board placeholder. No live mission or NASA data is connected."
+    }
+  ],
+  "collision": {
+    "wallThicknessPx": 20,
+    "exitOpening": { "x": 272, "width": 96 }
+  }
+}

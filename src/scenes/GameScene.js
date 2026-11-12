@@ -8,6 +8,14 @@ import {
   getContainingFacility,
 } from "../features/world/application/interactionRegistry.js";
 import { PlayerControls } from "../features/player/presentation/PlayerControls.js";
+import { AudioFX } from "../utils/audio.js";
+import { getExteriorFacilityEntrances } from "../features/facilities/domain/facilityRegistry.js";
+import { facilitySession } from "../features/facilities/domain/facilitySession.js";
+import {
+  beginFacilityTransition,
+  getFacilityPrompt,
+} from "../features/facilities/application/facilityInteraction.js";
+import { DoorAnimator } from "../features/facilities/presentation/DoorAnimator.js";
 
 export class GameScene extends Phaser.Scene {
   constructor() {
@@ -25,6 +33,7 @@ export class GameScene extends Phaser.Scene {
       if (!this.textures.exists(asset.assetId))
         this.load.image(asset.assetId, asset.runtimePath);
     }
+    this.load.image("DOR-0006", "assets/facilities/DOR-0006.png");
   }
 
   create() {
@@ -38,6 +47,8 @@ export class GameScene extends Phaser.Scene {
     this.mapRenderer.render();
     this.createCollisions();
     this.createPlayer();
+    this.facilityEntrances = getExteriorFacilityEntrances(this.map);
+    this.createCommunicationDoorAnimator();
     this.createHud();
     this.configureCamera();
     this.inputControls = new PlayerControls(this, this.player);
@@ -64,6 +75,18 @@ export class GameScene extends Phaser.Scene {
       body.setData("collisionId", rectangle.id);
       body.setData("collisionSource", rectangle.source);
     }
+  }
+
+  createCommunicationDoorAnimator() {
+    const closed = this.mapRenderer.doors.get("communication:south");
+    if (!closed || !this.textures.exists("DOR-0006")) return;
+    const open = this.add
+      .image(closed.x, closed.y, "DOR-0006")
+      .setOrigin(closed.originX, closed.originY)
+      .setAngle(closed.angle)
+      .setDepth(closed.depth + 1)
+      .setVisible(false);
+    this.communicationDoorAnimator = new DoorAnimator(this, { closed, open });
   }
 
   createPlayer() {
@@ -165,15 +188,18 @@ export class GameScene extends Phaser.Scene {
     );
     const indoors =
       facility && !["solar-arrays", "airlock"].includes(facility.facilityId);
-    this.inputControls.update(Boolean(indoors));
+    this.inputControls.update(Boolean(indoors), !this.transitioning);
 
     const nearest = findNearestInteraction(
       this.map.layers.Interactables,
       this.player,
       this.map.coordinateSystem.tileSizePx,
     );
-    if (this.inputControls.consumeAction()) {
-      if (nearest) this.showToast(nearest.interaction);
+    const entrance = getFacilityPrompt(this.facilityEntrances, this.player);
+    if (this.inputControls.consumeAction() && !this.transitioning) {
+      if (entrance?.entrance.facilityId === "communication") {
+        this.enterFacility(entrance.entrance);
+      } else if (nearest) this.showToast(nearest.interaction);
       else {
         this.toast.setText(
           "Walk closer to a facility or the solar array to inspect it.",
@@ -191,12 +217,48 @@ export class GameScene extends Phaser.Scene {
       : "ALPHA BASE EXTERIOR";
     this.hud.setText(currentName ?? "ALPHA BASE EXTERIOR");
     this.prompt.setText(
-      nearest
-        ? "E / ACT - INSPECT NEARBY FACILITY"
-        : "WASD / ARROWS TO MOVE - E TO INSPECT",
+      this.transitioning
+        ? "OPENING COMMUNICATION ROOM..."
+        : entrance?.entrance.facilityId === "communication"
+          ? `${entrance.entrance.name}\nPRESS E / SPACE / ACT TO ENTER`
+          : nearest
+            ? "E / ACT - INSPECT NEARBY FACILITY"
+            : "WASD / ARROWS TO MOVE - E TO INSPECT",
     );
     this.toast.setVisible(time < this.toastUntil);
     this.player.setDepth(100 + this.player.y + 32);
+  }
+
+  enterFacility(entrance) {
+    if (this.transitioning || !this.communicationDoorAnimator) return;
+    const transition = beginFacilityTransition(entrance.facilityId, {
+      x: this.player.x,
+      y: this.player.y,
+      direction: this.inputControls.direction,
+    });
+    if (!transition) return;
+    this.transitioning = true;
+    this.player.body.setVelocity(0);
+    AudioFX.blip(220, 0.12, "triangle", 0.14);
+    this.communicationDoorAnimator.play(true, () => {
+      facilitySession.saveTransition(transition);
+      this.scene.launch("Interior", { transition });
+      this.scene.pause("Game");
+    });
+  }
+
+  finishFacilityReturn(returnContext) {
+    this.player.setPosition(returnContext.x, returnContext.y);
+    this.player.body.setVelocity(0);
+    this.inputControls.direction = returnContext.direction ?? "down";
+    this.input.keyboard.resetKeys();
+    this.cameras.main.fadeIn(180, 0, 0, 0);
+    this.transitioning = true;
+    AudioFX.blip(330, 0.1, "triangle", 0.12);
+    this.communicationDoorAnimator.play(false, () => {
+      this.transitioning = false;
+      facilitySession.clearTransition();
+    });
   }
 
   shutdown() {
