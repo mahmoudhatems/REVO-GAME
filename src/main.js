@@ -8,6 +8,11 @@ import { GameScene } from "./scenes/GameScene.js";
 import { UIScene } from "./scenes/UIScene.js";
 import { PauseScene } from "./scenes/PauseScene.js";
 import { InteriorScene } from "./scenes/InteriorScene.js";
+import { HudScene } from "./features/hud/HudScene.js";
+import { StationScene } from "./features/stations/StationScene.js";
+import { MissionFlowScene } from "./features/mission/ui/MissionFlowScene.js";
+import { LogbookScene } from "./features/logbook/LogbookScene.js";
+import { ObjectivesScene, ControlsScene } from "./features/pause/InfoScenes.js";
 
 // إعدادات المحرك وتمرير مصفوفة المشاهد
 const config = {
@@ -32,9 +37,18 @@ const config = {
     GameScene,
     InteriorScene,
     UIScene,
+    HudScene,
     PauseScene,
+    StationScene,
+    MissionFlowScene,
+    LogbookScene,
+    ObjectivesScene,
+    ControlsScene,
   ],
 };
 
 // بدء تشغيل اللعبة
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+if (new URLSearchParams(globalThis.location?.search ?? "").has("debug")) {
+  globalThis.__REVO_GAME__ = game;
+}

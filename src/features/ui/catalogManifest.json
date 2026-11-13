@@ -1,0 +1,602 @@
+{
+ "Tools_Equipment:1": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_001_28x39.png",
+  "assetId": "EQP-0001",
+  "w": 28,
+  "h": 39,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:4": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_004_28x37.png",
+  "assetId": "EQP-0004",
+  "w": 28,
+  "h": 37,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:5": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_005_26x37.png",
+  "assetId": "EQP-0005",
+  "w": 26,
+  "h": 37,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:6": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_006_41x38.png",
+  "assetId": "EQP-0006",
+  "w": 41,
+  "h": 38,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:7": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_007_27x37.png",
+  "assetId": "EQP-0007",
+  "w": 27,
+  "h": 37,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:9": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_009_26x38.png",
+  "assetId": "EQP-0009",
+  "w": 26,
+  "h": 38,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:13": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_013_22x35.png",
+  "assetId": "EQP-0013",
+  "w": 22,
+  "h": 35,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:14": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_014_15x34.png",
+  "assetId": "EQP-0014",
+  "w": 15,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:15": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_015_15x34.png",
+  "assetId": "EQP-0015",
+  "w": 15,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:16": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_016_16x34.png",
+  "assetId": "EQP-0016",
+  "w": 16,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:17": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_017_50x34.png",
+  "assetId": "EQP-0017",
+  "w": 50,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:18": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_018_37x34.png",
+  "assetId": "EQP-0018",
+  "w": 37,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:19": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_019_34x32.png",
+  "assetId": "EQP-0019",
+  "w": 34,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:20": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_020_26x34.png",
+  "assetId": "EQP-0020",
+  "w": 26,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:21": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_021_35x33.png",
+  "assetId": "EQP-0021",
+  "w": 35,
+  "h": 33,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:24": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_024_26x37.png",
+  "assetId": "EQP-0024",
+  "w": 26,
+  "h": 37,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:25": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_025_26x36.png",
+  "assetId": "EQP-0025",
+  "w": 26,
+  "h": 36,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:28": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_028_17x36.png",
+  "assetId": "EQP-0028",
+  "w": 17,
+  "h": 36,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:29": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_029_22x29.png",
+  "assetId": "EQP-0029",
+  "w": 22,
+  "h": 29,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:36": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_036_6x5.png",
+  "assetId": "EQP-0036",
+  "w": 6,
+  "h": 5,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:45": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_045_33x34.png",
+  "assetId": "EQP-0045",
+  "w": 33,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:46": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_046_32x34.png",
+  "assetId": "EQP-0046",
+  "w": 32,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:47": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_047_30x34.png",
+  "assetId": "EQP-0047",
+  "w": 30,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:48": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_048_33x33.png",
+  "assetId": "EQP-0048",
+  "w": 33,
+  "h": 33,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:49": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_049_27x33.png",
+  "assetId": "EQP-0049",
+  "w": 27,
+  "h": 33,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:50": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_050_29x33.png",
+  "assetId": "EQP-0050",
+  "w": 29,
+  "h": 33,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:51": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_051_37x31.png",
+  "assetId": "EQP-0051",
+  "w": 37,
+  "h": 31,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:52": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_052_25x31.png",
+  "assetId": "EQP-0052",
+  "w": 25,
+  "h": 31,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:53": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_053_21x35.png",
+  "assetId": "EQP-0053",
+  "w": 21,
+  "h": 35,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:54": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_054_23x35.png",
+  "assetId": "EQP-0054",
+  "w": 23,
+  "h": 35,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:55": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_055_31x35.png",
+  "assetId": "EQP-0055",
+  "w": 31,
+  "h": 35,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:56": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_056_29x35.png",
+  "assetId": "EQP-0056",
+  "w": 29,
+  "h": 35,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:57": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_057_25x34.png",
+  "assetId": "EQP-0057",
+  "w": 25,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:58": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_058_31x34.png",
+  "assetId": "EQP-0058",
+  "w": 31,
+  "h": 34,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:59": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_059_30x32.png",
+  "assetId": "EQP-0059",
+  "w": 30,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:60": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_060_33x31.png",
+  "assetId": "EQP-0060",
+  "w": 33,
+  "h": 31,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:61": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_061_26x21.png",
+  "assetId": "EQP-0061",
+  "w": 26,
+  "h": 21,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:62": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_062_65x52.png",
+  "assetId": "EQP-0062",
+  "w": 65,
+  "h": 52,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:63": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_063_34x48.png",
+  "assetId": "EQP-0063",
+  "w": 34,
+  "h": 48,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:64": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_064_18x48.png",
+  "assetId": "EQP-0064",
+  "w": 18,
+  "h": 48,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:65": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_065_18x30.png",
+  "assetId": "EQP-0065",
+  "w": 18,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Tools_Equipment:66": {
+  "file": "assets/revo-ui/catalog/Tools_Equipment/Equipment_066_33x28.png",
+  "assetId": "EQP-0066",
+  "w": 33,
+  "h": 28,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:2": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_002_29x30.png",
+  "assetId": "UIC-0002",
+  "w": 29,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:4": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_004_30x30.png",
+  "assetId": "UIC-0004",
+  "w": 30,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:5": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_005_29x30.png",
+  "assetId": "UIC-0005",
+  "w": 29,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:6": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_006_30x30.png",
+  "assetId": "UIC-0006",
+  "w": 30,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:7": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_007_31x30.png",
+  "assetId": "UIC-0007",
+  "w": 31,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:8": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_008_31x27.png",
+  "assetId": "UIC-0008",
+  "w": 31,
+  "h": 27,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:11": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_011_33x32.png",
+  "assetId": "UIC-0011",
+  "w": 33,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:12": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_012_30x32.png",
+  "assetId": "UIC-0012",
+  "w": 30,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:13": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_013_27x32.png",
+  "assetId": "UIC-0013",
+  "w": 27,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:14": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_014_31x32.png",
+  "assetId": "UIC-0014",
+  "w": 31,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:15": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_015_32x32.png",
+  "assetId": "UIC-0015",
+  "w": 32,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:16": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_016_31x32.png",
+  "assetId": "UIC-0016",
+  "w": 31,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:20": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_020_31x29.png",
+  "assetId": "UIC-0020",
+  "w": 31,
+  "h": 29,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:21": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_021_32x29.png",
+  "assetId": "UIC-0021",
+  "w": 32,
+  "h": 29,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:22": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_022_30x23.png",
+  "assetId": "UIC-0022",
+  "w": 30,
+  "h": 23,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:29": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_029_31x30.png",
+  "assetId": "UIC-0029",
+  "w": 31,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:31": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_031_31x29.png",
+  "assetId": "UIC-0031",
+  "w": 31,
+  "h": 29,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:32": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_032_30x23.png",
+  "assetId": "UIC-0032",
+  "w": 30,
+  "h": 23,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:39": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_039_31x30.png",
+  "assetId": "UIC-0039",
+  "w": 31,
+  "h": 30,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:42": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_042_19x27.png",
+  "assetId": "UIC-0042",
+  "w": 19,
+  "h": 27,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:44": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_044_30x21.png",
+  "assetId": "UIC-0044",
+  "w": 30,
+  "h": 21,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:46": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_046_48x32.png",
+  "assetId": "UIC-0046",
+  "w": 48,
+  "h": 32,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:47": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_047_49x29.png",
+  "assetId": "UIC-0047",
+  "w": 49,
+  "h": 29,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:48": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_048_48x28.png",
+  "assetId": "UIC-0048",
+  "w": 48,
+  "h": 28,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:49": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_049_48x28.png",
+  "assetId": "UIC-0049",
+  "w": 48,
+  "h": 28,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "UI_Icons:50": {
+  "file": "assets/revo-ui/catalog/UI_Icons/Icon_050_43x21.png",
+  "assetId": "UIC-0050",
+  "w": 43,
+  "h": 21,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:1": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_001_100x77.png",
+  "assetId": "BLD-0001",
+  "w": 100,
+  "h": 77,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:2": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_002_65x72.png",
+  "assetId": "BLD-0002",
+  "w": 65,
+  "h": 72,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:3": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_003_73x72.png",
+  "assetId": "BLD-0003",
+  "w": 73,
+  "h": 72,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:4": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_004_76x67.png",
+  "assetId": "BLD-0004",
+  "w": 76,
+  "h": 67,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:5": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_005_83x77.png",
+  "assetId": "BLD-0005",
+  "w": 83,
+  "h": 77,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:6": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_006_69x73.png",
+  "assetId": "BLD-0006",
+  "w": 69,
+  "h": 73,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ },
+ "Buildings:7": {
+  "file": "assets/revo-ui/catalog/Buildings/Building_007_83x69.png",
+  "assetId": "BLD-0007",
+  "w": 83,
+  "h": 69,
+  "license": "UNVERIFIED",
+  "approval": "pending_owner_approval"
+ }
+}

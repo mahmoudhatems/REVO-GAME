@@ -1,0 +1,104 @@
+{
+ "exterior_building": {
+  "x": 14,
+  "y": 14,
+  "w": 168,
+  "h": 132
+ },
+ "large_solar_panel": {
+  "x": 196,
+  "y": 14,
+  "w": 44,
+  "h": 33
+ },
+ "small_solar_panel": {
+  "x": 254,
+  "y": 14,
+  "w": 24,
+  "h": 21
+ },
+ "connected_solar_panel_array": {
+  "x": 292,
+  "y": 14,
+  "w": 98,
+  "h": 34
+ },
+ "foldable_solar_panel_unit": {
+  "x": 404,
+  "y": 14,
+  "w": 54,
+  "h": 33
+ },
+ "battery_storage_unit": {
+  "x": 196,
+  "y": 62,
+  "w": 30,
+  "h": 30
+ },
+ "large_energy_storage_battery": {
+  "x": 240,
+  "y": 62,
+  "w": 46,
+  "h": 36
+ },
+ "power_inverter": {
+  "x": 300,
+  "y": 62,
+  "w": 30,
+  "h": 26
+ },
+ "solar_charge_controller": {
+  "x": 344,
+  "y": 62,
+  "w": 22,
+  "h": 26
+ },
+ "electrical_distribution_cabinet": {
+  "x": 380,
+  "y": 62,
+  "w": 28,
+  "h": 36
+ },
+ "electrical_cable_segments": {
+  "x": 422,
+  "y": 62,
+  "w": 40,
+  "h": 26
+ },
+ "cable_connectors": {
+  "x": 196,
+  "y": 112,
+  "w": 24,
+  "h": 16
+ },
+ "power_junction_box": {
+  "x": 234,
+  "y": 112,
+  "w": 26,
+  "h": 24
+ },
+ "solar_panel_mounting_frame": {
+  "x": 274,
+  "y": 112,
+  "w": 46,
+  "h": 34
+ },
+ "solar_panel_cleaning_brush": {
+  "x": 334,
+  "y": 112,
+  "w": 16,
+  "h": 36
+ },
+ "solar_panel_maintenance_tool": {
+  "x": 364,
+  "y": 112,
+  "w": 26,
+  "h": 26
+ },
+ "small_power_status_indicator": {
+  "x": 404,
+  "y": 112,
+  "w": 14,
+  "h": 24
+ }
+}

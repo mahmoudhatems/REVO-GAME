@@ -82,6 +82,7 @@ export class InteriorScene extends Phaser.Scene {
       this.neilDialogue.show("roomWelcome", { once: true });
     }
     this.scene.bringToTop("UI");
+    this.scene.bringToTop("Hud");
   }
 
   createNeilCompanion() {
