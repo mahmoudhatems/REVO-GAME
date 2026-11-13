@@ -187,7 +187,7 @@ export function DataReadout(scene, { x = 0, y = 0, w = 140, label = '', value = 
   g.fillStyle(C.space, 1); g.fillRect(0, 0, w, 46); g.fillStyle(C.dgray, 1); g.fillRect(0, 0, w, 2); g.fillRect(0, 44, w, 2);
   const l = T(scene, 8, 5, label.toUpperCase(), { size: SIZE.xs, color: css(C.muted) });
   const col = state === 'nodata' ? C.muted : (STATE_COLOR[state] ?? C.cyan);
-  const v = T(scene, 8, 19, String(value), { size: SIZE.lg, color: css(col) });
+  const v = T(scene, 8, 19, String(value), { size: w < 230 ? SIZE.xs : SIZE.lg, color: css(col), wrap: Math.max(40, w - 16) });
   const u = T(scene, 8 + v.width + 4, 26, unit, { size: SIZE.xs, color: css(C.muted) });
   const n = T(scene, w - 6, 5, note, { size: 9, color: css(C.muted), ox: 1 });
   c.add([g, l, v, u, n]); c.w = w; c.h = 46;

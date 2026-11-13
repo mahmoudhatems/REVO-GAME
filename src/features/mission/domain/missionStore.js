@@ -59,7 +59,11 @@ export class MissionStore {
     };
   }
 
-  setPhase(phase) { this.set({ phase }); }
+  setPhase(phase) {
+    if (phase !== 'approvalPending' && this.config.approvalStatus !== 'APPROVED') return false;
+    this.set({ phase });
+    return true;
+  }
 
   selectOption(id) {
     if (this.state.phase !== 'decision' || !this.option(id)) return false;

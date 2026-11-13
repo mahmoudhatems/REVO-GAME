@@ -24,7 +24,8 @@ describe('initial Mission 1 state', () => {
     const before = store.getState();
     expect(before.phase).toBe('approvalPending');
     expect(store.selectOption('basic_grid')).toBe(false);
-    store.setPhase('decision');
+    expect(store.setPhase('decision')).toBe(false);
+    expect(store.getState().phase).toBe('approvalPending');
     expect(store.confirmDeployment()).toBeNull();
     store.startDustWarning();
     expect(store.getState().deployment).toBeNull();
@@ -113,8 +114,9 @@ describe('phase flow', () => {
 
 describe('N.E.I.L. and countdown', () => {
   it('speaks from state: briefing text, low battery warning, post-deploy summary', () => {
-    const s = new MissionStore();
-    expect(neilGuidance(s.getState()).text).toContain('awaiting approval');
+    const pending = new MissionStore();
+    expect(neilGuidance(pending.getState()).text).toContain('awaiting approval');
+    const s = new MissionStore(approvedFixture);
     s.setPhase('decision');
     s.set({ battery_current: 5 });
     expect(neilGuidance(s.getState()).severity).toBe('critical');
