@@ -69,3 +69,7 @@ The source contact sheets and catalog preserve source metadata, but PNG alpha-ch
 ## Stage 2D.3 update — N.E.I.L. source pack
 
 The owner-approved pack is now integrated from preserved source files as a tracked robot companion. Only stable directional poses are displayed; movement sequence and animation timing remain unverified. PixelLab rights remain `UNVERIFIED`. This supersedes the earlier audit statement that N.E.I.L. artwork was missing. The supplied base character resolves VIS-002 delivery; VIS-003 animation verification remains proposed.
+
+## Current N.E.I.L. and energy decision status (2026-11-13)
+
+The supplied N.E.I.L. companion pack has been integrated as a physical robot; stable direction poses only are currently used. Its approved hybrid Mission Intelligence System role is deterministic and reads the future authoritative mission state. This role does not replace the robot identity. Solar remains the only approved power architecture, with batteries and indoor distribution; no nuclear reactor is approved. Earlier audit statements that the robot art was missing are historical and superseded by the Stage 2D.3 source-pack record. Pack license remains `UNVERIFIED`.

@@ -195,3 +195,7 @@ The next preparation work is documentation and owner review only: visual audit, 
 - All pack frames are 64×64 with alpha; individual direction sheets are 384×64. Stable direction poses only are used. Pose sequence, walk-cycle registration, and FPS remain unverified.
 - PixelLab licensing and the missing original raw sheet remain provenance blockers (`UNVERIFIED`). Direct steering can stop at blockers and does not perform route finding.
 - Capture only genuine Phaser canvas screenshots; retain Stage 2D.1 captures as historical evidence, not Stage 2D.3 proof.
+
+# Owner-approved direction and data status (2026-11-13)
+
+N.E.I.L.'s approved current role is hybrid: the physical robot companion is retained and also provides deterministic Mission Intelligence System behavior from one authoritative mission state. Solar remains the sole approved power architecture; batteries store energy, and dust storms may reduce solar generation. No nuclear reactor or external LLM is approved. Mission-state ownership, resource rules/values, event-to-state transitions, and the complete alert-to-outcome learning loop remain future implementation work and require approval before coding. The three JSON files in `assets/source/data/` remain unintegrated, untransformed, and pending provenance/semantic validation. This is a current decision/status note; prior stage reports remain historical records.

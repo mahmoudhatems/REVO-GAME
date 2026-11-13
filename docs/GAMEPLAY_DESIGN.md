@@ -226,3 +226,7 @@ The exterior `Game` scene is paused while the interior runs. Leaving returns REV
 # Stage 2D.3 — N.E.I.L. companion slice (2026-11-12)
 
 N.E.I.L. means **Navigation & Exploration Intelligence Link** and is the friendly tracked-robot companion. It follows REVO with collision-aware direct steering, turns among the delivered directional poses, and delivers authored tutorial and facility guidance. Dialogue is data-driven; no runtime AI service is used. The current sprite integration uses a single verified stable pose per direction. Do not infer a walking animation from the unverified remaining frame order. The mission briefing terminal is an interface prop and is not N.E.I.L.'s identity.
+
+## Owner-approved hybrid role update (2026-11-13)
+
+N.E.I.L. remains the physical robot companion and also serves as a Mission Intelligence System. Its future mission alerts, station guidance, choices, and outcome explanations must be authored and deterministic, driven by the one authoritative mission state. This role is approved as product direction; a mission-state model and resource simulation are not yet implemented. The approved energy architecture remains solar arrays plus batteries and indoor distribution; dust storms may reduce solar generation under explicitly authored fictional rules. Do not introduce nuclear power or represent fictional balancing values as NASA measurements. This current status supersedes earlier terminal-only and robot-only role descriptions while preserving their historical audit context.

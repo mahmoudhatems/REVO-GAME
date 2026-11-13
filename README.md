@@ -7,7 +7,7 @@
 
 REVO is being developed for the **NASA Space Apps Challenge 2026 — Cairo**, in response to the challenge **Build a Junior Astronaut Mission Trainer**.
 
-The project turns real space-exploration constraints into a short, accessible, interactive experience. The player controls REVO, a young astronaut exploring a fictional research outpost near Jezero Crater on Mars. N.E.I.L. (the **Navigation & Exploration Intelligence Link**) is REVO's friendly robot companion. N.E.I.L. guides exploration through authored, data-driven dialogue; terminals may remain interactive interfaces, but N.E.I.L. is not terminal-only and is not a runtime AI chatbot.
+The project turns real space-exploration constraints into a short, accessible, interactive experience. The player controls REVO, a young astronaut exploring a fictional research outpost near Jezero Crater on Mars. N.E.I.L. (the **Navigation & Exploration Intelligence Link**) is REVO's friendly physical robot companion and a hybrid Mission Intelligence System. It reads authoritative mission state and uses authored, deterministic dialogue and rules to provide alerts, guide decisions, and explain outcomes. Terminals are interfaces; N.E.I.L. is not terminal-only and does not use an external LLM or runtime chatbot.
 
 The player's goal is to keep Alpha Base safe and operational through a 30-day simulated mission, complete science and maintenance objectives, make meaningful trade-offs, and send a final status report to Earth.
 

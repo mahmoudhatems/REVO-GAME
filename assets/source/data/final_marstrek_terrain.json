@@ -1,0 +1,202 @@
+[
+    {
+        "x_coordinate": 0,
+        "y_coordinate": 0,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 0,
+        "y_coordinate": 1,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 0,
+        "y_coordinate": 2,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 0,
+        "y_coordinate": 3,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 0,
+        "y_coordinate": 4,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 1,
+        "y_coordinate": 0,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 1,
+        "y_coordinate": 1,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 1,
+        "y_coordinate": 2,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 1,
+        "y_coordinate": 3,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 1,
+        "y_coordinate": 4,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 2,
+        "y_coordinate": 0,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 2,
+        "y_coordinate": 1,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 2,
+        "y_coordinate": 2,
+        "terrain_type": "Mountain",
+        "name_ar": "جبل",
+        "is_buildable": false,
+        "movement_cost": 5
+    },
+    {
+        "x_coordinate": 2,
+        "y_coordinate": 3,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 2,
+        "y_coordinate": 4,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 3,
+        "y_coordinate": 0,
+        "terrain_type": "Ice_Patch",
+        "name_ar": "بقعة جليدية",
+        "is_buildable": true,
+        "movement_cost": 2
+    },
+    {
+        "x_coordinate": 3,
+        "y_coordinate": 1,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 3,
+        "y_coordinate": 2,
+        "terrain_type": "Mountain",
+        "name_ar": "جبل",
+        "is_buildable": false,
+        "movement_cost": 5
+    },
+    {
+        "x_coordinate": 3,
+        "y_coordinate": 3,
+        "terrain_type": "Ice_Patch",
+        "name_ar": "بقعة جليدية",
+        "is_buildable": true,
+        "movement_cost": 2
+    },
+    {
+        "x_coordinate": 3,
+        "y_coordinate": 4,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 4,
+        "y_coordinate": 0,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 4,
+        "y_coordinate": 1,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 4,
+        "y_coordinate": 2,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    },
+    {
+        "x_coordinate": 4,
+        "y_coordinate": 3,
+        "terrain_type": "Crater",
+        "name_ar": "فوهة نيزك",
+        "is_buildable": false,
+        "movement_cost": 3
+    },
+    {
+        "x_coordinate": 4,
+        "y_coordinate": 4,
+        "terrain_type": "Flat_Plains",
+        "name_ar": "سهول منبسطة",
+        "is_buildable": true,
+        "movement_cost": 1
+    }
+]

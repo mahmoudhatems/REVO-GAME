@@ -10,7 +10,7 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 
 ## Accepted world layout
 
-- Central Communication Room is the main hub and includes N.E.I.L.'s companion interaction/docking area. N.E.I.L. (Navigation & Exploration Intelligence Link) is a friendly robot companion; terminals can be interface props but do not define N.E.I.L.'s identity.
+- Central Communication Room is the main hub and includes N.E.I.L.'s companion interaction/docking area. N.E.I.L. (Navigation & Exploration Intelligence Link) remains a friendly physical robot companion and also has an authored, deterministic Mission Intelligence System role: it reads the authoritative mission state to provide alerts, guide decisions, and explain outcomes. Terminals are interface props, not N.E.I.L.'s identity. No external LLM or runtime chatbot is approved.
 - External solar arrays are outside; battery storage is part of the energy system.
 - Indoor Power Control Room manages power distribution.
 - Oxygen Generation / Life Support is a separate room.

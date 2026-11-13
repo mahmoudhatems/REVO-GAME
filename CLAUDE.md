@@ -64,7 +64,7 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Platform: browser-playable, landscape-first, with desktop and mobile support.
 - Setting: fictional Mars research outpost near Jezero Crater.
 - Main character: REVO.
-- Companion: N.E.I.L. means **Navigation & Exploration Intelligence Link** and is a friendly robot companion. Preserve REVO's existing character artwork; all other current visuals are prototype material pending review/replacement. N.E.I.L. uses authored, data-driven dialogue; no runtime AI chatbot.
+- Companion and mission assistant: N.E.I.L. means **Navigation & Exploration Intelligence Link** and remains a friendly physical robot companion. Its hybrid role also includes a deterministic Mission Intelligence System that reads the authoritative mission state to provide alerts, guide decisions, and explain outcomes. Preserve REVO's existing character artwork; all other current visuals are prototype material pending review/replacement. Use authored, data-driven dialogue; no external LLM or runtime chatbot.
 - Visual production: PixelLab use is manual through its website only; never call its API/MCP or automate downloads. Prefer free tools and do not require paid plans. Owner review plus provenance/license verification is required before integrating new/generated artwork. Keep current source assets intact during review.
 - Main hub: Central Communication Room.
 - Facilities: external solar arrays, battery storage, indoor Power Control Room, Oxygen Generation/Life Support Room, Research Lab, Greenhouse, Radiation Shelter, Entrance/Airlock, and the Central Communication Room hub.

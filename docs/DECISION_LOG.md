@@ -72,3 +72,10 @@ Do not invent these as finalized facts. Propose options and ask the owner when t
 # 2026-11-12 — Stage 2D.3 N.E.I.L. pack integration
 
 Owner-approved N.E.I.L. character pack is integrated as the friendly tracked robot companion described by the current product decision. Preserve source files. Use stable directional poses only until frame order and animation timing are verified. The supplied pack's license remains `UNVERIFIED`; approval to integrate the pack does not establish redistribution rights. Keep the briefing terminal a separate facility interface. See the Stage 2D.3 sections in gameplay, architecture, asset-license, and acceptance documentation.
+
+# 2026-11-13 â€” Owner-approved current product and data decisions
+
+- N.E.I.L. remains the physical robot companion, Navigation & Exploration Intelligence Link, with a hybrid Mission Intelligence System role. The assistant role is authored and deterministic: it reads the one authoritative mission state to provide alerts, guide decisions, and explain outcomes. No external LLM or runtime chatbot is approved. This supersedes earlier terminal-only role recommendations without changing N.E.I.L.'s identity.
+- Solar is the only approved power architecture: external arrays generate power, batteries store available energy, and indoor Power Control distributes it. Dust storms may reduce solar generation and affect operations through explicitly authored fictional rules. No nuclear reactor is approved for the current architecture.
+- `assets/source/data/final_csa_food.json`, `final_donki.json`, and `final_marstrek_terrain.json` are supplied inputs only. They are not integrated or transformed. Provenance, units, derivations, and geographic metadata remain unverified where absent; distinguish source facts from REVO balancing values.
+- These decisions do not create or modify runtime systems, map metadata, or dataset schemas.

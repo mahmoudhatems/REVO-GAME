@@ -216,3 +216,6 @@ All shortlisted assets currently have catalog license status `UNVERIFIED`. The p
 - [Stage 2A contact-sheet index](../asset-contact-sheets/contact-sheet-index.csv)
 
 No Phaser Scene, runtime map loader, gameplay system, or source asset is changed by this review package.
+## Current N.E.I.L. decision note (2026-11-13)
+
+This Stage 2B review predates the final N.E.I.L. role decision. Its terminal-only dialogue recommendation is superseded: N.E.I.L. remains the physical robot companion (Navigation & Exploration Intelligence Link) and also has an approved deterministic Mission Intelligence System role driven by authoritative mission state. The supplied companion pack is integrated; it is not a terminal asset. Its animation sequencing and license remain unverified. Facility asset selections and map geometry in this review are unaffected.

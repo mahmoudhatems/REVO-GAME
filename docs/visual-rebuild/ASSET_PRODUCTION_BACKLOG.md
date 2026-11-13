@@ -103,3 +103,7 @@ Every building remains an independently placeable multi-sprite assembly with kno
 ## Stage 2D.3 status update (2026-11-12)
 
 VIS-002 has been supplied in `assets/source/NEIL_Sprite_Pack/`, approved by the owner for project integration, and integrated as static directional poses. Its license remains `UNVERIFIED`. VIS-003 animation states remain proposed until frame sequence and timing are verified.
+
+## VIS-002 current status correction (2026-11-13)
+
+The owner-supplied N.E.I.L. robot base pack has been delivered and integrated; VIS-002 is no longer proposed as missing base art. Stable directional poses only are used. VIS-003 animation sequence/timing remains proposed and unverified. Owner approval to use the supplied pack does not resolve its redistribution license, which remains `UNVERIFIED`. The original backlog rows above are retained as historical planning records.
