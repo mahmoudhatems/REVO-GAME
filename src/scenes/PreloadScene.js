@@ -2,6 +2,7 @@ import * as Phaser from "phaser";
 import { CHARACTER_SHEET, UI_FONT } from "../config/constants.js";
 import { addLogo, goTo } from "../utils/ui.js";
 import neilAssets from "../data/assets/neil/neil-assets.json";
+import { preloadUiAssets } from "../features/ui/assetKeys.js";
 
 export class PreloadScene extends Phaser.Scene {
   constructor() {
@@ -33,9 +34,15 @@ export class PreloadScene extends Phaser.Scene {
         frameHeight: neilAssets.frameHeight,
       });
     }
+    preloadUiAssets(this.load);
   }
 
   create() {
+    for (const key of this.textures.getTextureKeys()) {
+      if (key.startsWith("cat_") || key.startsWith("st_")) {
+        this.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+    }
     this.progress = 1;
     this.drawBar();
     const wait = Math.max(0, 1400 - (this.time.now - this.started));

@@ -1,0 +1,116 @@
+{
+ "exterior_building": {
+  "x": 14,
+  "y": 14,
+  "w": 168,
+  "h": 132
+ },
+ "closed_loop_water_recycler": {
+  "x": 196,
+  "y": 14,
+  "w": 40,
+  "h": 36
+ },
+ "water_filtration_machine": {
+  "x": 250,
+  "y": 14,
+  "w": 36,
+  "h": 32
+ },
+ "primary_water_storage_tank": {
+  "x": 300,
+  "y": 14,
+  "w": 44,
+  "h": 44
+ },
+ "secondary_water_storage_tank": {
+  "x": 358,
+  "y": 14,
+  "w": 30,
+  "h": 30
+ },
+ "water_purification_filter_cartridge": {
+  "x": 402,
+  "y": 14,
+  "w": 14,
+  "h": 30
+ },
+ "water_pump": {
+  "x": 430,
+  "y": 14,
+  "w": 32,
+  "h": 28
+ },
+ "water_distribution_pump": {
+  "x": 196,
+  "y": 72,
+  "w": 34,
+  "h": 30
+ },
+ "water_pipe_straight_segment": {
+  "x": 244,
+  "y": 72,
+  "w": 32,
+  "h": 10
+ },
+ "water_pipe_curved_segment": {
+  "x": 290,
+  "y": 72,
+  "w": 26,
+  "h": 26
+ },
+ "pipe_elbow_connector": {
+  "x": 330,
+  "y": 72,
+  "w": 22,
+  "h": 22
+ },
+ "pipe_junction_connector": {
+  "x": 366,
+  "y": 72,
+  "w": 30,
+  "h": 28
+ },
+ "manual_water_valve": {
+  "x": 410,
+  "y": 72,
+  "w": 24,
+  "h": 28
+ },
+ "water_pressure_gauge": {
+  "x": 448,
+  "y": 72,
+  "w": 22,
+  "h": 28
+ },
+ "water_quality_monitoring_console": {
+  "x": 196,
+  "y": 116,
+  "w": 34,
+  "h": 30
+ },
+ "water_leak_detector": {
+  "x": 244,
+  "y": 116,
+  "w": 16,
+  "h": 22
+ },
+ "water_collection_container": {
+  "x": 274,
+  "y": 116,
+  "w": 26,
+  "h": 26
+ },
+ "wastewater_processing_unit": {
+  "x": 314,
+  "y": 116,
+  "w": 46,
+  "h": 38
+ },
+ "water_recycling_control_panel": {
+  "x": 374,
+  "y": 116,
+  "w": 26,
+  "h": 32
+ }
+}

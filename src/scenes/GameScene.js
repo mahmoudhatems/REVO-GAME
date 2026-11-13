@@ -66,6 +66,7 @@ export class GameScene extends Phaser.Scene {
         worldScene: this,
       },
     });
+    this.scene.launch("Hud");
 
     this.onResize = () => this.configureCamera();
     this.scale.on("resize", this.onResize);
@@ -124,6 +125,28 @@ export class GameScene extends Phaser.Scene {
       .setDepth(closed.depth + 1)
       .setVisible(false);
     this.communicationDoorAnimator = new DoorAnimator(this, { closed, open });
+  }
+
+  getCurrentRoom() {
+    const facility = getContainingFacility(
+      this.map.layers.RoomTriggers,
+      this.player,
+      this.map.coordinateSystem.tileSizePx,
+    );
+    if (!facility) return null;
+    const stationIds = {
+      communication: "habitat",
+      "power-control": "solar",
+      battery: "solar",
+      oxygen: "oxygen",
+      research: "habitat",
+      greenhouse: "greenhouse",
+      shelter: "radiation",
+    };
+    const stationId = stationIds[facility.facilityId];
+    return stationId
+      ? { id: stationId, name: facility.name, facilityId: facility.facilityId }
+      : null;
   }
 
   createPlayer() {
@@ -344,6 +367,7 @@ export class GameScene extends Phaser.Scene {
     this.inputControls?.destroy();
     this.neilCompanion?.destroy();
     this.scene.stop("UI");
+    this.scene.stop("Hud");
     this.scene.stop("Pause");
     this.sound.stopAll();
   }

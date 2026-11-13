@@ -1,0 +1,128 @@
+{
+ "exterior_building": {
+  "x": 14,
+  "y": 14,
+  "w": 168,
+  "h": 132
+ },
+ "oxygen_generator": {
+  "x": 196,
+  "y": 14,
+  "w": 32,
+  "h": 34
+ },
+ "main_oxygen_production_machine": {
+  "x": 242,
+  "y": 14,
+  "w": 50,
+  "h": 42
+ },
+ "oxygen_storage_cylinder": {
+  "x": 306,
+  "y": 14,
+  "w": 14,
+  "h": 32
+ },
+ "multiple_oxygen_cylinder_rack": {
+  "x": 334,
+  "y": 14,
+  "w": 48,
+  "h": 36
+ },
+ "oxygen_distribution_unit": {
+  "x": 396,
+  "y": 14,
+  "w": 38,
+  "h": 30
+ },
+ "space_heating_unit": {
+  "x": 448,
+  "y": 14,
+  "w": 32,
+  "h": 32
+ },
+ "thermal_regulation_machine": {
+  "x": 196,
+  "y": 70,
+  "w": 38,
+  "h": 34
+ },
+ "heating_control_panel": {
+  "x": 248,
+  "y": 70,
+  "w": 26,
+  "h": 30
+ },
+ "ventilation_fan": {
+  "x": 288,
+  "y": 70,
+  "w": 30,
+  "h": 30
+ },
+ "air_circulation_unit": {
+  "x": 332,
+  "y": 70,
+  "w": 42,
+  "h": 30
+ },
+ "oxygen_pipe_segments": {
+  "x": 388,
+  "y": 70,
+  "w": 34,
+  "h": 10
+ },
+ "insulated_pipes": {
+  "x": 436,
+  "y": 70,
+  "w": 34,
+  "h": 14
+ },
+ "anti_freeze_heating_cable": {
+  "x": 196,
+  "y": 118,
+  "w": 34,
+  "h": 18
+ },
+ "pipe_connectors": {
+  "x": 244,
+  "y": 118,
+  "w": 30,
+  "h": 22
+ },
+ "oxygen_flow_valve": {
+  "x": 288,
+  "y": 118,
+  "w": 26,
+  "h": 30
+ },
+ "oxygen_pressure_gauge": {
+  "x": 328,
+  "y": 118,
+  "w": 22,
+  "h": 28
+ },
+ "oxygen_monitoring_screen": {
+  "x": 364,
+  "y": 118,
+  "w": 30,
+  "h": 28
+ },
+ "temperature_sensor": {
+  "x": 408,
+  "y": 118,
+  "w": 14,
+  "h": 28
+ },
+ "temperature_monitoring_console": {
+  "x": 436,
+  "y": 118,
+  "w": 36,
+  "h": 28
+ },
+ "emergency_heating_module": {
+  "x": 14,
+  "y": 162,
+  "w": 32,
+  "h": 34
+ }
+}

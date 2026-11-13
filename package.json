@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint src/features/world src/features/player src/features/facilities src/features/communication src/scenes/GameScene.js src/scenes/InteriorScene.js src/scenes/UIScene.js src/scenes/PauseScene.js src/main.js scripts/maps test vite.config.js eslint.config.js",
+    "lint": "eslint src/features/world src/features/player src/features/facilities src/features/communication src/features/hud src/features/logbook src/features/mission src/features/neil src/features/pause src/features/stations src/features/ui src/scenes/GameScene.js src/scenes/InteriorScene.js src/scenes/UIScene.js src/scenes/PauseScene.js src/main.js scripts/maps scripts/ui-assets test vite.config.js eslint.config.js",
     "format": "prettier --write src/data/maps/alpha-base-exterior.json src/data/interiors/*.json src/data/dialogue/*.json src/data/assets/neil/*.json src/features/world/**/*.js src/features/player/**/*.js src/features/facilities/**/*.js src/features/communication/**/*.js src/scenes/*.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
     "format:check": "prettier --check src/data/maps/alpha-base-exterior.json src/data/interiors/*.json src/data/dialogue/*.json src/data/assets/neil/*.json src/features/world/**/*.js src/features/player/**/*.js src/features/facilities/**/*.js src/features/communication/**/*.js src/scenes/*.js src/main.js scripts/maps/**/*.mjs test/**/*.js eslint.config.js package.json",
     "check": "npm run lint && npm test && npm run build"
