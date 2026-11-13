@@ -76,7 +76,7 @@ Do not add too many always-visible bars. Keep these as mission state, event indi
 ### Central Communication Room — main hub
 
 - Main mission-control hall.
-- N.E.I.L. terminal and dialogue.
+- N.E.I.L. companion and authored dialogue; terminals may provide interactive mission interfaces.
 - Crew and facility overview.
 - Mission alerts and objectives.
 - Earth communication status and delayed replies.
@@ -137,7 +137,7 @@ A dust storm can:
 - create dust-management tasks for filters and equipment;
 - make sheltering or postponing an outdoor task the safer option.
 
-A dust storm's effect on solar generation is an open gameplay rule and must not be implemented until explicitly approved. Do not add nuclear generation to the current MVP.
+A future dust storm event reduces available sunlight and solar generation, making stored battery energy more important. Exact gameplay values remain to be designed as fictional abstractions; do not present them as NASA engineering measurements. Do not add nuclear generation to the current MVP.
 
 Every storm event must be labeled as a REVO training simulation unless it uses a specific, traceable NASA observation. Do not present a fictional event as current Mars weather.
 
@@ -216,3 +216,17 @@ For the first complete playable version:
 - no backend, accounts, multiplayer, or runtime AI assistant.
 
 Polish the main loop before adding more rooms, meters, or story branches.
+
+### Stage 2D.1 — Communication Room facility slice
+
+REVO may enter the Central Communication Room from its southern exterior entrance using a nearest-facility prompt and E, Space, or the shared mobile action control. The first interior has authored information interactions for N.E.I.L., the main communications console, and mission status display. These explain the training space and do not simulate 30 mission days, change resources, connect to NASA services, or imply live mission data. By the owner-approved 2026-11-12 decision, N.E.I.L. (Navigation & Exploration Intelligence Link) is a friendly robot companion who guides REVO using authored dialogue data. Do not implement a runtime AI chatbot or a walking robot based on unrelated drone art; the dedicated companion artwork remains to be produced and approved.
+
+The exterior `Game` scene is paused while the interior runs. Leaving returns REVO to the recorded exterior coordinates and facing direction, preserving the existing in-memory session by keeping that scene alive. Other facilities remain inspection-only until separately implemented.
+
+# Stage 2D.3 � N.E.I.L. companion slice (2026-11-12)
+
+N.E.I.L. means **Navigation & Exploration Intelligence Link** and is the friendly tracked-robot companion. It follows REVO with collision-aware direct steering, turns among the delivered directional poses, and delivers authored tutorial and facility guidance. Dialogue is data-driven; no runtime AI service is used. The current sprite integration uses a single verified stable pose per direction. Do not infer a walking animation from the unverified remaining frame order. The mission briefing terminal is an interface prop and is not N.E.I.L.'s identity.
+
+## Owner-approved hybrid role update (2026-11-13)
+
+N.E.I.L. remains the physical robot companion and also serves as a Mission Intelligence System. Its future mission alerts, station guidance, choices, and outcome explanations must be authored and deterministic, driven by the one authoritative mission state. This role is approved as product direction; a mission-state model and resource simulation are not yet implemented. The approved energy architecture remains solar arrays plus batteries and indoor distribution; dust storms may reduce solar generation under explicitly authored fictional rules. Do not introduce nuclear power or represent fictional balancing values as NASA measurements. This current status supersedes earlier terminal-only and robot-only role descriptions while preserving their historical audit context.

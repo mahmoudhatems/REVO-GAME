@@ -1,0 +1,17 @@
+[
+    {
+        "beginTime":"2024-01-01T12:00:00Z",
+        "classType":"M1.2",
+        "storm_danger_level":2
+    },
+    {
+        "beginTime":"2024-01-05T08:10:00Z",
+        "classType":"X2.1",
+        "storm_danger_level":3
+    },
+    {
+        "beginTime":"2024-01-12T14:00:00Z",
+        "classType":"C3.4",
+        "storm_danger_level":1
+    }
+]

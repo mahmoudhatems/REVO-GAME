@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "speaker": "N.E.I.L.",
+  "tutorial": {
+    "welcome": "Hey, REVO! I'm N.E.I.L., your mission companion. Let's explore Alpha Base together!",
+    "movement": "Use WASD or the arrow keys to move around. I'll be right here to help!",
+    "exploration": "Every room helps the base work as a team. Walk up to a station to learn what it does.",
+    "communicationEntrance": "The Communication Room is our main hub. The entrance is just ahead.",
+    "interactionResult": "Nice exploring, REVO! Each station helps the crew keep Alpha Base running.",
+    "roomWelcome": "We're in the Communication Room. This is where the crew checks messages and base status.",
+    "briefingTerminal": "This mission terminal holds the briefing and training notes. N.E.I.L. remains here to guide you in person.",
+    "communicationsConsole": "The communications console is for messages between Alpha Base and mission control. Replies from Earth can take time.",
+    "missionStatus": "This status display is a training prop. It is not connected to live mission or NASA data."
+  }
+}

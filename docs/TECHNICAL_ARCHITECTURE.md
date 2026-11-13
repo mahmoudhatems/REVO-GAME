@@ -7,7 +7,7 @@ As checked on 11 November 2026, the Phaser official archive lists Phaser 4.2.1 a
 - Phaser 4.2.1: https://phaser.io/download/release/v4.2.1
 - JavaScript ES Modules.
 - Vite.
-- Tiled.
+- JSON-driven map data validated and loaded by the Phaser 4 world/map adapter. Tiled is optional, not a required dependency.
 - Vitest.
 - ESLint.
 - Prettier.
@@ -77,7 +77,7 @@ Examples:
 Implements external boundaries:
 
 - Phaser map and physics adapters;
-- Tiled JSON loading;
+- validated JSON map loading;
 - JSON content repositories;
 - asset loading;
 - local persistence;
@@ -208,7 +208,7 @@ Use Vitest for pure domain logic:
 - ending evaluation;
 - save serialization and validation.
 
-Add integration checks for Tiled map parsing, asset keys, collision setup, and use-case wiring.
+Add integration checks for JSON map validation, asset keys, collision setup, and use-case wiring.
 
 Browser verification is required for visual/interaction changes. A successful Vite build is not proof that the game plays correctly.
 
@@ -232,3 +232,23 @@ Browser verification is required for visual/interaction changes. A successful Vi
 - Prefer curated NASA JSON for the MVP.
 - Vercel deployment must use the correct root directory and Vite build output.
 - Do not add serverless functions unless explicitly required.
+
+## Stage 2D.1 facility vertical slice (2026-11-12)
+
+- `src/features/facilities/domain/facilityRegistry.js` adapts approved exterior map interaction records to facility entrance definitions. The domain/application modules do not import Phaser.
+- `src/features/facilities/presentation/DoorAnimator.js` owns the independent exterior/interior door presentation. The exterior uses the separate `DOR-0005` map sprite and related `DOR-0006` candidate visual in a short cross-fade state sequence. The catalog does not verify these images as animation frames; this remains a development visual pending owner review.
+- `src/data/interiors/communication-room.json` is the first facility layout and interaction data. `InteriorScene` renders it with Phaser 4.
+- Entry pauses the existing `Game` scene and launches the reusable `Interior` scene. Exit restores the saved exterior position/facing and resumes the same scene, preserving its in-memory state. The resource system does not exist yet.
+- Only Communication Room is registered for entry. Other facility interactions remain inspection toasts.
+- Additional facilities should continue to use JSON layouts and this reusable Scene, without duplicated per-facility Scenes. Asset provenance/license remains `UNVERIFIED`; monitor/door artwork retains its catalog candidate status.
+# Visual production architecture decision (2026-11-12)
+
+The owner-approved art preparation phase does not change runtime code. Preserve the existing root Phaser 4.2.1 + Vite application and JSON-driven world source. N.E.I.L. is Navigation & Exploration Intelligence Link, a friendly robot companion. When implemented in a later approved task, represent behavior as a Phaser-independent companion/domain model plus authored dialogue data, with Phaser presentation and interaction adapters; do not add a runtime AI service. Dedicated N.E.I.L. artwork is missing and must be reviewed before integration. Preserve REVO's existing character artwork; other visuals are temporary/prototype pending owner review. Manual PixelLab website use only, free tools preferred, generated outputs require owner approval and recorded provenance. Visual specs are under `visual-rebuild/`.
+
+# Stage 2D.3 companion architecture (2026-11-12)
+
+The Phaser-independent N.E.I.L. follow, direction, dialogue, and tutorial controllers are in `src/features/communication/neil/domain/` and `application/`. The Phaser presentation sprite and UI dialogue bubble are in `presentation/`. Directional stable-frame descriptors are in `src/data/assets/neil/neil-assets.json`; authored dialogue is in `src/data/dialogue/neil-tutorial.json`. Exterior and interior scenes provide their current blockers and reserved interaction points, while the UI scene owns bubble presentation. This remains collision-aware steering rather than pathfinding; avoid duplicating the feature per Scene. Pack metadata and attribution are retained in the source folder; licensing is `UNVERIFIED`.
+
+## Mission-state and dataset current status (2026-11-13)
+
+The approved N.E.I.L. Mission Intelligence System role is a product decision, not evidence that an authoritative mission/resource model or complete decision loop exists. No second source of truth should be introduced: future domain/application state must be authoritative, and N.E.I.L., scenes, and HUD should consume it through explicit boundaries. This documentation update does not implement that model. The supplied robot art pack is integrated as stable directional poses; animation sequencing remains unverified and its license is `UNVERIFIED`, superseding the earlier missing-art status. The three supplied JSON files under `assets/source/data/` are pending provenance and schema validation; they are not integrated, normalized, or treated as raw NASA records. Keep source records separate from normalized evidence and from REVO balancing values. Dataset fields without documented units, derivation, or source provenance must remain unasserted.

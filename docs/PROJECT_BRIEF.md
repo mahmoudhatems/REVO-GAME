@@ -18,7 +18,7 @@ Space education for children can be too abstract to show the trade-offs astronau
 
 ## 3. REVO's proposed solution
 
-REVO is a short 2D top-down exploration and mission-management game. The player controls REVO, a young astronaut, and receives guidance from N.E.I.L., a digital assistant in the central Communication Room.
+REVO is a short 2D top-down exploration and mission-management game. The player controls REVO, a young astronaut, and receives guidance from N.E.I.L. in the central Communication Room. N.E.I.L. is the friendly physical robot companion Navigation & Exploration Intelligence Link; its hybrid Mission Intelligence System role uses authored, deterministic rules against authoritative mission state to provide alerts, guide decisions, and explain outcomes. Terminals are interfaces, not N.E.I.L.'s identity.
 
 The player explores Alpha Base, inspects facilities, discovers operational problems, chooses among limited options, and sees consequences across the base. After a choice, N.E.I.L. gives a brief explanation and, where relevant, a science card referencing NASA research or mission data.
 

@@ -1,214 +1,350 @@
-import * as Phaser from 'phaser';
-import { TILE, ROWS, COLS, WORLD_W, WORLD_H, FLOOR, DOOR, WALL } from '../config/constants.js';
-import { ROOMS, roomById } from '../data/worldData.js';
-import { buildGrid } from '../utils/grid.js';
+import * as Phaser from "phaser";
+import mapData from "../data/maps/alpha-base-exterior.json";
+import assetCatalog from "../data/assets/asset-catalog.json";
+import { validateMapData } from "../features/world/data/mapSchema.js";
+import { MapLayerRenderer } from "../features/world/render/MapLayerRenderer.js";
+import {
+  findNearestInteraction,
+  getContainingFacility,
+} from "../features/world/application/interactionRegistry.js";
+import { PlayerControls } from "../features/player/presentation/PlayerControls.js";
+import { AudioFX } from "../utils/audio.js";
+import { getExteriorFacilityEntrances } from "../features/facilities/domain/facilityRegistry.js";
+import { facilitySession } from "../features/facilities/domain/facilitySession.js";
+import {
+  beginFacilityTransition,
+  getFacilityPrompt,
+} from "../features/facilities/application/facilityInteraction.js";
+import { DoorAnimator } from "../features/facilities/presentation/DoorAnimator.js";
+import neilDialogueData from "../data/dialogue/neil-tutorial.json";
+import { NeilDialogueController } from "../features/communication/neil/application/NeilDialogueController.js";
+import { NeilTutorialController } from "../features/communication/neil/application/NeilTutorialController.js";
+import { getInitialNeilPosition } from "../features/communication/neil/application/NeilCompanionController.js";
+import { NeilCompanion } from "../features/communication/neil/presentation/NeilCompanion.js";
 
 export class GameScene extends Phaser.Scene {
-  constructor() { super('Game'); }
+  constructor() {
+    super("Game");
+    this.map = mapData;
+  }
+
+  preload() {
+    const validation = validateMapData(this.map, assetCatalog);
+    if (!validation.valid)
+      throw new Error(
+        `Alpha Base map failed validation: ${validation.errors.join("; ")}`,
+      );
+    for (const asset of this.map.assets) {
+      if (!this.textures.exists(asset.assetId))
+        this.load.image(asset.assetId, asset.runtimePath);
+    }
+    this.load.image("DOR-0006", "assets/facilities/DOR-0006.png");
+  }
 
   create() {
+    const { widthPx, heightPx } = this.map.dimensions;
     this.toastUntil = 0;
-    this.vpad = { up: false, down: false, left: false, right: false, action: false };
-    this.cameras.main.setBackgroundColor('#a8381f');
-    this.cameras.main.fadeIn(500, 0, 0, 0);
-    this.input.addPointer(2);
+    this.cameras.main.setBackgroundColor("#a9472c");
+    this.cameras.main.fadeIn(350, 0, 0, 0);
+    this.physics.world.setBounds(0, 0, widthPx, heightPx);
 
-    this.isMobile = !this.sys.game.device.os.desktop || navigator.userAgent.match(/Android|iPhone|iPad/i) !== null;
+    this.mapRenderer = new MapLayerRenderer(this, this.map);
+    this.mapRenderer.render();
+    this.createCollisions();
+    this.createPlayer();
+    this.facilityEntrances = getExteriorFacilityEntrances(this.map);
+    this.createCommunicationDoorAnimator();
+    this.createHud();
+    this.configureCamera();
+    this.inputControls = new PlayerControls(this, this.player);
+    this.createNeilCompanion();
+    this.scene.launch("UI", {
+      neilContext: {
+        companion: this.neilCompanion,
+        dialogue: this.neilDialogue,
+        tutorial: this.neilTutorial,
+        worldScene: this,
+      },
+    });
 
-    this.physics.world.setBounds(0, 0, WORLD_W, WORLD_H);
+    this.onResize = () => this.configureCamera();
+    this.scale.on("resize", this.onResize);
+    this.events.once("resume", () => this.input.keyboard.resetKeys());
+    this.events.once("shutdown", () => this.shutdown());
+  }
 
-    const built = buildGrid();
-    const grid = built.grid;
-    this.roomGrid = built.roomGrid;
+  createNeilCompanion() {
+    this.neilDialogue = new NeilDialogueController(neilDialogueData.tutorial);
+    this.neilTutorial = new NeilTutorialController(this.neilDialogue);
+    const initialPosition = getInitialNeilPosition(
+      { x: this.player.x, y: this.player.y },
+      this.map.playerSpawn.facing ?? "north",
+    );
+    this.neilSpawnPosition = { x: this.player.x, y: this.player.y };
+    const tileSize = this.map.coordinateSystem.tileSizePx;
+    const reservedPoints = this.map.layers.Interactables.map((item) => ({
+      x: (item.positionTiles.x + 0.5) * tileSize,
+      y: (item.positionTiles.y + 0.5) * tileSize,
+      radius: item.radiusPx + 30,
+    }));
+    this.neilCompanion = new NeilCompanion(this, {
+      ...initialPosition,
+      blockers: this.blockers,
+      leader: this.player,
+      reservedPoints,
+    });
+    this.neilCompanion.setLeaderDirection(this.inputControls.direction);
+    this.neilTutorial.start();
+  }
 
-    const blockers = this.physics.add.staticGroup();
-    const g = this.add.graphics();
-
-    // رسم الأرضية وتجهيز اجسام الاصطدام مع الجدران
-    for (let ty = 0; ty < ROWS; ty++) {
-      for (let tx = 0; tx < COLS; tx++) {
-        const cell = grid[ty][tx];
-        const px = tx * TILE;
-        const py = ty * TILE;
-
-        if (cell === FLOOR) {
-          const id = this.roomGrid[ty][tx];
-          const base = id ? roomById[id].tint : 0x4a3a30;
-          g.fillStyle(base, 1); g.fillRect(px, py, TILE, TILE);
-          g.lineStyle(1, 0xffffff, 0.06); g.strokeRect(px, py, TILE, TILE);
-        } else if (cell === DOOR) {
-          g.fillStyle(0x8a5a2b, 1); g.fillRect(px, py, TILE, TILE);
-          g.fillStyle(0xf59e0b, 1); g.fillRect(px + 12, py + 12, 8, 8);
-        } else if (cell === WALL) {
-          g.fillStyle(0xc2561f, 1); g.fillRect(px, py, TILE, TILE);
-          g.lineStyle(2, 0x7c2d12, 1); g.strokeRect(px, py, TILE, TILE);
-          const z = this.add.zone(px + TILE / 2, py + TILE / 2, TILE, TILE);
-          this.physics.add.existing(z, true); blockers.add(z);
-        }
-      }
+  createCollisions() {
+    this.blockers = this.physics.add.staticGroup();
+    for (const rectangle of this.map.layers.Collision) {
+      const body = this.blockers.create(
+        rectangle.x + rectangle.width / 2,
+        rectangle.y + rectangle.height / 2,
+        "__DEFAULT",
+      );
+      body
+        .setDisplaySize(rectangle.width, rectangle.height)
+        .refreshBody()
+        .setVisible(false);
+      body.setData("collisionId", rectangle.id);
+      body.setData("collisionSource", rectangle.source);
     }
+  }
 
-    // إضافة أسماء الغرف فوق المناطق المخصصة
-    for (const r of ROOMS) {
-      const cx = r.shape === 'circle' ? r.cx : r.x + r.w / 2;
-      const cy = r.shape === 'circle' ? r.cy : r.y + r.h / 2;
-      this.add.text(cx * TILE, cy * TILE, r.name, {
-        fontFamily: 'Arial', fontSize: r.id === 'airlock' ? '13px' : '18px',
-        color: '#ff8a3d', fontStyle: 'bold'
-      }).setOrigin(0.5);
-    }
+  createCommunicationDoorAnimator() {
+    const closed = this.mapRenderer.doors.get("communication:south");
+    if (!closed || !this.textures.exists("DOR-0006")) return;
+    const open = this.add
+      .image(closed.x, closed.y, "DOR-0006")
+      .setOrigin(closed.originX, closed.originY)
+      .setAngle(closed.angle)
+      .setDepth(closed.depth + 1)
+      .setVisible(false);
+    this.communicationDoorAnimator = new DoorAnimator(this, { closed, open });
+  }
 
-    // إنشاء اللاعب وضبط الحجم وشريط التصادم
-    this.player = this.physics.add.sprite(24 * TILE, 27.5 * TILE, 'character');
+  createPlayer() {
+    const { tileSizePx } = this.map.coordinateSystem;
+    const { tile } = this.map.playerSpawn;
+    this.player = this.physics.add.sprite(
+      (tile.x + 0.5) * tileSizePx,
+      (tile.y + 0.5) * tileSizePx,
+      "character",
+    );
+    this.player.setDepth(100 + this.player.y);
     this.player.body.setCollideWorldBounds(true);
     this.player.body.setSize(20, 30);
     this.player.body.setOffset(11, 34);
-    this.physics.add.collider(this.player, blockers);
+    this.physics.add.collider(this.player, this.blockers);
+    this.createCharacterAnimations();
+  }
 
-    // تجهيز أنيميشن الاتجاهات المختلفة (داخلية وخارجية)
-    if (!this.anims.exists('out_down')) {
-      this.anims.create({ key: 'out_down',  frames: this.anims.generateFrameNumbers('character', { frames: [0, 3, 0, 6] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'out_up',    frames: this.anims.generateFrameNumbers('character', { frames: [1, 7, 1, 7] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'out_left',  frames: this.anims.generateFrameNumbers('character', { frames: [2, 8, 2, 9] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'out_right', frames: this.anims.generateFrameNumbers('character', { frames: [4, 5, 4, 10] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'in_down',  frames: this.anims.generateFrameNumbers('character', { frames: [12, 15, 12, 18] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'in_up',    frames: this.anims.generateFrameNumbers('character', { frames: [13, 19, 13, 19] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'in_left',  frames: this.anims.generateFrameNumbers('character', { frames: [14, 20, 14, 21] }), frameRate: 8, repeat: -1 });
-      this.anims.create({ key: 'in_right', frames: this.anims.generateFrameNumbers('character', { frames: [16, 17, 16, 22] }), frameRate: 8, repeat: -1 });
+  createCharacterAnimations() {
+    const animations = [
+      ["out_down", [0, 3, 0, 6]],
+      ["out_up", [1, 7, 1, 7]],
+      ["out_left", [2, 8, 2, 9]],
+      ["out_right", [4, 5, 4, 10]],
+      ["in_down", [12, 15, 12, 18]],
+      ["in_up", [13, 19, 13, 19]],
+      ["in_left", [14, 20, 14, 21]],
+      ["in_right", [16, 17, 16, 22]],
+    ];
+    for (const [key, frames] of animations) {
+      if (!this.anims.exists(key)) {
+        this.anims.create({
+          key,
+          frames: this.anims.generateFrameNumbers("character", { frames }),
+          frameRate: 8,
+          repeat: -1,
+        });
+      }
     }
+  }
 
-    this.cursors = this.input.keyboard.addKeys({ up: 'UP', down: 'DOWN', left: 'LEFT', right: 'RIGHT', w: 'W', a: 'A', s: 'S', d: 'D' });
-    this.keyE = this.input.keyboard.addKey('E');
-
-    const cam = this.cameras.main;
-    cam.setBounds(0, 0, WORLD_W, WORLD_H);
-    cam.startFollow(this.player, true, 0.1, 0.1);
-
-    const updateCameraZoom = () => {
-      const w = this.scale.width;
-      if (w < 768) cam.setZoom(0.5);
-      else cam.setZoom(1.5);
+  createHud() {
+    const hudStyle = {
+      fontFamily: "Arial, sans-serif",
+      fontSize: "15px",
+      color: "#fff2df",
+      backgroundColor: "#301712",
+      padding: { left: 10, right: 10, top: 7, bottom: 7 },
     };
-    this.scale.on('resize', updateCameraZoom);
-    updateCameraZoom();
+    this.hud = this.add
+      .text(14, 14, "ALPHA BASE - OUTDOOR TRAINING", hudStyle)
+      .setScrollFactor(0)
+      .setDepth(30000);
+    this.prompt = this.add
+      .text(14, 54, "Explore the base. Move with WASD or the arrow keys.", {
+        ...hudStyle,
+        fontSize: "13px",
+        color: "#ffd77a",
+      })
+      .setScrollFactor(0)
+      .setDepth(30000);
+    this.toast = this.add
+      .text(0, 0, "", {
+        ...hudStyle,
+        fontSize: "15px",
+        wordWrap: { width: Math.min(640, this.scale.width - 36) },
+        align: "center",
+      })
+      .setOrigin(0.5, 1)
+      .setScrollFactor(0)
+      .setDepth(30001)
+      .setVisible(false);
+  }
 
-    this.hud = this.add.text(0, 0, '', { fontFamily: 'Arial', fontSize: '18px', color: '#ffffff', backgroundColor: '#000000aa', padding: { x: 8, y: 4 } }).setDepth(100);
-    this.toast = this.add.text(0, 0, '', { fontFamily: 'Arial', fontSize: '18px', color: '#ffd23d', backgroundColor: '#000000cc', padding: { x: 10, y: 6 } }).setOrigin(0.5, 1).setDepth(100).setVisible(false);
+  configureCamera() {
+    const camera = this.cameras.main;
+    const { widthPx, heightPx } = this.map.dimensions;
+    const zoom = this.scale.width < 760 ? 0.62 : 1;
+    camera.setBounds(0, 0, widthPx, heightPx);
+    camera.setZoom(zoom);
+    camera.setRoundPixels(true);
+    if (this.player) camera.startFollow(this.player, true, 0.12, 0.12);
+  }
 
-    // تفعيل لوحة تحكم التاتش على الشاشة لأجهزة المحمول
-    if (this.isMobile) {
-      const createBtn = (label, dir) => {
-        const btn = this.add.rectangle(0, 0, 50, 50, 0xffffff, 0.15).setInteractive().setDepth(200);
-        const txt = this.add.text(0, 0, label, { fontSize: '28px', color: '#fff' }).setOrigin(0.5).setDepth(201);
+  showToast(interaction) {
+    this.toast.setText(`${interaction.title}\n${interaction.message}`);
+    this.toast
+      .setPosition(this.scale.width / 2, this.scale.height - 18)
+      .setVisible(true);
+    this.toastUntil = this.time.now + 3200;
+    if (!this.neilDialogue.activeId) {
+      this.neilDialogue.show("interactionResult", { once: true });
+    }
+  }
 
-        btn.on('pointerdown', () => { this.vpad[dir] = true; btn.setFillStyle(0xffffff, 0.5); });
-        btn.on('pointerup', () => { this.vpad[dir] = false; btn.setFillStyle(0xffffff, 0.15); });
-        btn.on('pointerout', () => { this.vpad[dir] = false; btn.setFillStyle(0xffffff, 0.15); });
-        return { btn, txt };
-      };
-
-      this.btnUp = createBtn('↑', 'up');
-      this.btnDown = createBtn('↓', 'down');
-      this.btnLeft = createBtn('←', 'left');
-      this.btnRight = createBtn('→', 'right');
-
-      this.actionBtn = this.add.rectangle(0, 0, 60, 60, 0xffd23d, 0.4).setInteractive().setDepth(200);
-      this.actionTxt = this.add.text(0, 0, 'E', { fontSize: '30px', color: '#000', fontStyle: 'bold' }).setOrigin(0.5).setDepth(201);
-
-      this.actionBtn.on('pointerdown', () => { this.vpad.action = true; this.actionBtn.setFillStyle(0xffa000, 0.7); });
-      this.actionBtn.on('pointerup', () => { this.vpad.action = false; this.actionBtn.setFillStyle(0xffd23d, 0.4); });
-      this.actionBtn.on('pointerout', () => { this.vpad.action = false; this.actionBtn.setFillStyle(0xffd23d, 0.4); });
+  update(time, delta) {
+    if (!this.player || !this.inputControls) return;
+    const facility = getContainingFacility(
+      this.map.layers.RoomTriggers,
+      this.player,
+      this.map.coordinateSystem.tileSizePx,
+    );
+    const indoors =
+      facility && !["solar-arrays", "airlock"].includes(facility.facilityId);
+    this.inputControls.update(Boolean(indoors), !this.transitioning);
+    this.neilCompanion?.setLeaderDirection(this.inputControls.direction);
+    this.neilCompanion?.update(delta);
+    if (
+      !this.neilMoved &&
+      Phaser.Math.Distance.Between(
+        this.player.x,
+        this.player.y,
+        this.neilSpawnPosition.x,
+        this.neilSpawnPosition.y,
+      ) > 96
+    ) {
+      this.neilMoved = true;
+      this.neilTutorial.onPlayerMoved();
     }
 
-    this.events.off('resume');
-    this.events.on('resume', () => {
-      this.input.keyboard.resetKeys();
-      this.vpad = { up: false, down: false, left: false, right: false, action: false };
-    });
+    const nearest = findNearestInteraction(
+      this.map.layers.Interactables,
+      this.player,
+      this.map.coordinateSystem.tileSizePx,
+    );
+    const entrance = getFacilityPrompt(this.facilityEntrances, this.player);
+    if (entrance?.entrance.facilityId === "communication") {
+      this.neilTutorial.onCommunicationEntranceNearby();
+    }
+    const actionPressed = this.inputControls.consumeAction();
+    const entranceHintAction =
+      actionPressed &&
+      entrance?.entrance.facilityId === "communication" &&
+      this.neilTutorial.activeStep === "communicationEntrance";
+    if (actionPressed && this.neilDialogue.activeId && !entranceHintAction) {
+      this.scene.get("UI")?.neilBubble?.handleAction();
+      return;
+    }
+    if (entranceHintAction) this.neilTutorial.dismissForAction();
+    if (actionPressed && !this.transitioning) {
+      if (entrance?.entrance.facilityId === "communication") {
+        this.enterFacility(entrance.entrance);
+      } else if (nearest) this.showToast(nearest.interaction);
+      else {
+        this.toast.setText(
+          "Walk closer to a facility or the solar array to inspect it.",
+        );
+        this.toast
+          .setPosition(this.scale.width / 2, this.scale.height - 18)
+          .setVisible(true);
+        this.toastUntil = time + 2200;
+      }
+    }
 
-    this.scene.launch('UI');
-    this.events.once('shutdown', () => {
-      this.scale.off('resize', updateCameraZoom);
-      this.events.off('resume');
-      this.scene.stop('UI');
-      this.scene.stop('Pause');
-      this.sound.stopAll();
+    const currentName = facility?.facilityId
+      ? this.map.facilities.find((item) => item.id === facility.facilityId)
+          ?.name
+      : "ALPHA BASE EXTERIOR";
+    this.hud.setText(currentName ?? "ALPHA BASE EXTERIOR");
+    this.prompt.setText(
+      this.transitioning
+        ? "OPENING COMMUNICATION ROOM..."
+        : entrance?.entrance.facilityId === "communication"
+          ? `${entrance.entrance.name}\nPRESS E / SPACE / ACT TO ENTER`
+          : nearest
+            ? "E / ACT - INSPECT NEARBY FACILITY"
+            : "WASD / ARROWS TO MOVE - E TO INSPECT",
+    );
+    this.toast.setVisible(time < this.toastUntil);
+    this.player.setDepth(100 + this.player.y + 32);
+  }
+
+  enterFacility(entrance) {
+    if (this.transitioning || !this.communicationDoorAnimator) return;
+    const transition = beginFacilityTransition(entrance.facilityId, {
+      x: this.player.x,
+      y: this.player.y,
+      direction: this.inputControls.direction,
+    });
+    if (!transition) return;
+    this.transitioning = true;
+    this.scene.get("UI")?.clearNeilContext();
+    this.player.body.setVelocity(0);
+    AudioFX.blip(220, 0.12, "triangle", 0.14);
+    this.communicationDoorAnimator.play(true, () => {
+      facilitySession.saveTransition(transition);
+      this.scene.launch("Interior", {
+        transition,
+        neilDialogue: this.neilDialogue,
+        neilTutorial: this.neilTutorial,
+      });
+      this.scene.pause("Game");
     });
   }
 
-  // معرفة الغرفة الحالية المستندة لموقع اللاعب
-  getCurrentRoom() {
-    const tx = Math.floor(this.player.x / TILE);
-    const ty = Math.floor(this.player.y / TILE);
-    const id = this.roomGrid[ty] && this.roomGrid[ty][tx];
-    return id ? roomById[id] : null;
+  finishFacilityReturn(returnContext) {
+    this.player.setPosition(returnContext.x, returnContext.y);
+    this.player.body.setVelocity(0);
+    this.inputControls.direction = returnContext.direction ?? "down";
+    this.input.keyboard.resetKeys();
+    this.cameras.main.fadeIn(180, 0, 0, 0);
+    this.transitioning = true;
+    AudioFX.blip(330, 0.1, "triangle", 0.12);
+    this.communicationDoorAnimator.play(false, () => {
+      this.transitioning = false;
+      facilitySession.clearTransition();
+      this.scene.get("UI")?.setNeilContext({
+        companion: this.neilCompanion,
+        dialogue: this.neilDialogue,
+        tutorial: this.neilTutorial,
+        worldScene: this,
+      });
+    });
   }
 
-  // التحديث المتكرر للحركة والتفاعل
-  update(time) {
-    const speed = 200;
-    const b = this.player.body;
-    b.setVelocity(0);
-
-    const room = this.getCurrentRoom();
-    const isOutside = (room && room.id === 'airlock');
-    const prefix = isOutside ? 'out_' : 'in_';
-
-    let isMoving = false;
-
-    let moveLeft = this.cursors.left.isDown || this.cursors.a.isDown || this.vpad.left;
-    let moveRight = this.cursors.right.isDown || this.cursors.d.isDown || this.vpad.right;
-    let moveUp = this.cursors.up.isDown || this.cursors.w.isDown || this.vpad.up;
-    let moveDown = this.cursors.down.isDown || this.cursors.s.isDown || this.vpad.down;
-
-    if (moveLeft) { b.setVelocityX(-speed); this.player.anims.play(prefix + 'left', true); isMoving = true; }
-    else if (moveRight) { b.setVelocityX(speed); this.player.anims.play(prefix + 'right', true); isMoving = true; }
-
-    if (moveUp) { b.setVelocityY(-speed); if (!isMoving) this.player.anims.play(prefix + 'up', true); isMoving = true; }
-    else if (moveDown) { b.setVelocityY(speed); if (!isMoving) this.player.anims.play(prefix + 'down', true); isMoving = true; }
-
-    if (!isMoving) this.player.anims.stop();
-    if (b.velocity.x !== 0 || b.velocity.y !== 0) b.velocity.normalize().scale(speed);
-
-    // عند الضغط على زر التفاعل E
-    if ((Phaser.Input.Keyboard.JustDown(this.keyE) || this.vpad.action) && room) {
-      this.vpad.action = false;
-      this.toast.setText('تفاعل: ' + room.name);
-      this.toastUntil = time + 1500;
-    }
-
-    const cam = this.cameras.main;
-    const z = cam.zoom;
-    const wv = cam.worldView;
-    const s = 1 / z;
-
-    this.hud.setText(room ? room.name : 'CORRIDOR');
-    this.hud.setScale(s).setPosition(wv.x + 12 * s, wv.y + 12 * s);
-
-    const toastOffset = this.isMobile ? 120 : 40;
-    this.toast.setScale(s).setPosition(wv.x + wv.width / 2, wv.y + wv.height - toastOffset * s).setVisible(time < this.toastUntil);
-
-    if (this.isMobile) {
-      const pX = wv.x + 90 * s;
-      const pY = wv.y + wv.height - 110 * s;
-      const off = 55 * s;
-
-      this.btnUp.btn.setPosition(pX, pY - off).setScale(s);
-      this.btnUp.txt.setPosition(pX, pY - off).setScale(s);
-
-      this.btnDown.btn.setPosition(pX, pY + off).setScale(s);
-      this.btnDown.txt.setPosition(pX, pY + off).setScale(s);
-
-      this.btnLeft.btn.setPosition(pX - off, pY).setScale(s);
-      this.btnLeft.txt.setPosition(pX - off, pY).setScale(s);
-
-      this.btnRight.btn.setPosition(pX + off, pY).setScale(s);
-      this.btnRight.txt.setPosition(pX + off, pY).setScale(s);
-
-      const aX = wv.x + wv.width - 60 * s;
-      const aY = wv.y + wv.height - 80 * s;
-      this.actionBtn.setPosition(aX, aY).setScale(s);
-      this.actionTxt.setPosition(aX, aY).setScale(s);
-    }
+  shutdown() {
+    this.scale.off("resize", this.onResize);
+    this.inputControls?.destroy();
+    this.neilCompanion?.destroy();
+    this.scene.stop("UI");
+    this.scene.stop("Pause");
+    this.sound.stopAll();
   }
 }

@@ -56,7 +56,7 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Use explicit interfaces between features.
 - Avoid God Classes, circular dependencies, magic numbers, and unnecessary abstractions.
 - Phaser scenes orchestrate and render; they do not own all business logic.
-- Tiled is the source of truth for map geometry once integrated. Do not maintain a second conflicting room layout in handwritten map code.
+- The approved map source is validated JSON data loaded through the Phaser 4 world/map adapter. Tiled is optional and is not a required dependency; do not introduce it unless the owner approves a later change.
 
 ## 5. Product rules that must not drift
 
@@ -64,11 +64,12 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Platform: browser-playable, landscape-first, with desktop and mobile support.
 - Setting: fictional Mars research outpost near Jezero Crater.
 - Main character: REVO.
-- Assistant: N.E.I.L., a digital assistant accessed through terminals and dialogue; not a walking robot.
+- Companion and mission assistant: N.E.I.L. means **Navigation & Exploration Intelligence Link** and remains a friendly physical robot companion. Its hybrid role also includes a deterministic Mission Intelligence System that reads the authoritative mission state to provide alerts, guide decisions, and explain outcomes. Preserve REVO's existing character artwork; all other current visuals are prototype material pending review/replacement. Use authored, data-driven dialogue; no external LLM or runtime chatbot.
+- Visual production: PixelLab use is manual through its website only; never call its API/MCP or automate downloads. Prefer free tools and do not require paid plans. Owner review plus provenance/license verification is required before integrating new/generated artwork. Keep current source assets intact during review.
 - Main hub: Central Communication Room.
 - Facilities: external solar arrays, battery storage, indoor Power Control Room, Oxygen Generation/Life Support Room, Research Lab, Greenhouse, Radiation Shelter, Entrance/Airlock, and the Central Communication Room hub.
 - External solar arrays and battery storage are part of the approved energy architecture. Indoor Power Control distributes electricity. No external nuclear reactor is part of the current approved MVP.
-- Dust storms may affect visibility, outdoor activity, rover use, and dust management. Solar generation effects, if proposed, must be specified and approved as fictional gameplay before implementation.
+- Dust storms may affect visibility, outdoor activity, rover use, and dust management; the approved future storm rule reduces available sunlight and solar generation, increasing the importance of stored battery energy. Keep all gameplay values fictional and owner-approved.
 - Core HUD resources: POWER, OXYGEN/LIFE SUPPORT, FOOD. Keep other hazards and statuses contextual to avoid cognitive overload.
 - Mission duration: 30 simulated mission days (optionally explain a Mars day/sol in child-friendly language).
 - The final objective is to maintain a safe, functioning base, complete mission/science objectives, and transmit a final status report to Earth.
@@ -103,7 +104,7 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Preserve source images; never overwrite originals.
 - Never remove black pixels blindly.
 - Use nearest-neighbor scaling for pixel art.
-- Do not use an AI-generated overview image as a playable map background unless the owner explicitly asks for a static scene. Reconstruct the world from tiles/sprites and Tiled layers.
+- Do not use an AI-generated overview image as a playable map background unless the owner explicitly asks for a static scene. Reconstruct the world from supplied tiles/sprites and authored JSON map data.
 - Verify map paths, collision, depth sorting, and interaction points in the actual Phaser runtime.
 - Record asset provenance and license status. Unknown licenses are `UNVERIFIED`.
 

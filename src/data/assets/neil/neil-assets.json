@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "character": "character.neil",
+  "sourcePack": "assets/source/NEIL_Sprite_Pack/",
+  "sourceManifest": "assets/source/NEIL_Sprite_Pack/metadata/asset-manifest.json",
+  "licenseStatus": "UNVERIFIED",
+  "ownerApprovalStatus": "approved-for-project-use",
+  "sequenceStatus": "pose_sequence_unverified",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "groundContact": { "x": 32, "y": 59 },
+  "visibleBounds": {
+    "south": { "x": 13, "y": 15, "width": 37, "height": 45 },
+    "west": { "x": 14, "y": 14, "width": 36, "height": 46 },
+    "east": { "x": 13, "y": 14, "width": 38, "height": 46 },
+    "north": { "x": 12, "y": 17, "width": 40, "height": 43 }
+  },
+  "directions": {
+    "south": {
+      "textureKey": "neil-south",
+      "runtimePath": "assets/characters/neil/spritesheets/neil_south.png",
+      "stableFrame": 0,
+      "sourceFrame": "neil_south_01.png"
+    },
+    "west": {
+      "textureKey": "neil-west",
+      "runtimePath": "assets/characters/neil/spritesheets/neil_west.png",
+      "stableFrame": 0,
+      "sourceFrame": "neil_west_01.png"
+    },
+    "east": {
+      "textureKey": "neil-east",
+      "runtimePath": "assets/characters/neil/spritesheets/neil_east.png",
+      "stableFrame": 0,
+      "sourceFrame": "neil_east_01.png"
+    },
+    "north": {
+      "textureKey": "neil-north",
+      "runtimePath": "assets/characters/neil/spritesheets/neil_north.png",
+      "stableFrame": 0,
+      "sourceFrame": "neil_north_01.png"
+    }
+  }
+}

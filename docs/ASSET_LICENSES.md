@@ -34,3 +34,12 @@ For each NASA-derived asset or data extract, record the specific page/dataset an
 ## 4. Release gate
 
 Before public release, no asset may remain in the shipped build with an unknown provenance unless the team has explicitly decided to replace it or obtained appropriate permission. The final report should list unresolved assets.
+# Visual rebuild provenance gate (2026-11-12)
+
+PixelLab may be used manually through its website only; automated API/MCP use and downloads are not approved. Prefer free tools, and do not require a paid plan. Treat generated output license/redistribution terms as `UNVERIFIED` until the exact plan terms and output provenance are recorded. The project owner must review and approve each proposed asset before integration. Record prompt, tool/version, generation date, source/reference rights, output hash, and applicable license evidence without storing credentials. See `visual-rebuild/PIXELLAB_ASSET_SPECIFICATIONS.md` and `visual-rebuild/ASSET_PRODUCTION_BACKLOG.md`.
+
+# N.E.I.L. source pack — Stage 2D.3 (2026-11-12)
+
+| Source | License status | Provenance note |
+|---|---|---|
+| `assets/source/NEIL_Sprite_Pack/` and copied runtime files under `public/assets/characters/neil/` | **UNVERIFIED** | Owner supplied/approved pack identity and integration. The supplied README/manifests attribute assets to PixelLab, but plan-specific commercial redistribution rights have not been established. The raw original sheet referred to by the manifest is missing; 24 delivered individual frames and four directional sheets are present. No license is inferred from delivery or approval. |

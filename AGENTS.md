@@ -10,7 +10,7 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 
 ## Accepted world layout
 
-- Central Communication Room is the main hub and contains N.E.I.L.'s terminal.
+- Central Communication Room is the main hub and includes N.E.I.L.'s companion interaction/docking area. N.E.I.L. (Navigation & Exploration Intelligence Link) remains a friendly physical robot companion and also has an authored, deterministic Mission Intelligence System role: it reads the authoritative mission state to provide alerts, guide decisions, and explain outcomes. Terminals are interface props, not N.E.I.L.'s identity. No external LLM or runtime chatbot is approved.
 - External solar arrays are outside; battery storage is part of the energy system.
 - Indoor Power Control Room manages power distribution.
 - Oxygen Generation / Life Support is a separate room.
@@ -23,7 +23,7 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 ## Technical direction
 
 - One root application; no duplicate active application under `revo/`.
-- Phaser 4.2.1, JavaScript ES Modules, Vite, Tiled.
+- Phaser 4.2.1, JavaScript ES Modules, Vite, JSON-driven map data. Tiled is not a required dependency.
 - Vitest, ESLint, Prettier, Git/GitHub, and Vercel.
 - Confirm current repository state before migrating; existing baseline was Phaser 3.80.1 in root plus a separate Phaser 4.0.0/Vite template under `revo/`.
 - Use Feature-Based Clean Architecture. Domain must remain independent from Phaser.
@@ -39,7 +39,8 @@ The player's goal is to keep fictional Alpha Base safe and operational through 3
 - Do not treat lunar Artemis measurements as Mars measurements.
 - Do not show archived NASA data as live.
 - No runtime AI chatbot for N.E.I.L.; use authored dialogue data.
-- Use supplied assets and Tiled layers; do not replace the playable map with one generated screenshot.
+- Preserve REVO's existing character artwork. Treat other current visuals as temporary/prototype pending owner review and replacement. New art must follow `docs/visual-rebuild/` specifications and be owner-approved before runtime integration. PixelLab use is manual through its website; do not call its API/MCP or automate downloads. Prefer free tools and do not require paid plans.
+- Use supplied assets and authored JSON map data; do not replace the playable map with one generated screenshot.
 - Record asset licenses and mark unknown status `UNVERIFIED`.
 - Every important decision needs a visible consequence and a child-friendly explanation.
 - Keep HUD complexity low: POWER, OXYGEN/LIFE SUPPORT, FOOD are the core resources.

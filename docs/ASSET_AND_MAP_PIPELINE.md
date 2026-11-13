@@ -13,7 +13,7 @@ Do not use an overview image as a playable map. The world is to be assembled fro
 - The 15 source sheets have been hash-verified identical across variants.
 - Categories: Ground_Tileset 1,516; Buildings 7; Doors_Walls 72; Walls_Modular 49; Panels_Glass 52; Floor_Tiles 12; Tools_Equipment 179; Astronaut 24; Drone_Animations 123; UI_Elements 123; UI_Icons 50.
 - Contact sheets use checkerboard transparency previews, preserve aspect ratio, and label asset ID, filename, and dimensions.
-- PNG alpha-channel metadata is recorded; transparent-pixel coverage has not been audited. License status is `UNVERIFIED` for every archive asset pending provenance documentation.
+- Stage 2B pixel-level transparency, opaque-black-pixel, crop-bounds, and crop-to-file dimension checks cover the 47 shortlisted assets only; the remaining catalog has not received this pixel-level audit. License status is `UNVERIFIED` for every archive asset pending provenance documentation.
 - Ground_Tileset is mixed: terrain, edge/rock/plant/mineral-like crops, text fragments, and other isolated imagery. Select per tile; do not treat all 1,516 crops as ready ground tiles.
 
 ## 3. Asset preparation rules
@@ -24,7 +24,7 @@ Do not use an overview image as a playable map. The world is to be assembled fro
 4. Preserve outlines and shadows. Use nearest-neighbor scaling for pixel art.
 5. Do not infer animation order from sorted filenames; group and verify frames from their source sheet.
 6. Do not assign ambiguous equipment a gameplay role without owner approval.
-7. N.E.I.L. remains terminal-based; drone art is not N.E.I.L.
+7. N.E.I.L. is the friendly robot companion Navigation & Exploration Intelligence Link; drone art is not N.E.I.L. unless specifically redesigned and owner-approved.
 
 ## 4. Approved Alpha Base facilities and coverage
 
@@ -46,6 +46,8 @@ There is **no external nuclear reactor in the current approved MVP**. Do not add
 
 Proposed starting canvas: **80 × 45 tiles at 32 × 32 px (2,560 × 1,440 px)**. The canonical terrain crops are predominantly 32×32, but dimensions must be checked for each chosen tile. The canvas supports a landscape composition while allowing camera framing for smaller screens. Revisit after selected art is assembled at native scale.
 
+Stage 2B has prepared a detailed owner-review proposal in `docs/asset-review/MAP_BLUEPRINT.md` and `docs/asset-review/alpha-base-exterior-blueprint.json`. It is not approved or connected to runtime. The coordinate proposal includes the 9 facilities, paths, collision rectangles, interaction points, player spawn, camera framing, and decoration zones. See that package before final authoring.
+
 Composition guidance, not a final placement map:
 
 - Place the habitat cluster near the center, with the Central Communication Room as the visual and navigational hub.
@@ -62,7 +64,7 @@ Composition guidance, not a final placement map:
 - Define one reachable interaction point per facility and key outdoor object; keep interaction bounds outside walls and away from narrow corridors.
 - Ensure all approved facilities connect through a continuous walkable network and the shelter is reachable from the occupied hub.
 - Keep important object silhouettes unobscured by foreground layers. Test depth ordering, camera bounds, collision, and touch-scale interactions in the eventual runtime.
-- Use authored map geometry and object layers; do not replace it with a generated screenshot. Do not begin final map authoring during Stage 2A.
+- Use validated, authored JSON map data consumed by a Phaser 4 map adapter; Tiled is not a required dependency. Do not replace it with a generated screenshot. Do not begin final map authoring during Stage 2A/2B.
 
 ## 6. Texture atlas recommendations
 
@@ -80,8 +82,32 @@ Avoid unnecessary pages: curate, pack, then measure. Do not combine variable-siz
 
 ## 7. Future map layers and acceptance
 
-When map implementation is approved, author one map source with ground, paths, ground details, buildings, walls, props, foreground, collision, interactables, and room-trigger layers as needed. Test actual Phaser 4.2.1 loading/export compatibility before choosing map serialization details.
+When map implementation is approved, author one validated JSON map source with ground, paths, ground details, buildings, walls, props, foreground, collision, interactables, and room triggers as needed. Tiled may be considered only with later owner approval; it is not a required authoring or runtime dependency.
 
 Map acceptance: all facilities reachable; clear paths and door gaps; no walking through walls or solid props; visible connection between array, storage, and power-control areas; reachable shelter; readable interaction points; camera frames landscape composition without exposing unintended empty space; no missing textures.
 
 See [ASSET_CATALOG.md](./ASSET_CATALOG.md), [ASSET_LICENSES.md](./ASSET_LICENSES.md), and [ROADMAP_AND_ACCEPTANCE.md](./ROADMAP_AND_ACCEPTANCE.md).
+
+## Stage 2C runtime selection and map status (2026-11-11)
+
+The owner approved the Stage 2B shortlist/layout for implementation. The runtime map at `src/data/maps/alpha-base-exterior.json` uses a 27-image allowlist selected by catalog ID and stable semantic key. `scripts/maps/generate-alpha-base-map.mjs` copies those files into `public/assets/map/` without editing the source archive. Runtime does not load the full catalog or archive. Selected PNGs are loaded once by Phaser as independent textures; no atlas is justified yet for this small set of differently sized objects, wall segments, and artwork requiring independent scale/origin handling.
+
+The map records the 80 × 45 grid, 32 px nominal pitch, ground, ground details, paths, buildings, walls, props, solar arrays, foreground, collisions, interactables, and room triggers separately. The Phaser renderer is separate from this JSON data. Paths, footprints, spawn, interaction points, and collision rectangles are draft implementation values derived from the approved blueprint and require direct play verification before calling the map fully verified.
+
+The nine facility spaces are represented, but representation does not mean dedicated art is complete. Dedicated battery-storage and Oxygen Generation art are not confirmed. The supplied N.E.I.L. companion pack is integrated in the current application; only stable directional poses are used, animation sequencing remains unverified, and license status remains `UNVERIFIED`. Modules/props marked candidate in the catalog remain candidates in map data; generic equipment is not described as a battery or oxygen generator. Solar arrays use the visually confirmed building module and visually candidate panel props; they remain exterior. Power distribution and battery storage remain indoors. Licenses for all selected assets remain `UNVERIFIED`.
+
+The initial renderer uses individual textures with nearest-neighbor pixel-art settings and explicit depth layering. Reconsider static ground, buildings, and prop atlases only after the rendering load profile and final frame/scale requirements show a measurable benefit. Keep character/animation frames separate until registration, frame dimensions, and walk-cycle order are confirmed. Do not combine unrelated frame sizes or animated art into static atlases.
+
+## Stage 2D.1 interior asset and map flow (2026-11-12)
+
+The Communication Room layout is authored separately in `src/data/interiors/communication-room.json` and rendered by the reusable `InteriorScene`. The JSON identifies the room dimensions, entry/exit points, collision opening, equipment interaction points, catalog classification, and runtime asset paths. The renderer validates catalog references before presenting the room; it does not load the full asset archive. The selected room floor texture is `FLT-0001`; door art uses `DOR-0005` and `DOR-0006`; the candidate mission-status monitor uses `EQP-0055`; wall corner details use `WAL-0002` and `WAL-0003`. N.E.I.L. companion artwork and the main console remain unconfirmed; any code-drawn representations are development placeholders. Door state is represented by a cross-fade between two candidate static images, not a verified animation sheet. Source artwork and licenses remain unchanged/`UNVERIFIED`.
+
+## Owner-approved visual rebuild preparation (2026-11-12)
+
+The owner has directed a broad visual audit and staged art replacement plan. Preserve the supplied REVO character artwork; classify other current art as temporary/prototype pending review or replacement, without deleting or modifying source files. The JSON-driven Phaser map remains the world source of truth. Keep solar arrays outside and battery storage/power distribution indoors. N.E.I.L. means Navigation & Exploration Intelligence Link and is a friendly robot companion, not a terminal-only assistant; use authored dialogue and no runtime AI. Manual PixelLab website use only; no PixelLab API/MCP or automated downloads. Prefer free tools; owner reviews generated assets before integration. Full requirements and production records are in `docs/visual-rebuild/`.
+
+The first interior remains a runtime proof of the data/renderer separation, not a facility template catalog yet. Before extending it, verify interaction feedback positioning at supported viewport sizes and collision/exit behavior in the browser. Captured runtime evidence is stored in `docs/screenshots/` and browser verification limits are listed in `ROADMAP_AND_ACCEPTANCE.md`.
+
+## Current N.E.I.L. role status (2026-11-13)
+
+N.E.I.L. remains the physical robot companion and has an approved hybrid Mission Intelligence System role. Mission guidance is to be deterministic and authored against one authoritative mission state; this is product direction, not implemented mission-state behavior. The supplied robot pack is integrated; pose sequencing remains unverified and license status is `UNVERIFIED`. Earlier statements that dedicated N.E.I.L. art is missing are historical and superseded by the Stage 2D.3 integration record.
