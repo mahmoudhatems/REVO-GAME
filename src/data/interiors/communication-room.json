@@ -52,12 +52,13 @@
   ],
   "interactables": [
     {
-      "id": "neil-terminal",
-      "title": "N.E.I.L. TERMINAL",
-      "kind": "authored-terminal-placeholder",
+      "id": "mission-briefing-terminal",
+      "title": "MISSION BRIEFING TERMINAL",
+      "kind": "mission-terminal-placeholder",
       "position": { "x": 170, "y": 150 },
       "radiusPx": 62,
-      "message": "N.E.I.L. is ready to share the mission briefing. This training terminal is a development placeholder."
+      "dialogueId": "briefingTerminal",
+      "message": "This mission briefing terminal is a development placeholder. N.E.I.L. is a separate robot companion."
     },
     {
       "id": "communications-console",
@@ -65,6 +66,7 @@
       "kind": "authored-console-placeholder",
       "position": { "x": 320, "y": 132 },
       "radiusPx": 62,
+      "dialogueId": "communicationsConsole",
       "message": "The communications console connects Alpha Base with mission control. Detailed communications gameplay is planned for a later stage."
     },
     {
@@ -74,6 +76,7 @@
       "assetId": "EQP-0055",
       "position": { "x": 478, "y": 150 },
       "radiusPx": 62,
+      "dialogueId": "missionStatus",
       "message": "This display is a visual status-board placeholder. No live mission or NASA data is connected."
     }
   ],

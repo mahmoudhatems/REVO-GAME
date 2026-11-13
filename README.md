@@ -7,7 +7,7 @@
 
 REVO is being developed for the **NASA Space Apps Challenge 2026 — Cairo**, in response to the challenge **Build a Junior Astronaut Mission Trainer**.
 
-The project turns real space-exploration constraints into a short, accessible, interactive experience. The player controls REVO, a young astronaut exploring a fictional research outpost near Jezero Crater on Mars. N.E.I.L. (the Networked Exploration Intelligence Link) is the digital mission assistant, accessed through the central Communication Room and facility terminals.
+The project turns real space-exploration constraints into a short, accessible, interactive experience. The player controls REVO, a young astronaut exploring a fictional research outpost near Jezero Crater on Mars. N.E.I.L. (the **Navigation & Exploration Intelligence Link**) is REVO's friendly robot companion. N.E.I.L. guides exploration through authored, data-driven dialogue; terminals may remain interactive interfaces, but N.E.I.L. is not terminal-only and is not a runtime AI chatbot.
 
 The player's goal is to keep Alpha Base safe and operational through a 30-day simulated mission, complete science and maintenance objectives, make meaningful trade-offs, and send a final status report to Earth.
 
@@ -41,7 +41,7 @@ Crew safety, radiation events, communications, and research progress are importa
 
 ## 4. Accepted Alpha Base layout
 
-- **Central Communication Room** — the main hub, N.E.I.L. terminal, mission control, communication status, and crew/base overview.
+- **Central Communication Room** — the main hub, including N.E.I.L.'s companion interaction area, mission control, communication status, and crew/base overview.
 - **External solar arrays and battery storage** — the outdoor collection and storage components of the fictional base energy system.
 - **Indoor Power Control Room** — monitors and manages power distribution and storage for the base.
 - **Oxygen Generation / Life Support Room** — oxygen production, air circulation, and life-support monitoring.

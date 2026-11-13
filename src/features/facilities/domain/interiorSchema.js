@@ -42,7 +42,7 @@ export function validateInteriorLayout(layout, catalog) {
     errors.push("interactable IDs must be unique");
   if (
     ![
-      "neil-terminal",
+      "mission-briefing-terminal",
       "communications-console",
       "mission-status-display",
     ].every((id) => ids.includes(id))

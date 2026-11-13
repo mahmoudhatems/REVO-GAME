@@ -4,6 +4,9 @@ import { PlayerControls } from "../features/player/presentation/PlayerControls.j
 import { DoorAnimator } from "../features/facilities/presentation/DoorAnimator.js";
 import { facilitySession } from "../features/facilities/domain/facilitySession.js";
 import { AudioFX } from "../utils/audio.js";
+import neilDialogueData from "../data/dialogue/neil-tutorial.json";
+import { NeilDialogueController } from "../features/communication/neil/application/NeilDialogueController.js";
+import { NeilCompanion } from "../features/communication/neil/presentation/NeilCompanion.js";
 
 const nearestTarget = (targets, position) => {
   let result = null;
@@ -29,6 +32,10 @@ export class InteriorScene extends Phaser.Scene {
 
   init(data) {
     this.transition = data.transition ?? facilitySession.getTransition();
+    this.neilDialogue =
+      data.neilDialogue ??
+      new NeilDialogueController(neilDialogueData.tutorial);
+    this.neilTutorial = data.neilTutorial ?? null;
   }
 
   preload() {
@@ -60,15 +67,50 @@ export class InteriorScene extends Phaser.Scene {
       Math.min(1.5, this.scale.width / widthPx, this.scale.height / heightPx),
     );
     this.controls = new PlayerControls(this, this.player);
+    this.controls.direction = "up";
+    this.createNeilCompanion();
     this.scale.on("resize", this.resize, this);
     this.events.once("shutdown", () => {
       this.scale.off("resize", this.resize, this);
       this.controls?.destroy();
+      this.neilCompanion?.destroy();
     });
     this.input.keyboard.resetKeys();
     this.cameras.main.fadeIn(180, 0, 0, 0);
     this.transitioning = false;
+    if (!this.neilDialogue.activeId) {
+      this.neilDialogue.show("roomWelcome", { once: true });
+    }
     this.scene.bringToTop("UI");
+  }
+
+  createNeilCompanion() {
+    const reservedPoints = [
+      ...this.layout.interactables.map((item) => ({
+        x: item.position.x,
+        y: item.position.y,
+        radius: item.radiusPx + 28,
+      })),
+      {
+        x: this.layout.exit.x,
+        y: this.layout.exit.y,
+        radius: this.layout.exit.interactionRadiusPx + 20,
+      },
+    ];
+    this.neilCompanion = new NeilCompanion(this, {
+      x: 410,
+      y: 320,
+      blockers: this.blockers,
+      leader: this.player,
+      reservedPoints,
+    });
+    this.neilCompanion.setLeaderDirection(this.controls.direction);
+    this.scene.get("UI")?.setNeilContext({
+      companion: this.neilCompanion,
+      dialogue: this.neilDialogue,
+      tutorial: this.neilTutorial,
+      worldScene: this,
+    });
   }
 
   renderRoom() {
@@ -151,12 +193,12 @@ export class InteriorScene extends Phaser.Scene {
         display
           .fillStyle(0x665042, 1)
           .fillRect(item.position.x - 24, item.position.y + 26, 48, 10);
-        if (item.kind === "authored-terminal-placeholder") {
+        if (item.kind === "mission-terminal-placeholder") {
           this.add
             .text(
               item.position.x,
               item.position.y + 2,
-              "N.E.I.L.\nDEV PLACEHOLDER",
+              "MISSION BRIEFING\nPLACEHOLDER",
               {
                 fontFamily: "Arial, sans-serif",
                 fontSize: "8px",
@@ -290,9 +332,11 @@ export class InteriorScene extends Phaser.Scene {
     this.toast?.setPosition(this.scale.width / 2, this.scale.height - 20);
   }
 
-  update(time) {
+  update(time, delta) {
     if (!this.player || !this.controls) return;
     this.controls.update(true, !this.transitioning);
+    this.neilCompanion?.setLeaderDirection(this.controls.direction);
+    this.neilCompanion?.update(delta);
     const exitDistance = Math.hypot(
       this.player.x - this.layout.exit.x,
       this.player.y - this.layout.exit.y,
@@ -301,7 +345,12 @@ export class InteriorScene extends Phaser.Scene {
     const target = atExit
       ? null
       : nearestTarget(this.layout.interactables, this.player);
-    if (this.controls.consumeAction() && !this.transitioning) {
+    const actionPressed = this.controls.consumeAction();
+    if (actionPressed && this.neilDialogue.activeId) {
+      this.scene.get("UI")?.neilBubble?.handleAction();
+      return;
+    }
+    if (actionPressed && !this.transitioning) {
       if (atExit) this.exitInterior();
       else if (target) this.showMessage(target);
     }
@@ -319,6 +368,7 @@ export class InteriorScene extends Phaser.Scene {
   }
 
   showMessage(target) {
+    if (target.dialogueId && this.neilDialogue.show(target.dialogueId)) return;
     this.toast.setText(`${target.title}\n${target.message}`);
     this.toastUntil = this.time.now + 5200;
     this.toast.setVisible(true);
@@ -327,12 +377,14 @@ export class InteriorScene extends Phaser.Scene {
   exitInterior() {
     if (this.transitioning) return;
     this.transitioning = true;
+    this.neilDialogue.hide();
     this.player.body.setVelocity(0);
     AudioFX.blip(260, 0.12, "triangle", 0.14);
     this.doorAnimator.play(false, () => {
       this.cameras.main.fadeOut(180, 0, 0, 0);
       this.time.delayedCall(190, () => {
         const context = this.transition.returnContext;
+        this.scene.get("UI")?.clearNeilContext();
         this.scene.stop("Interior");
         const exterior = this.scene.get("Game");
         exterior.finishFacilityReturn(context);

@@ -16,6 +16,11 @@ import {
   getFacilityPrompt,
 } from "../features/facilities/application/facilityInteraction.js";
 import { DoorAnimator } from "../features/facilities/presentation/DoorAnimator.js";
+import neilDialogueData from "../data/dialogue/neil-tutorial.json";
+import { NeilDialogueController } from "../features/communication/neil/application/NeilDialogueController.js";
+import { NeilTutorialController } from "../features/communication/neil/application/NeilTutorialController.js";
+import { getInitialNeilPosition } from "../features/communication/neil/application/NeilCompanionController.js";
+import { NeilCompanion } from "../features/communication/neil/presentation/NeilCompanion.js";
 
 export class GameScene extends Phaser.Scene {
   constructor() {
@@ -52,12 +57,44 @@ export class GameScene extends Phaser.Scene {
     this.createHud();
     this.configureCamera();
     this.inputControls = new PlayerControls(this, this.player);
-    this.scene.launch("UI");
+    this.createNeilCompanion();
+    this.scene.launch("UI", {
+      neilContext: {
+        companion: this.neilCompanion,
+        dialogue: this.neilDialogue,
+        tutorial: this.neilTutorial,
+        worldScene: this,
+      },
+    });
 
     this.onResize = () => this.configureCamera();
     this.scale.on("resize", this.onResize);
     this.events.once("resume", () => this.input.keyboard.resetKeys());
     this.events.once("shutdown", () => this.shutdown());
+  }
+
+  createNeilCompanion() {
+    this.neilDialogue = new NeilDialogueController(neilDialogueData.tutorial);
+    this.neilTutorial = new NeilTutorialController(this.neilDialogue);
+    const initialPosition = getInitialNeilPosition(
+      { x: this.player.x, y: this.player.y },
+      this.map.playerSpawn.facing ?? "north",
+    );
+    this.neilSpawnPosition = { x: this.player.x, y: this.player.y };
+    const tileSize = this.map.coordinateSystem.tileSizePx;
+    const reservedPoints = this.map.layers.Interactables.map((item) => ({
+      x: (item.positionTiles.x + 0.5) * tileSize,
+      y: (item.positionTiles.y + 0.5) * tileSize,
+      radius: item.radiusPx + 30,
+    }));
+    this.neilCompanion = new NeilCompanion(this, {
+      ...initialPosition,
+      blockers: this.blockers,
+      leader: this.player,
+      reservedPoints,
+    });
+    this.neilCompanion.setLeaderDirection(this.inputControls.direction);
+    this.neilTutorial.start();
   }
 
   createCollisions() {
@@ -177,9 +214,12 @@ export class GameScene extends Phaser.Scene {
       .setPosition(this.scale.width / 2, this.scale.height - 18)
       .setVisible(true);
     this.toastUntil = this.time.now + 3200;
+    if (!this.neilDialogue.activeId) {
+      this.neilDialogue.show("interactionResult", { once: true });
+    }
   }
 
-  update(time) {
+  update(time, delta) {
     if (!this.player || !this.inputControls) return;
     const facility = getContainingFacility(
       this.map.layers.RoomTriggers,
@@ -189,6 +229,20 @@ export class GameScene extends Phaser.Scene {
     const indoors =
       facility && !["solar-arrays", "airlock"].includes(facility.facilityId);
     this.inputControls.update(Boolean(indoors), !this.transitioning);
+    this.neilCompanion?.setLeaderDirection(this.inputControls.direction);
+    this.neilCompanion?.update(delta);
+    if (
+      !this.neilMoved &&
+      Phaser.Math.Distance.Between(
+        this.player.x,
+        this.player.y,
+        this.neilSpawnPosition.x,
+        this.neilSpawnPosition.y,
+      ) > 96
+    ) {
+      this.neilMoved = true;
+      this.neilTutorial.onPlayerMoved();
+    }
 
     const nearest = findNearestInteraction(
       this.map.layers.Interactables,
@@ -196,7 +250,20 @@ export class GameScene extends Phaser.Scene {
       this.map.coordinateSystem.tileSizePx,
     );
     const entrance = getFacilityPrompt(this.facilityEntrances, this.player);
-    if (this.inputControls.consumeAction() && !this.transitioning) {
+    if (entrance?.entrance.facilityId === "communication") {
+      this.neilTutorial.onCommunicationEntranceNearby();
+    }
+    const actionPressed = this.inputControls.consumeAction();
+    const entranceHintAction =
+      actionPressed &&
+      entrance?.entrance.facilityId === "communication" &&
+      this.neilTutorial.activeStep === "communicationEntrance";
+    if (actionPressed && this.neilDialogue.activeId && !entranceHintAction) {
+      this.scene.get("UI")?.neilBubble?.handleAction();
+      return;
+    }
+    if (entranceHintAction) this.neilTutorial.dismissForAction();
+    if (actionPressed && !this.transitioning) {
       if (entrance?.entrance.facilityId === "communication") {
         this.enterFacility(entrance.entrance);
       } else if (nearest) this.showToast(nearest.interaction);
@@ -238,11 +305,16 @@ export class GameScene extends Phaser.Scene {
     });
     if (!transition) return;
     this.transitioning = true;
+    this.scene.get("UI")?.clearNeilContext();
     this.player.body.setVelocity(0);
     AudioFX.blip(220, 0.12, "triangle", 0.14);
     this.communicationDoorAnimator.play(true, () => {
       facilitySession.saveTransition(transition);
-      this.scene.launch("Interior", { transition });
+      this.scene.launch("Interior", {
+        transition,
+        neilDialogue: this.neilDialogue,
+        neilTutorial: this.neilTutorial,
+      });
       this.scene.pause("Game");
     });
   }
@@ -258,12 +330,19 @@ export class GameScene extends Phaser.Scene {
     this.communicationDoorAnimator.play(false, () => {
       this.transitioning = false;
       facilitySession.clearTransition();
+      this.scene.get("UI")?.setNeilContext({
+        companion: this.neilCompanion,
+        dialogue: this.neilDialogue,
+        tutorial: this.neilTutorial,
+        worldScene: this,
+      });
     });
   }
 
   shutdown() {
     this.scale.off("resize", this.onResize);
     this.inputControls?.destroy();
+    this.neilCompanion?.destroy();
     this.scene.stop("UI");
     this.scene.stop("Pause");
     this.sound.stopAll();

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "character": "character.neil",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "animations": [
+    {
+      "key": "neil-south",
+      "textureKey": "neil-south",
+      "file": "game_ready/spritesheets/neil_south.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frameCount": 6,
+      "directions": [
+        "south"
+      ],
+      "recommendedUse": "directional pose/expression selection pending visual review",
+      "loop": false,
+      "fps": null,
+      "verifiedLocomotionCycle": false
+    },
+    {
+      "key": "neil-west",
+      "textureKey": "neil-west",
+      "file": "game_ready/spritesheets/neil_west.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frameCount": 6,
+      "directions": [
+        "west"
+      ],
+      "recommendedUse": "directional pose/expression selection pending visual review",
+      "loop": false,
+      "fps": null,
+      "verifiedLocomotionCycle": false
+    },
+    {
+      "key": "neil-east",
+      "textureKey": "neil-east",
+      "file": "game_ready/spritesheets/neil_east.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frameCount": 6,
+      "directions": [
+        "east"
+      ],
+      "recommendedUse": "directional pose/expression selection pending visual review",
+      "loop": false,
+      "fps": null,
+      "verifiedLocomotionCycle": false
+    },
+    {
+      "key": "neil-north",
+      "textureKey": "neil-north",
+      "file": "game_ready/spritesheets/neil_north.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frameCount": 6,
+      "directions": [
+        "north"
+      ],
+      "recommendedUse": "directional pose/expression selection pending visual review",
+      "loop": false,
+      "fps": null,
+      "verifiedLocomotionCycle": false
+    }
+  ],
+  "phaserLoaderExample": {
+    "note": "Load each directional sheet as a Phaser spritesheet. Do not configure a looping driving animation until frame order is reviewed.",
+    "example": "this.load.spritesheet('neil-south', 'assets/characters/neil/spritesheets/neil_south.png', { frameWidth: 64, frameHeight: 64 });"
+  }
+}

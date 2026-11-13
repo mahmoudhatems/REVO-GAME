@@ -76,7 +76,7 @@ Do not add too many always-visible bars. Keep these as mission state, event indi
 ### Central Communication Room — main hub
 
 - Main mission-control hall.
-- N.E.I.L. terminal and dialogue.
+- N.E.I.L. companion and authored dialogue; terminals may provide interactive mission interfaces.
 - Crew and facility overview.
 - Mission alerts and objectives.
 - Earth communication status and delayed replies.
@@ -219,6 +219,10 @@ Polish the main loop before adding more rooms, meters, or story branches.
 
 ### Stage 2D.1 — Communication Room facility slice
 
-REVO may enter the Central Communication Room from its southern exterior entrance using a nearest-facility prompt and E, Space, or the shared mobile action control. The first interior has three authored information interactions: N.E.I.L. terminal, main communications console, and mission status display. These explain the training space and do not simulate 30 mission days, change resources, connect to NASA services, or imply live mission data. N.E.I.L. remains a digital assistant represented by a terminal; no walking robot is part of the design.
+REVO may enter the Central Communication Room from its southern exterior entrance using a nearest-facility prompt and E, Space, or the shared mobile action control. The first interior has authored information interactions for N.E.I.L., the main communications console, and mission status display. These explain the training space and do not simulate 30 mission days, change resources, connect to NASA services, or imply live mission data. By the owner-approved 2026-11-12 decision, N.E.I.L. (Navigation & Exploration Intelligence Link) is a friendly robot companion who guides REVO using authored dialogue data. Do not implement a runtime AI chatbot or a walking robot based on unrelated drone art; the dedicated companion artwork remains to be produced and approved.
 
 The exterior `Game` scene is paused while the interior runs. Leaving returns REVO to the recorded exterior coordinates and facing direction, preserving the existing in-memory session by keeping that scene alive. Other facilities remain inspection-only until separately implemented.
+
+# Stage 2D.3 � N.E.I.L. companion slice (2026-11-12)
+
+N.E.I.L. means **Navigation & Exploration Intelligence Link** and is the friendly tracked-robot companion. It follows REVO with collision-aware direct steering, turns among the delivered directional poses, and delivers authored tutorial and facility guidance. Dialogue is data-driven; no runtime AI service is used. The current sprite integration uses a single verified stable pose per direction. Do not infer a walking animation from the unverified remaining frame order. The mission briefing terminal is an interface prop and is not N.E.I.L.'s identity.

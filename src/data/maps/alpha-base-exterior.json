@@ -5782,7 +5782,7 @@
         "id": "communication",
         "facilityId": "communication",
         "title": "CENTRAL COMMUNICATION ROOM",
-        "message": "The Communication Room is the mission hub. N.E.I.L. terminal artwork is still needed.",
+        "message": "The Communication Room is the mission hub. Meet N.E.I.L., the friendly robot companion.",
         "positionTiles": {
           "x": 42,
           "y": 22
@@ -5961,7 +5961,7 @@
   "notes": [
     "Candidate art remains explicitly marked. No candidate is presented as dedicated system equipment without visual evidence.",
     "Battery and oxygen-generation machinery are labeled placeholders; no generic canister is used as a battery or oxygen generator.",
-    "N.E.I.L. terminal is represented as a labeled art placeholder only; no unrelated sprite is substituted.",
+    "The Communication Room mission-briefing terminal is a separate development placeholder; N.E.I.L. is a friendly robot companion.",
     "Source PNGs are copied to public/assets/map by this script for Vite production packaging; canonical source archive files remain unchanged.",
     "All supplied art licenses remain UNVERIFIED and block public redistribution pending provenance review."
   ],

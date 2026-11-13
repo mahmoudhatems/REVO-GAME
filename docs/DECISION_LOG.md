@@ -8,7 +8,9 @@ This is the decision log for product and technical choices already agreed by the
 |---|---|
 | Game setting | Fictional Mars outpost near Jezero Crater. |
 | Main character | REVO, using the team's approved character assets. |
-| Assistant | N.E.I.L. is a digital assistant accessed through screens/terminals/dialogue, not a walking robot. |
+| Assistant (superseded 2026-11-12) | Earlier decision: N.E.I.L. was a digital assistant accessed through screens/terminals/dialogue, not a walking robot. Superseded by the owner-approved visual direction below. |
+| N.E.I.L. identity (2026-11-12) | Owner-approved: N.E.I.L. means Navigation & Exploration Intelligence Link and is REVO's friendly robot companion. It guides with authored dialogue; do not use a runtime AI chatbot or misidentify drone art as N.E.I.L. Preserve existing REVO artwork. All other current visuals are temporary/prototype pending review or replacement. |
+| Visual production workflow (2026-11-12) | Audit and plan before art production. PixelLab may be used manually through its website only; no API/MCP calls or automated downloads. Prefer free tools; do not require paid plans. Owner approval and provenance/license review are required before generated art enters the game. |
 | Main room | Central Communication Room is the central hub and mission-control hall. |
 | Mission length | 30 simulated mission days. |
 | Player objective | Keep the outpost operational and crew safe, complete science/mission objectives, and transmit a final report to Earth. |
@@ -66,3 +68,7 @@ Do not invent these as finalized facts. Propose options and ask the owner when t
 - 2026-11-11: consolidated project context; confirmed fission power concept, indoor power control, central communication hub, separate oxygen and research facilities, no solar arrays, 30-day mission and child-first educational objective.
 - 2026-11-11: owner-approved Stage 2A update supersedes the prior power-layout decision: external solar arrays and battery storage are included; indoor Power Control distributes electricity; no external nuclear reactor is in the current MVP. Solar generation and storm effects remain to be specified. Updated product, gameplay, asset, and roadmap documentation.
 - 2026-11-11: owner-approved Stage 2B clarification: the future dust-storm event reduces available sunlight and solar generation, increasing the importance of stored battery energy. Map architecture is JSON-driven in Phaser 4; Tiled is not a required dependency. Numeric gameplay values remain open. Updated persistent instructions and map/architecture documentation.
+
+# 2026-11-12 — Stage 2D.3 N.E.I.L. pack integration
+
+Owner-approved N.E.I.L. character pack is integrated as the friendly tracked robot companion described by the current product decision. Preserve source files. Use stable directional poses only until frame order and animation timing are verified. The supplied pack's license remains `UNVERIFIED`; approval to integrate the pack does not establish redistribution rights. Keep the briefing terminal a separate facility interface. See the Stage 2D.3 sections in gameplay, architecture, asset-license, and acceptance documentation.

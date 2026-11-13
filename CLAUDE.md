@@ -64,7 +64,8 @@ Treat these documents as persistent product context, not optional suggestions. I
 - Platform: browser-playable, landscape-first, with desktop and mobile support.
 - Setting: fictional Mars research outpost near Jezero Crater.
 - Main character: REVO.
-- Assistant: N.E.I.L., a digital assistant accessed through terminals and dialogue; not a walking robot.
+- Companion: N.E.I.L. means **Navigation & Exploration Intelligence Link** and is a friendly robot companion. Preserve REVO's existing character artwork; all other current visuals are prototype material pending review/replacement. N.E.I.L. uses authored, data-driven dialogue; no runtime AI chatbot.
+- Visual production: PixelLab use is manual through its website only; never call its API/MCP or automate downloads. Prefer free tools and do not require paid plans. Owner review plus provenance/license verification is required before integrating new/generated artwork. Keep current source assets intact during review.
 - Main hub: Central Communication Room.
 - Facilities: external solar arrays, battery storage, indoor Power Control Room, Oxygen Generation/Life Support Room, Research Lab, Greenhouse, Radiation Shelter, Entrance/Airlock, and the Central Communication Room hub.
 - External solar arrays and battery storage are part of the approved energy architecture. Indoor Power Control distributes electricity. No external nuclear reactor is part of the current approved MVP.

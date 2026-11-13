@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "project": "REVO",
+  "character": "N.E.I.L.",
+  "fullName": "Navigation & Exploration Intelligence Link",
+  "sourceImage": "pixellab-Create-a-complete--production--1794455707684.png",
+  "sourceImageDimensions": {
+    "width": 256,
+    "height": 256
+  },
+  "sourceLayout": {
+    "columns": 6,
+    "rows": 4,
+    "sourceCellHeight": 64,
+    "sourceCellWidth": "Variable; isolated using transparent gaps",
+    "rowDirections": {
+      "1": "south",
+      "2": "west",
+      "3": "east",
+      "4": "north"
+    }
+  },
+  "gameFrame": {
+    "width": 64,
+    "height": 64,
+    "scale": 1,
+    "pixelArtResampling": "none"
+  },
+  "frameCountPerDirection": 6,
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "importantAnimationNote": "The supplied rows contain six directional pose/expression frames. They have NOT been verified as continuous locomotion/track-drive animation cycles. Review them visually before assigning an autoplay movement loop.",
+  "assets": [
+    {
+      "file": "neil_south_01.png",
+      "path": "game_ready/frames/neil_south_01.png",
+      "assetKey": "character.neil.south.frame_01",
+      "direction": "south",
+      "frameIndex": 0,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 5,
+        "y": 0,
+        "width": 37,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 37,
+        "height": 45
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south_02.png",
+      "path": "game_ready/frames/neil_south_02.png",
+      "assetKey": "character.neil.south.frame_02",
+      "direction": "south",
+      "frameIndex": 1,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 46,
+        "y": 0,
+        "width": 39,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 39,
+        "height": 45
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south_03.png",
+      "path": "game_ready/frames/neil_south_03.png",
+      "assetKey": "character.neil.south.frame_03",
+      "direction": "south",
+      "frameIndex": 2,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 88,
+        "y": 0,
+        "width": 39,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 39,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south_04.png",
+      "path": "game_ready/frames/neil_south_04.png",
+      "assetKey": "character.neil.south.frame_04",
+      "direction": "south",
+      "frameIndex": 3,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 130,
+        "y": 0,
+        "width": 37,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 37,
+        "height": 45
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south_05.png",
+      "path": "game_ready/frames/neil_south_05.png",
+      "assetKey": "character.neil.south.frame_05",
+      "direction": "south",
+      "frameIndex": 4,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 170,
+        "y": 0,
+        "width": 39,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 39,
+        "height": 45
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south_06.png",
+      "path": "game_ready/frames/neil_south_06.png",
+      "assetKey": "character.neil.south.frame_06",
+      "direction": "south",
+      "frameIndex": 5,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 213,
+        "y": 0,
+        "width": 38,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 38,
+        "height": 45
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_south.png",
+      "path": "game_ready/spritesheets/neil_south.png",
+      "assetKey": "character.neil.south",
+      "direction": "south",
+      "frameCount": 6,
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "canvasWidth": 384,
+      "canvasHeight": 64,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_01.png",
+      "path": "game_ready/frames/neil_west_01.png",
+      "assetKey": "character.neil.west.frame_01",
+      "direction": "west",
+      "frameIndex": 0,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 6,
+        "y": 64,
+        "width": 36,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 36,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_02.png",
+      "path": "game_ready/frames/neil_west_02.png",
+      "assetKey": "character.neil.west.frame_02",
+      "direction": "west",
+      "frameIndex": 1,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 47,
+        "y": 64,
+        "width": 36,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 36,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_03.png",
+      "path": "game_ready/frames/neil_west_03.png",
+      "assetKey": "character.neil.west.frame_03",
+      "direction": "west",
+      "frameIndex": 2,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 90,
+        "y": 64,
+        "width": 34,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 34,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_04.png",
+      "path": "game_ready/frames/neil_west_04.png",
+      "assetKey": "character.neil.west.frame_04",
+      "direction": "west",
+      "frameIndex": 3,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 132,
+        "y": 64,
+        "width": 33,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 33,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_05.png",
+      "path": "game_ready/frames/neil_west_05.png",
+      "assetKey": "character.neil.west.frame_05",
+      "direction": "west",
+      "frameIndex": 4,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 171,
+        "y": 64,
+        "width": 36,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 36,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west_06.png",
+      "path": "game_ready/frames/neil_west_06.png",
+      "assetKey": "character.neil.west.frame_06",
+      "direction": "west",
+      "frameIndex": 5,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 214,
+        "y": 64,
+        "width": 35,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 35,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_west.png",
+      "path": "game_ready/spritesheets/neil_west.png",
+      "assetKey": "character.neil.west",
+      "direction": "west",
+      "frameCount": 6,
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "canvasWidth": 384,
+      "canvasHeight": 64,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_01.png",
+      "path": "game_ready/frames/neil_east_01.png",
+      "assetKey": "character.neil.east.frame_01",
+      "direction": "east",
+      "frameIndex": 0,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 6,
+        "y": 128,
+        "width": 38,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 38,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_02.png",
+      "path": "game_ready/frames/neil_east_02.png",
+      "assetKey": "character.neil.east.frame_02",
+      "direction": "east",
+      "frameIndex": 1,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 48,
+        "y": 128,
+        "width": 38,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 38,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_03.png",
+      "path": "game_ready/frames/neil_east_03.png",
+      "assetKey": "character.neil.east.frame_03",
+      "direction": "east",
+      "frameIndex": 2,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 90,
+        "y": 128,
+        "width": 36,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 36,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_04.png",
+      "path": "game_ready/frames/neil_east_04.png",
+      "assetKey": "character.neil.east.frame_04",
+      "direction": "east",
+      "frameIndex": 3,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 130,
+        "y": 128,
+        "width": 36,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 36,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_05.png",
+      "path": "game_ready/frames/neil_east_05.png",
+      "assetKey": "character.neil.east.frame_05",
+      "direction": "east",
+      "frameIndex": 4,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 170,
+        "y": 128,
+        "width": 38,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 38,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east_06.png",
+      "path": "game_ready/frames/neil_east_06.png",
+      "assetKey": "character.neil.east.frame_06",
+      "direction": "east",
+      "frameIndex": 5,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 212,
+        "y": 128,
+        "width": 38,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 38,
+        "height": 46
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_east.png",
+      "path": "game_ready/spritesheets/neil_east.png",
+      "assetKey": "character.neil.east",
+      "direction": "east",
+      "frameCount": 6,
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "canvasWidth": 384,
+      "canvasHeight": 64,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_01.png",
+      "path": "game_ready/frames/neil_north_01.png",
+      "assetKey": "character.neil.north.frame_01",
+      "direction": "north",
+      "frameIndex": 0,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 6,
+        "y": 192,
+        "width": 40,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 40,
+        "height": 43
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_02.png",
+      "path": "game_ready/frames/neil_north_02.png",
+      "assetKey": "character.neil.north.frame_02",
+      "direction": "north",
+      "frameIndex": 1,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 50,
+        "y": 192,
+        "width": 37,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 37,
+        "height": 43
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_03.png",
+      "path": "game_ready/frames/neil_north_03.png",
+      "assetKey": "character.neil.north.frame_03",
+      "direction": "north",
+      "frameIndex": 2,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 91,
+        "y": 192,
+        "width": 35,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 35,
+        "height": 44
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_04.png",
+      "path": "game_ready/frames/neil_north_04.png",
+      "assetKey": "character.neil.north.frame_04",
+      "direction": "north",
+      "frameIndex": 3,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 130,
+        "y": 192,
+        "width": 35,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 35,
+        "height": 44
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_05.png",
+      "path": "game_ready/frames/neil_north_05.png",
+      "assetKey": "character.neil.north.frame_05",
+      "direction": "north",
+      "frameIndex": 4,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 169,
+        "y": 192,
+        "width": 37,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 37,
+        "height": 43
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north_06.png",
+      "path": "game_ready/frames/neil_north_06.png",
+      "assetKey": "character.neil.north.frame_06",
+      "direction": "north",
+      "frameIndex": 5,
+      "canvasWidth": 64,
+      "canvasHeight": 64,
+      "sourceCrop": {
+        "x": 210,
+        "y": 192,
+        "width": 40,
+        "height": 64
+      },
+      "tightArtworkSize": {
+        "width": 40,
+        "height": 43
+      },
+      "scaled": false,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    },
+    {
+      "file": "neil_north.png",
+      "path": "game_ready/spritesheets/neil_north.png",
+      "assetKey": "character.neil.north",
+      "direction": "north",
+      "frameCount": 6,
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "canvasWidth": 384,
+      "canvasHeight": 64,
+      "transparentBackground": true,
+      "sequenceStatus": "pose_sequence_unverified"
+    }
+  ]
+}

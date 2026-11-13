@@ -143,7 +143,7 @@ A successful build alone does not mean the game is playable or production-ready.
 - Implemented a Phaser-rendered JSON world at `src/data/maps/alpha-base-exterior.json`, 80 Ã— 45 tiles with 32 px nominal pitch and separate Ground, GroundDetails, Paths, Buildings, Walls, Props, SolarArrays, Foreground, Collision, Interactables, and RoomTriggers data.
 - Registered all nine approved facility/site interactions and preserved the existing menu/intro/UI flow, character texture and animation behavior, WASD/arrows, responsive touch controls, camera follow, and world bounds.
 - Added map schema/asset-reference and interaction-registry automated tests. Runtime asset selection is 27 curated textures rather than the full archive. Source archive remains unchanged.
-- Dedicated battery storage, Oxygen Generation equipment, and N.E.I.L. terminal art remain missing and visibly marked as placeholders. Candidate facility art remains candidate. Licenses remain `UNVERIFIED`.
+- At this implementation snapshot, dedicated battery storage and Oxygen Generation equipment were missing and visibly marked as placeholders; N.E.I.L. was represented by a terminal placeholder under the then-current decision. The owner has since approved N.E.I.L. as a friendly robot companion, so companion art is missing and the terminal is not its final representation. Candidate facility art remains candidate. Licenses remain `UNVERIFIED`.
 
 ### Verification log
 
@@ -175,3 +175,23 @@ Stage 2C remains in progress until direct browser checks confirm collision, came
 - Actual Phaser canvas captures: `docs/screenshots/stage2d1-exterior.png` and `docs/screenshots/stage2d1-communication-room.png`.
 - Still unverified: the N.E.I.L./console/status interaction result panel, interior wall/equipment collision behavior, exit back to the exact saved exterior coordinates and facing, mobile action control, pause/resume in both scenes, and audio retention. The browser's constrained viewport also clipped portions of the interior's fixed UI in the captured view; responsive interior framing needs a follow-up check.
 - Stage 2D.1 is **partially implemented and not complete** until the remaining interaction, collision, return-state, mobile, pause, and UI-framing checks pass. Automated test/build success does not substitute for those runtime checks.
+# Visual rebuild preparation gate (owner-approved 2026-11-12)
+
+The next preparation work is documentation and owner review only: visual audit, facility production backlog, manual PixelLab specifications, animation, VFX/audio, UI, and scale requirements under `docs/visual-rebuild/`. Do not modify runtime, map data, or original art in this preparation phase. Preserve REVO's existing character artwork; current remaining art is temporary/prototype pending review or replacement. N.E.I.L. is the friendly robot companion Navigation & Exploration Intelligence Link, with authored dialogue and no runtime AI chatbot. Prefer free tools; PixelLab use is manual on the website, and generated art requires owner approval plus provenance/license review before integration. Future implementation must remain incremental and preserve JSON map and approved solar/battery architecture.
+
+# Stage 2D.3 — N.E.I.L. companion (2026-11-12)
+
+## Implemented
+
+- Preserved the recovered source pack and copied its 24 individual frames plus four directional sheets unchanged into the runtime asset directory. The four direction sheets are loaded as 64×64 frames; no pose loop is assumed.
+- Added Phaser-independent follow/dialogue/tutorial controllers, a collision-aware companion presentation, authored tutorial and Communication Room station dialogue, plus UI bubble presentation.
+- Integrated the same companion/dialogue context into the exterior and reusable interior Scene. The briefing terminal now has its own mission-briefing identity; it does not represent N.E.I.L.
+- Added automated tests for direction, spawn/follow behavior, reserved points, repeated stability, dialogue advancement/skip and duplicate handling.
+
+## Verification and limits
+
+- Automated status: see final Stage 2D.3 report for the latest lint, test, build, and formatting results; do not treat earlier passing results as validation of subsequent edits.
+- Browser status: the menu-to-exterior startup and canvas were previously verified. Dialogue bubble framing required a camera-to-UI coordinate correction; re-run visual/browser acceptance after that fix before claiming the full entry, interaction, exit, and mobile flows.
+- All pack frames are 64×64 with alpha; individual direction sheets are 384×64. Stable direction poses only are used. Pose sequence, walk-cycle registration, and FPS remain unverified.
+- PixelLab licensing and the missing original raw sheet remain provenance blockers (`UNVERIFIED`). Direct steering can stop at blockers and does not perform route finding.
+- Capture only genuine Phaser canvas screenshots; retain Stage 2D.1 captures as historical evidence, not Stage 2D.3 proof.
